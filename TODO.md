@@ -33,7 +33,7 @@
         1. Create a temporary element with a custom color (e.g., `bg-bitcoin-orange`) and verify it renders correctly.
     - **Depends‑on:** [T001]
 
-- [ ] **T004 · Chore · P1: set up global CSS and Inter font**
+- [x] **T004 · Chore · P1: set up global CSS and Inter font**
     - **Context:** PLAN.md > Core Design System > Typography; Code Structure > `globals.css`
     - **Action:**
         1. Import `@fontsource-variable/inter` in `app/globals.css` or `app/layout.tsx`.
@@ -47,7 +47,7 @@
     - **Depends‑on:** [T002, T003]
 
 ## Phase 2: Components
-- [ ] **T005 · Feature · P1: create `Container.tsx` grid wrapper**
+- [x] **T005 · Feature · P1: create `Container.tsx` grid wrapper**
     - **Context:** PLAN.md > Core Design System > Grid System; Phase 2: Components (5)
     - **Action:**
         1. Create `components/ui/Container.tsx`.
