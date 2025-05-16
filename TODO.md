@@ -59,7 +59,7 @@
         1. Wrap sample content in `<Container>` and inspect layout using browser developer tools, checking grid overlay and dimensions.
     - **Depends‑on:** [T003]
 
-- [ ] **T006 · Feature · P1: create `Button.tsx` component**
+- [x] **T006 · Feature · P1: create `Button.tsx` component**
     - **Context:** PLAN.md > Visual Components > Buttons; Phase 2: Components (2)
     - **Action:**
         1. Create `components/ui/Button.tsx`.
