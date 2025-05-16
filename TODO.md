@@ -1,7 +1,7 @@
 # Todo
 
 ## Phase 1: Setup
-- [ ] **T001 · Chore · P0: initialize Next.js project with TypeScript and Tailwind**
+- [x] **T001 · Chore · P0: initialize Next.js project with TypeScript and Tailwind**
     - **Context:** PLAN.md > Implementation Steps > Phase 1: Setup (1)
     - **Action:**
         1. Run `npx create-next-app@latest bitcoin-price-tag-splash --typescript --tailwind --app`.
@@ -22,7 +22,7 @@
         2. `pnpm-lock.yaml` is updated.
     - **Depends‑on:** [T001]
 
-- [ ] **T003 · Chore · P1: configure Tailwind CSS theme**
+- [x] **T003 · Chore · P1: configure Tailwind CSS theme**
     - **Context:** PLAN.md > Implementation Steps > Phase 1: Setup (3); Core Design System (Color Palette, Typography, Spacing)
     - **Action:**
         1. Modify `tailwind.config.ts` to include the specified `colors` (bitcoin-orange, gray scale), `fontFamily` (Inter Variable), and `spacing` extensions.
