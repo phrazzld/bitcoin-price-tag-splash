@@ -121,7 +121,7 @@
 
 ## Phase 3: Sections
 
-- [ ] **T010 · Feature · P1: create `Navigation.tsx` structure**
+- [x] **T010 · Feature · P1: create `Navigation.tsx` structure**
 
   - **Context:** PLAN.md > Page Structure > 1. Navigation; Phase 2: Components (1)
   - **Action:**
