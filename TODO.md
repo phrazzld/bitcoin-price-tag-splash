@@ -131,7 +131,7 @@
     1. `Navigation.tsx` component exists and can render child elements for logo and CTA.
   - **Depends‑on:** [T005]
 
-- [ ] **T011 · Feature · P1: style `Navigation.tsx` (fixed, height, background, blur)**
+- [~] **T011 · Feature · P1: style `Navigation.tsx` (fixed, height, background, blur)**
 
   - **Context:** PLAN.md > Page Structure > 1. Navigation
   - **Action:**
@@ -157,7 +157,7 @@
     1. Visually inspect the alignment and appearance of the logo and CTA button within the navigation bar.
   - **Depends‑on:** [T006, T011]
 
-- [ ] **T013 · Feature · P1: create `HeroSection.tsx` structure and layout**
+- [x] **T013 · Feature · P1: create `HeroSection.tsx` structure and layout**
 
   - **Context:** PLAN.md > Page Structure > 2. Hero Section; Phase 3: Sections (1)
   - **Action:**
