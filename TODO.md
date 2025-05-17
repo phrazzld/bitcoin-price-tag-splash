@@ -94,7 +94,7 @@
     1. Render the component with sample data and verify layout and typography.
   - **Depends‑on:** [T003, T009]
 
-- [ ] **T008 · Feature · P2: create `StepCard.tsx` component**
+- [x] **T008 · Feature · P2: create `StepCard.tsx` component**
 
   - **Context:** PLAN.md > Page Structure > How It Works; Phase 2: Components (4)
   - **Action:**
