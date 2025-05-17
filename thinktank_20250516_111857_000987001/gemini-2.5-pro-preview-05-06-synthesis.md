@@ -2,7 +2,7 @@
 
 ## Phase 1: Setup
 
-- [x] **T001 · Chore · P0: initialize Next.js project with TypeScript and Tailwind**
+- [ ] **T001 · Chore · P0: initialize Next.js project with TypeScript and Tailwind**
 
   - **Context:** PLAN.md > Implementation Steps > Phase 1: Setup (1)
   - **Action:**
@@ -15,7 +15,7 @@
     1. Open `http://localhost:3000` (or assigned port) in a browser and see the default Next.js page.
   - **Depends‑on:** none
 
-- [x] **T002 · Chore · P0: install project dependencies**
+- [ ] **T002 · Chore · P0: install project dependencies**
 
   - **Context:** PLAN.md > Implementation Steps > Phase 1: Setup (2)
   - **Action:**
@@ -25,7 +25,7 @@
     2. `pnpm-lock.yaml` is updated.
   - **Depends‑on:** [T001]
 
-- [x] **T003 · Chore · P1: configure Tailwind CSS theme**
+- [ ] **T003 · Chore · P1: configure Tailwind CSS theme**
 
   - **Context:** PLAN.md > Implementation Steps > Phase 1: Setup (3); Core Design System (Color Palette, Typography, Spacing)
   - **Action:**
@@ -37,7 +37,7 @@
     1. Create a temporary element with a custom color (e.g., `bg-bitcoin-orange`) and verify it renders correctly.
   - **Depends‑on:** [T001]
 
-- [x] **T004 · Chore · P1: set up global CSS and Inter font**
+- [ ] **T004 · Chore · P1: set up global CSS and Inter font**
   - **Context:** PLAN.md > Core Design System > Typography; Code Structure > `globals.css`
   - **Action:**
     1. Import `@fontsource-variable/inter` in `app/globals.css` or `app/layout.tsx`.
@@ -52,7 +52,7 @@
 
 ## Phase 2: Components
 
-- [x] **T005 · Feature · P1: create `Container.tsx` grid wrapper**
+- [ ] **T005 · Feature · P1: create `Container.tsx` grid wrapper**
 
   - **Context:** PLAN.md > Core Design System > Grid System; Phase 2: Components (5)
   - **Action:**
@@ -65,7 +65,7 @@
     1. Wrap sample content in `<Container>` and inspect layout using browser developer tools, checking grid overlay and dimensions.
   - **Depends‑on:** [T003]
 
-- [x] **T006 · Feature · P1: create `Button.tsx` component**
+- [ ] **T006 · Feature · P1: create `Button.tsx` component**
 
   - **Context:** PLAN.md > Visual Components > Buttons; Phase 2: Components (2)
   - **Action:**
@@ -81,7 +81,7 @@
     3. Test hover and active states in the browser.
   - **Depends‑on:** [T003]
 
-- [x] **T007 · Feature · P2: create `FeatureCard.tsx` component**
+- [ ] **T007 · Feature · P2: create `FeatureCard.tsx` component**
 
   - **Context:** PLAN.md > Page Structure > Feature Grid; Phase 2: Components (3)
   - **Action:**
@@ -107,7 +107,7 @@
     1. Render the component with sample data and verify layout, number styling, and border.
   - **Depends‑on:** [T003]
 
-- [x] **T009 · Chore · P2: set up Lucide Icons**
+- [ ] **T009 · Chore · P2: set up Lucide Icons**
   - **Context:** PLAN.md > Visual Components > Icons
   - **Action:**
     1. Ensure `lucide-react` is correctly installed and importable.
