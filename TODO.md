@@ -98,7 +98,7 @@
         1. Render the component with sample data and verify layout, number styling, and border.
     - **Depends‑on:** [T003]
 
-- [ ] **T009 · Chore · P2: set up Lucide Icons**
+- [x] **T009 · Chore · P2: set up Lucide Icons**
     - **Context:** PLAN.md > Visual Components > Icons
     - **Action:**
         1. Ensure `lucide-react` is correctly installed and importable.
