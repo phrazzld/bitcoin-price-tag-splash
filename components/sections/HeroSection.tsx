@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "../ui/Container";
+import Button from "../ui/Button";
 
 const HeroSection: React.FC = () => {
   return (
@@ -9,9 +10,16 @@ const HeroSection: React.FC = () => {
     >
       <Container>
         <div className="max-w-[800px] mx-auto text-center">
-          {/* Placeholder content for now */}
-          <h1 className="text-4xl font-bold mb-4">Hero Section</h1>
-          <p className="text-lg">This is placeholder content for the hero section.</p>
+          <h1 
+            className="font-bold mb-6"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: "1.2" }}
+          >
+            See Bitcoin prices everywhere
+          </h1>
+          <p className="text-lg mb-12 text-gray-700">
+            Convert any price to Bitcoin automatically
+          </p>
+          <Button>Add to Chrome</Button>
         </div>
       </Container>
     </section>

@@ -170,7 +170,7 @@
     1. Inspect dimensions and content alignment using browser developer tools.
   - **Depends‑on:** [T005]
 
-- [ ] **T014 · Feature · P1: add content to `HeroSection.tsx` (H1, Subheading, CTA)**
+- [x] **T014 · Feature · P1: add content to `HeroSection.tsx` (H1, Subheading, CTA)**
 
   - **Context:** PLAN.md > Page Structure > 2. Hero Section
   - **Action:**
