@@ -275,7 +275,7 @@
     1. Visually inspect the styling, color of quotation marks, and text alignment.
   - **Depends‑on:** [T020]
 
-- [ ] **T022 · Feature · P2: create `CTASection.tsx` (Final CTA) structure**
+- [x] **T022 · Feature · P2: create `CTASection.tsx` (Final CTA) structure**
 
   - **Context:** PLAN.md > Page Structure > 6. Final CTA; Phase 3: Sections (5)
   - **Action:**
