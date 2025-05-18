@@ -235,7 +235,7 @@
     1. Inspect section padding using browser developer tools.
   - **Depends‑on:** [T005]
 
-- [ ] **T019 · Feature · P2: implement content and flow for `HowItWorksSection.tsx`**
+- [x] **T019 · Feature · P2: implement content and flow for `HowItWorksSection.tsx`**
 
   - **Context:** PLAN.md > Page Structure > 4. How It Works
   - **Action:**
