@@ -262,7 +262,7 @@
     1. Inspect padding and content centering using browser developer tools.
   - **Depends‑on:** [T005]
 
-- [ ] **T021 · Feature · P2: implement content for `TestimonialsSection.tsx`**
+- [x] **T021 · Feature · P2: implement content for `TestimonialsSection.tsx`**
 
   - **Context:** PLAN.md > Page Structure > 5. Testimonials
   - **Action:**
