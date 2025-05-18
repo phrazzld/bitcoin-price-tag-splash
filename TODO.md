@@ -324,7 +324,7 @@
 
 ## Phase 4: Assembly & Animations
 
-- [ ] **T026 · Feature · P1: compose all sections in `app/page.tsx`**
+- [x] **T026 · Feature · P1: compose all sections in `app/page.tsx`**
 
   - **Context:** PLAN.md > Implementation Steps > Phase 4: Assembly (1)
   - **Action:**
