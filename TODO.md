@@ -300,7 +300,7 @@
     1. Visually inspect text styles and button appearance.
   - **Depends‑on:** [T006, T022]
 
-- [ ] **T024 · Feature · P2: create `Footer.tsx` structure**
+- [x] **T024 · Feature · P2: create `Footer.tsx` structure**
 
   - **Context:** PLAN.md > Page Structure > 7. Footer; Phase 3: Sections (6)
   - **Action:**
