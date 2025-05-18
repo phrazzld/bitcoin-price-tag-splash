@@ -311,7 +311,7 @@
     1. The component can be rendered.
   - **Depends‑on:** [T005]
 
-- [ ] **T025 · Feature · P2: implement content for `Footer.tsx`**
+- [x] **T025 · Feature · P2: implement content for `Footer.tsx`**
   - **Context:** PLAN.md > Page Structure > 7. Footer
   - **Action:**
     1. Add minimal content: Copyright, GitHub link, Privacy Policy link.
