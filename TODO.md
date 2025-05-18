@@ -249,7 +249,7 @@
     2. Check responsiveness of the horizontal flow.
   - **Depends‑on:** [T008, T018]
 
-- [ ] **T020 · Feature · P2: create `TestimonialsSection.tsx` structure**
+- [x] **T020 · Feature · P2: create `TestimonialsSection.tsx` structure**
 
   - **Context:** PLAN.md > Page Structure > 5. Testimonials; Phase 3: Sections (4)
   - **Action:**
