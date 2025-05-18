@@ -196,7 +196,7 @@
     1. Observe the animation sequence in the browser. Ensure it's smooth and matches the "type-and-convert" description.
   - **Depends‑on:** [T014]
 
-- [ ] **T016 · Feature · P2: create `FeaturesSection.tsx` structure**
+- [x] **T016 · Feature · P2: create `FeaturesSection.tsx` structure**
 
   - **Context:** PLAN.md > Page Structure > 3. Feature Grid; Phase 3: Sections (2)
   - **Action:**
