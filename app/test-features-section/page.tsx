@@ -6,16 +6,17 @@ export default function TestFeaturesSection() {
     <>
       <Navigation />
       <main className="pt-16">
-        <div className="bg-gray-100">
-          <FeaturesSection />
-        </div>
-        <div className="p-8 text-center">
+        <FeaturesSection />
+        <div className="p-8 text-center bg-gray-100">
           <h2 className="text-xl font-semibold mb-4">Features Section Test</h2>
           <p className="text-gray-600">
-            The gray background helps visualize the section padding.
+            The section should display 3 feature cards in a responsive grid.
           </p>
           <p className="text-gray-600 mt-2">
-            Desktop: 120px vertical padding | Mobile: 64px vertical padding
+            Desktop: 3 columns | Mobile: 1 column
+          </p>
+          <p className="text-gray-600 mt-2">
+            Padding: Desktop 120px vertical | Mobile 64px vertical
           </p>
         </div>
       </main>

@@ -208,7 +208,7 @@
     1. Inspect section padding using browser developer tools.
   - **Depends‑on:** [T005]
 
-- [ ] **T017 · Feature · P2: implement content and grid for `FeaturesSection.tsx`**
+- [x] **T017 · Feature · P2: implement content and grid for `FeaturesSection.tsx`**
 
   - **Context:** PLAN.md > Page Structure > 3. Feature Grid; Key Implementation Details > Responsive Grid
   - **Action:**
