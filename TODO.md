@@ -336,7 +336,7 @@
     1. Load the home page in the browser and scroll to verify all sections are present and in order.
   - **Depends‑on:** [T012, T015, T017, T019, T021, T023, T025]
 
-- [ ] **T027 · Feature · P2: implement page load fade-in animation**
+- [x] **T027 · Feature · P2: implement page load fade-in animation**
 
   - **Context:** PLAN.md > Animations > Page load
   - **Action:**
