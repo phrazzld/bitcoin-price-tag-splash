@@ -223,7 +223,7 @@
     2. Check content within each feature card.
   - **Depends‑on:** [T007, T016]
 
-- [ ] **T018 · Feature · P2: create `HowItWorksSection.tsx` structure**
+- [x] **T018 · Feature · P2: create `HowItWorksSection.tsx` structure**
 
   - **Context:** PLAN.md > Page Structure > 4. How It Works; Phase 3: Sections (3)
   - **Action:**
