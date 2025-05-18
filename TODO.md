@@ -145,7 +145,7 @@
     2. Inspect height and background styles.
   - **Depends‑on:** [T010]
 
-- [ ] **T012 · Feature · P1: add content to `Navigation.tsx` (logo, CTA)**
+- [x] **T012 · Feature · P1: add content to `Navigation.tsx` (logo, CTA)**
 
   - **Context:** PLAN.md > Page Structure > 1. Navigation
   - **Action:**

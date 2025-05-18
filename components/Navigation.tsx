@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "./ui/Container";
+import Button from "./ui/Button";
 
 const Navigation: React.FC = () => {
   return (
@@ -7,12 +8,10 @@ const Navigation: React.FC = () => {
       <Container>
         <div className="flex items-center justify-between h-full">
           <div>
-            {/* Logo placeholder */}
             <span className="font-bold text-lg">Bitcoin Price Tag</span>
           </div>
           <div>
-            {/* Download CTA placeholder */}
-            <span>Download CTA</span>
+            <Button>Add to Chrome</Button>
           </div>
         </div>
       </Container>
