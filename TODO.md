@@ -131,7 +131,7 @@
     1. `Navigation.tsx` component exists and can render child elements for logo and CTA.
   - **Depends‑on:** [T005]
 
-- [~] **T011 · Feature · P1: style `Navigation.tsx` (fixed, height, background, blur)**
+- [x] **T011 · Feature · P1: style `Navigation.tsx` (fixed, height, background, blur)**
 
   - **Context:** PLAN.md > Page Structure > 1. Navigation
   - **Action:**

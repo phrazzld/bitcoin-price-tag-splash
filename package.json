@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
@@ -30,5 +31,10 @@
     "tailwindcss": "^4",
     "tw-animate-css": "^1.2.9",
     "typescript": "^5"
+  },
+  "engines": {
+    "pnpm": ">=8.0.0",
+    "npm": "Please use pnpm",
+    "yarn": "Please use pnpm"
   }
 }
