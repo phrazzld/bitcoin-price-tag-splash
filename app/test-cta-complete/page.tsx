@@ -1,0 +1,9 @@
+import CTASection from "@/components/sections/CTASection";
+
+export default function TestCTACompletePage() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <CTASection />
+    </div>
+  );
+}

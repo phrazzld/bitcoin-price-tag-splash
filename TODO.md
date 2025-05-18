@@ -288,7 +288,7 @@
     1. Inspect padding and content centering using browser developer tools.
   - **Depends‑on:** [T005]
 
-- [ ] **T023 · Feature · P2: implement content for `CTASection.tsx`**
+- [x] **T023 · Feature · P2: implement content for `CTASection.tsx`**
 
   - **Context:** PLAN.md > Page Structure > 6. Final CTA
   - **Action:**
