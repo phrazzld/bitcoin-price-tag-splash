@@ -360,7 +360,7 @@
 
 ## Phase 5: Polish
 
-- [ ] **T029 · Refactor · P1: perform responsive adjustments across all breakpoints**
+- [x] **T029 · Refactor · P1: perform responsive adjustments across all breakpoints**
 
   - **Context:** PLAN.md > Implementation Steps > Phase 5: Polish (1); Core Design System > Breakpoints
   - **Action:**

@@ -18,8 +18,8 @@ const Button: React.FC<ButtonProps> = ({
         bg-bitcoin-orange 
         text-white 
         rounded-none 
-        px-8 
-        py-4 
+        px-6 md:px-8 
+        py-3 md:py-4 
         font-medium 
         transition-colors 
         duration-200 
@@ -31,6 +31,7 @@ const Button: React.FC<ButtonProps> = ({
         focus:ring-2 
         focus:ring-bitcoin-orange 
         focus:ring-offset-2
+        min-h-[44px]
         ${className}
       `.trim()}
       {...props}

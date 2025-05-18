@@ -2,11 +2,18 @@
   position: relative;
   display: inline-block;
   font-family: 'Monaco', 'Courier New', monospace;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   height: 2em;
   line-height: 2em;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .conversionAnimation {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+  }
 }
 
 .priceValue {

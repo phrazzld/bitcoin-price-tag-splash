@@ -11,10 +11,10 @@ const Container: React.FC<ContainerProps> = ({ children, className = "" }) => {
       className={`
         grid 
         grid-cols-12 
-        gap-6 
+        gap-4 md:gap-6 
         max-w-[1200px] 
         mx-auto 
-        px-6 
+        px-4 md:px-6 
         ${className}
       `.trim()}
     >
