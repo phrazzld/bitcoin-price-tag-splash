@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import ScrollReveal from "@/components/animation/ScrollReveal";
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
@@ -19,10 +20,18 @@ export default function Home() {
       <Navigation />
       <main>
         <HeroSection />
-        <FeaturesSection />
-        <HowItWorksSection />
-        <TestimonialsSection />
-        <CTASection />
+        <ScrollReveal>
+          <FeaturesSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <HowItWorksSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <TestimonialsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <CTASection />
+        </ScrollReveal>
       </main>
       <Footer />
     </motion.div>

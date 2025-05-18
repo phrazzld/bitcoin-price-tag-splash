@@ -347,7 +347,7 @@
     1. Hard refresh the page to observe the fade-in animation.
   - **Depends‑on:** [T002, T026]
 
-- [ ] **T028 · Feature · P2: implement scroll reveal animations for sections**
+- [x] **T028 · Feature · P2: implement scroll reveal animations for sections**
   - **Context:** PLAN.md > Animations > Scroll; Phase 4: Assembly (2)
   - **Action:**
     1. Use Framer Motion to apply simple reveal animations (e.g., fade in, slight upward move) to sections as they scroll into view.
