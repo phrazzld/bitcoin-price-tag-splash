@@ -1,0 +1,113 @@
+.conversionAnimation {
+  position: relative;
+  display: inline-block;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  height: 2em;
+  line-height: 2em;
+  margin: 2rem 0;
+}
+
+.priceValue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid transparent;
+  width: 0;
+  opacity: 0;
+}
+
+/* USD Animation */
+@keyframes animateUsd {
+  0% { 
+    width: 0; 
+    opacity: 1; 
+    border-right-color: currentColor; 
+  }
+  18.75% { 
+    width: 7ch; 
+    opacity: 1; 
+    border-right-color: currentColor; 
+  }
+  37.5% { 
+    width: 7ch; 
+    opacity: 1; 
+    border-right-color: currentColor; 
+  }
+  50% { 
+    width: 0; 
+    opacity: 1; 
+    border-right-color: currentColor; 
+  }
+  50.01% { 
+    opacity: 0; 
+    border-right-color: transparent; 
+  }
+  100% { 
+    width: 0; 
+    opacity: 0; 
+    border-right-color: transparent; 
+  }
+}
+
+/* BTC Animation */
+@keyframes animateBtc {
+  0% { 
+    width: 0; 
+    opacity: 0; 
+    border-right-color: transparent; 
+  }
+  49.99% { 
+    width: 0; 
+    opacity: 0; 
+    border-right-color: transparent; 
+  }
+  50% { 
+    width: 0; 
+    opacity: 1; 
+    border-right-color: currentColor; 
+  }
+  75% { 
+    width: 14ch; 
+    opacity: 1; 
+    border-right-color: currentColor; 
+  }
+  93.75% { 
+    width: 14ch; 
+    opacity: 1; 
+    border-right-color: currentColor; 
+  }
+  100% { 
+    width: 0; 
+    opacity: 1; 
+    border-right-color: currentColor; 
+  }
+}
+
+.usdPrice {
+  animation: animateUsd 8s infinite linear;
+  color: #616161;
+}
+
+.btcPrice {
+  animation: animateBtc 8s infinite linear;
+  color: #F7931A;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .priceValue {
+    animation: none !important;
+    opacity: 0;
+    width: auto;
+    border-right: none;
+  }
+  
+  .usdPrice {
+    opacity: 1;
+    position: static;
+  }
+}

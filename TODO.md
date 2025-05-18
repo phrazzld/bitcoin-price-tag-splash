@@ -184,7 +184,7 @@
     1. Visually inspect text styles, button appearance, and spacing between elements.
   - **Depends‑on:** [T006, T013]
 
-- [ ] **T015 · Feature · P1: implement CSS-based hero conversion demo animation**
+- [x] **T015 · Feature · P1: implement CSS-based hero conversion demo animation**
 
   - **Context:** PLAN.md > Page Structure > 2. Hero Section (Live demo); Key Implementation Details > Hero Conversion Demo
   - **Action:**
