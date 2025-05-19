@@ -1,6 +1,26 @@
-@import "tailwindcss";
+/* Import Tailwind CSS v4 */
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
 
-/* Custom styles */
+/* Custom theme extensions */
+@layer theme {
+  :root {
+    --color-bitcoin-orange: #F7931A;
+    --color-gray-100: #F8F8F8;
+    --color-gray-300: #E0E0E0;
+    --color-gray-500: #9E9E9E;
+    --color-gray-700: #616161;
+    --color-gray-900: #212121;
+    
+    --font-family-sans: Inter Variable, sans-serif;
+    
+    --spacing-18: 4.5rem;
+    --spacing-88: 22rem;
+    --spacing-120: 30rem;
+  }
+}
+
+/* Base styles */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -15,15 +35,18 @@
   }
   
   ::selection {
-    @apply bg-bitcoin-orange text-white;
+    background-color: var(--color-bitcoin-orange);
+    color: white;
   }
   
   /* Improve focus visibility */
   :focus-visible {
-    @apply outline-none ring-2 ring-bitcoin-orange ring-offset-2;
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px var(--color-bitcoin-orange);
   }
 }
 
+/* Custom utilities */
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
@@ -39,5 +62,19 @@
   /* Smooth scroll */
   .smooth-scroll {
     scroll-behavior: smooth;
+  }
+  
+  /* Custom color utilities */
+  .bg-bitcoin-orange {
+    background-color: var(--color-bitcoin-orange);
+  }
+  .text-bitcoin-orange {
+    color: var(--color-bitcoin-orange);
+  }
+  .border-bitcoin-orange {
+    border-color: var(--color-bitcoin-orange);
+  }
+  .ring-bitcoin-orange {
+    --tw-ring-color: var(--color-bitcoin-orange);
   }
 }
