@@ -1,25 +1,37 @@
+.conversionContainer {
+  position: relative;
+  display: inline-block;
+  margin: 3rem 0;
+}
+
 .conversionAnimation {
   position: relative;
   display: inline-block;
   font-family: 'Monaco', 'Courier New', monospace;
-  font-size: 1.25rem;
-  font-weight: 600;
-  height: 2em;
-  line-height: 2em;
-  margin: 1.5rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  height: 3rem;
+  line-height: 3rem;
+  background: linear-gradient(to right, #f8f8f8, #ffffff);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  min-width: 300px;
 }
 
 @media (min-width: 768px) {
   .conversionAnimation {
-    font-size: 1.5rem;
-    margin: 2rem 0;
+    font-size: 2.5rem;
+    min-width: 400px;
+    padding: 1.5rem 3rem;
   }
 }
 
 .priceValue {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid transparent;
@@ -27,29 +39,46 @@
   opacity: 0;
 }
 
+.conversionArrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: pulseArrow 8s infinite;
+}
+
+/* Arrow pulse animation */
+@keyframes pulseArrow {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  45%, 55% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
 /* USD Animation */
 @keyframes animateUsd {
   0% { 
     width: 0; 
     opacity: 1; 
-    border-right-color: currentColor; 
+    border-right-color: #616161; 
   }
-  18.75% { 
+  15% { 
     width: 7ch; 
     opacity: 1; 
-    border-right-color: currentColor; 
+    border-right-color: #616161; 
   }
-  37.5% { 
+  30% { 
     width: 7ch; 
     opacity: 1; 
-    border-right-color: currentColor; 
+    border-right-color: #616161; 
+  }
+  45% { 
+    width: 7ch; 
+    opacity: 1; 
+    border-right-color: transparent; 
   }
   50% { 
     width: 0; 
-    opacity: 1; 
-    border-right-color: currentColor; 
-  }
-  50.01% { 
     opacity: 0; 
     border-right-color: transparent; 
   }
@@ -67,40 +96,45 @@
     opacity: 0; 
     border-right-color: transparent; 
   }
-  49.99% { 
+  50% { 
     width: 0; 
     opacity: 0; 
     border-right-color: transparent; 
   }
-  50% { 
+  55% { 
     width: 0; 
     opacity: 1; 
-    border-right-color: currentColor; 
+    border-right-color: #F7931A; 
   }
-  75% { 
+  70% { 
     width: 14ch; 
     opacity: 1; 
-    border-right-color: currentColor; 
+    border-right-color: #F7931A; 
   }
-  93.75% { 
+  85% { 
     width: 14ch; 
     opacity: 1; 
-    border-right-color: currentColor; 
+    border-right-color: #F7931A; 
+  }
+  95% { 
+    width: 14ch; 
+    opacity: 1; 
+    border-right-color: transparent; 
   }
   100% { 
     width: 0; 
     opacity: 1; 
-    border-right-color: currentColor; 
+    border-right-color: transparent; 
   }
 }
 
 .usdPrice {
-  animation: animateUsd 8s infinite linear;
+  animation: animateUsd 8s infinite;
   color: #616161;
 }
 
 .btcPrice {
-  animation: animateBtc 8s infinite linear;
+  animation: animateBtc 8s infinite;
   color: #F7931A;
 }
 
@@ -116,5 +150,10 @@
   .usdPrice {
     opacity: 1;
     position: static;
+  }
+  
+  .conversionArrow {
+    animation: none !important;
+    opacity: 0;
   }
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
@@ -16,9 +17,11 @@ export default function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
+      className="relative"
     >
+      <AnimatedBackground />
       <Navigation />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <ScrollReveal>
           <FeaturesSection />
