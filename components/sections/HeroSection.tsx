@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import styles from "./HeroSection.module.css";
+import { CHROME_STORE_URL } from "@/lib/constants";
 
 const HeroSection: React.FC = () => {
   return (
@@ -46,7 +47,10 @@ const HeroSection: React.FC = () => {
             Convert any price to Bitcoin automatically while you browse
           </p>
           
-          <Button className="px-8 py-4 text-lg font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
+          <Button 
+            href={CHROME_STORE_URL}
+            className="px-8 py-4 text-lg font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+          >
             Add to Chrome
           </Button>
         </div>

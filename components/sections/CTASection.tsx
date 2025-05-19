@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
+import { CHROME_STORE_URL } from "@/lib/constants";
 
 const CTASection: React.FC = () => {
   return (
@@ -10,7 +11,12 @@ const CTASection: React.FC = () => {
           <h2 className="font-bold text-gray-900 mb-8" style={{ fontSize: "2.25rem", lineHeight: "1.2" }}>
             Start seeing Bitcoin prices
           </h2>
-          <Button className="px-8 py-4 text-lg font-medium">Get Started</Button>
+          <Button 
+            href={CHROME_STORE_URL}
+            className="px-8 py-4 text-lg font-medium"
+          >
+            Get Started
+          </Button>
         </div>
       </Container>
     </section>
