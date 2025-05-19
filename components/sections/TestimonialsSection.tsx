@@ -13,13 +13,13 @@ const TestimonialsSection: React.FC = () => {
             >
               &ldquo;
             </span>
-            <p className="text-xl md:text-2xl text-gray-800 leading-relaxed px-8 md:px-12">
+            <p className="text-gray-800 leading-relaxed px-8 md:px-12" style={{ fontSize: "1.25rem", lineHeight: "1.6" }}>
               Finally I can see how much things actually cost. This extension changed how I think about spending money. Every purchase is now a Bitcoin decision.
             </p>
           </div>
           <div className="space-y-1">
             <p className="font-medium text-gray-800">Sarah Chen</p>
-            <p className="text-sm text-gray-600">Bitcoin investor since 2019</p>
+            <p className="text-gray-600" style={{ fontSize: "0.875rem" }}>Bitcoin investor since 2019</p>
           </div>
         </div>
       </Container>

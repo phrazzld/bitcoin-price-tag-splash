@@ -1,29 +1,23 @@
 import React from "react";
-import Image from "next/image";
 
 interface StepCardProps {
-  stepNumber: number;
-  screenshot: string;
+  number: number;
+  screenshot: React.ReactNode;
   description: string;
 }
 
 const StepCard: React.FC<StepCardProps> = ({
-  stepNumber,
+  number,
   screenshot,
   description,
 }) => {
   return (
     <div className="text-center">
-      <div className="text-7xl font-bold text-gray-700 mb-6">{stepNumber}</div>
+      <div className="text-7xl font-bold text-gray-700 mb-6">{number}</div>
       <div className="border border-gray-300 rounded-none mb-4 relative aspect-video">
-        <Image
-          src={screenshot}
-          alt={`Step ${stepNumber} screenshot`}
-          fill
-          className="object-contain"
-        />
+        {screenshot}
       </div>
-      <p className="text-gray-700 leading-relaxed">{description}</p>
+      <p className="text-gray-700" style={{ fontSize: "1rem", lineHeight: "1.6" }}>{description}</p>
     </div>
   );
 };

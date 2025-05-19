@@ -7,7 +7,7 @@ const CTASection: React.FC = () => {
     <section className="py-16 md:py-[120px]">
       <Container>
         <div className="flex flex-col items-center justify-center text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="font-bold text-gray-900" style={{ fontSize: "2.25rem", lineHeight: "1.2" }}>
             Start seeing Bitcoin prices
           </h2>
           <Button>Get Started</Button>

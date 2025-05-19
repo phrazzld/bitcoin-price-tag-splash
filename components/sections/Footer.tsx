@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="py-8 text-gray-500">
       <Container>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-sm">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6" style={{ fontSize: "0.875rem" }}>
           <span>&copy; {currentYear} Bitcoin Price Tag</span>
           <a 
             href="https://github.com/bitcoin-price-tag/extension"

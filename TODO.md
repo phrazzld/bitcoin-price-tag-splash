@@ -374,7 +374,7 @@
     2. Test on physical devices if available.
   - **Depends‑on:** [T026]
 
-- [ ] **T030 · Refactor · P1: implement and optimize fluid typography scale**
+- [x] **T030 · Refactor · P1: implement and optimize fluid typography scale**
 
   - **Context:** PLAN.md > Typography > Font Sizes; Key Implementation Details > Typography Scale; Phase 5: Polish (2)
   - **Action:**

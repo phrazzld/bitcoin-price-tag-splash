@@ -8,10 +8,10 @@ const Navigation: React.FC = () => {
       <Container>
         <div className="col-span-12 flex items-center justify-between h-full">
           <div>
-            <span className="font-bold text-base md:text-lg">Bitcoin Price Tag</span>
+            <span className="font-bold" style={{ fontSize: "1rem" }}>Bitcoin Price Tag</span>
           </div>
           <div>
-            <Button className="text-sm md:text-base">Add to Chrome</Button>
+            <Button style={{ fontSize: "1rem" }}>Add to Chrome</Button>
           </div>
         </div>
       </Container>

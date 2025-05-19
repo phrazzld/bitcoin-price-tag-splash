@@ -17,8 +17,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       <div className="mb-4">
         <Icon name={icon} className="text-gray-800" />
       </div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600 leading-relaxed">{description}</p>
+      <h3 className="font-semibold text-gray-900 mb-2" style={{ fontSize: "1.5rem", lineHeight: "1.2" }}>{title}</h3>
+      <p className="text-gray-600" style={{ fontSize: "1rem", lineHeight: "1.6" }}>{description}</p>
     </div>
   );
 };

@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
             <span className={`${styles.priceValue} ${styles.usdPrice}`}>$99.99</span>
             <span className={`${styles.priceValue} ${styles.btcPrice}`}>0.00234584 BTC</span>
           </div>
-          <p className="text-base md:text-lg mb-8 md:mb-12 text-gray-700 px-4 md:px-0">
+          <p className="mb-8 md:mb-12 text-gray-700 px-4 md:px-0" style={{ fontSize: "1rem", lineHeight: "1.6" }}>
             Convert any price to Bitcoin automatically
           </p>
           <Button>Add to Chrome</Button>
