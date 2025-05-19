@@ -1,0 +1,13 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F7931A"/>
+  <text x="600" y="200" font-family="Inter, sans-serif" font-size="64" font-weight="bold" text-anchor="middle" fill="white">
+    Bitcoin Price Tag
+  </text>
+  <text x="600" y="280" font-family="Inter, sans-serif" font-size="36" text-anchor="middle" fill="white">
+    See Bitcoin prices everywhere
+  </text>
+  <path d="M656 380c4-25-15-38.5-40.5-47.5l8.25-33-20-5-8 32.25c-5.25-1.25-10.5-2.5-15.75-3.75l8-32.5-20-5-8.25 33c-4.25-1-8.5-2-12.75-3l.25-.25-27.5-6.75-5.25 21.25s15 3.5 14.5 3.75c8 2 9.5 7.25 9.25 11.5l-9.25 37.25c.5.25 1.25.25 2 .5-.75-.25-1.5-.25-2-.5l-13 52.25c-1 2.5-3.5 6.25-9.25 4.75.25.25-14.5-3.75-14.5-3.75l-10 22.75 26 6.5c4.75 1.25 9.5 2.5 14.25 3.75l-8.25 33.25 20 5 8.25-33c5.5 1.5 10.75 3 16 4.25l-8.25 33 20 5 8.25-33.25c34.5 6.5 60.5 4 71.5-27.25 9-25.25-.5-40-19-49.5 13.5-3 23.5-11.75 26.25-30zm-47 66c-6.25 25-48.75 11.5-62.5 8l11.25-44.75c13.75 3.5 57.75 10.25 51.25 36.75zm6.25-66.5c-5.75 23-41 11.25-52.5 8.5l10.25-40.75c11.5 3 48.5 8.5 42.25 32.25z" fill="white" transform="translate(500, 100)"/>
+  <text x="600" y="550" font-family="Inter, sans-serif" font-size="28" text-anchor="middle" fill="white">
+    Convert any price to Bitcoin automatically
+  </text>
+</svg>

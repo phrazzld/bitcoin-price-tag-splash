@@ -388,7 +388,7 @@
     2. Verify computed font sizes and line heights for other text elements.
   - **Depends‑on:** [T004, T029]
 
-- [ ] **T031 · Chore · P1: add meta tags and favicon**
+- [x] **T031 · Chore · P1: add meta tags and favicon**
   - **Context:** PLAN.md > Implementation Steps > Phase 5: Polish (3); Code Structure > `/public`
   - **Action:**
     1. Add appropriate meta tags (e.g., `title`, `description`, Open Graph tags) to `app/layout.tsx`.
