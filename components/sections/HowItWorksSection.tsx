@@ -24,15 +24,14 @@ const HowItWorksSection: React.FC = () => {
   return (
     <section className="py-16 md:py-[120px]">
       <Container>
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {steps.map((step, index) => (
-            <div key={index} className="flex-1">
-              <StepCard
-                number={step.number}
-                screenshot={step.screenshot}
-                description={step.description}
-              />
-            </div>
+            <StepCard
+              key={index}
+              number={step.number}
+              screenshot={step.screenshot}
+              description={step.description}
+            />
           ))}
         </div>
       </Container>

@@ -25,15 +25,14 @@ const FeaturesSection: React.FC = () => {
   return (
     <section className="py-16 md:py-[120px]">
       <Container>
-        <div className="grid grid-cols-12 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {features.map((feature, index) => (
-            <div key={index} className="col-span-12 md:col-span-4">
-              <FeatureCard
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-              />
-            </div>
+            <FeatureCard
+              key={index}
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
           ))}
         </div>
       </Container>
