@@ -42,7 +42,7 @@
     1. Run `npx prettier --check .` on a sample file to validate configuration.
   - **Depends‑on:** [T032]
 
-- [ ] **T034 · Chore · P1: configure Prettier ignore patterns with `.prettierignore`**
+- [x] **T034 · Chore · P1: configure Prettier ignore patterns with `.prettierignore`**
   - **Context:** Development Philosophy > Coding Standards > Address Violations, Don't Suppress
   - **Action:**
     1. Create `.prettierignore` in the project root.
