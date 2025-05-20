@@ -160,7 +160,7 @@
     1. Run `pnpm format:check` and confirm no issues reported.
   - **Depends‑on:** [T033, T034, T037]
 
-- [ ] **T039 · Chore · P1: perform initial ESLint audit**
+- [x] **T039 · Chore · P1: perform initial ESLint audit**
 
   - **Context:** Development Philosophy > Coding Standards > Address Violations, Don't Suppress
   - **Action:**
