@@ -252,7 +252,7 @@
     2. Stage a file with linting issues, attempt to commit, and confirm commit is blocked.
   - **Depends‑on:** [T044]
 
-- [ ] **T046 · Chore · P1: integrate formatting and linting checks into CI pipeline**
+- [x] **T046 · Chore · P1: integrate formatting and linting checks into CI pipeline**
 
   - **Context:** Development Philosophy > Automation, Quality Gates, and CI/CD
   - **Action:**
