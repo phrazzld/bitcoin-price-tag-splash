@@ -62,7 +62,7 @@
     1. Confirm files listed in `.prettierignore` are not processed by Prettier.
   - **Depends‑on:** [T032]
 
-- [ ] **T035 · Chore · P1: verify and update TypeScript configuration**
+- [x] **T035 · Chore · P1: verify and update TypeScript configuration**
   - **Context:** Development Philosophy > Coding Standards > Maximize Language Strictness
   - **Action:**
     1. Open `tsconfig.json` and confirm `"strict": true` is enabled.
