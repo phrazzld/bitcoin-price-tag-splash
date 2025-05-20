@@ -1,4 +1,4 @@
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
 
 export default function TestTestimonialsCompletePage() {
   return (

@@ -1,4 +1,4 @@
-import Footer from "@/components/sections/Footer";
+import Footer from '@/components/sections/Footer';
 
 export default function TestFooterContent() {
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface StepCardProps {
   number: number;
@@ -6,18 +6,16 @@ interface StepCardProps {
   description: string;
 }
 
-const StepCard: React.FC<StepCardProps> = ({
-  number,
-  screenshot,
-  description,
-}) => {
+const StepCard: React.FC<StepCardProps> = ({ number, screenshot, description }) => {
   return (
     <div className="text-center">
       <div className="text-7xl font-bold text-gray-700 mb-6">{number}</div>
       <div className="border border-gray-300 rounded-none mb-4 relative aspect-video">
         {screenshot}
       </div>
-      <p className="text-gray-700" style={{ fontSize: "1rem", lineHeight: "1.6" }}>{description}</p>
+      <p className="text-gray-700" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
+        {description}
+      </p>
     </div>
   );
 };

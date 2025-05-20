@@ -1,4 +1,4 @@
-import StepCard from "@/components/StepCard";
+import StepCard from '@/components/StepCard';
 
 export default function TestStepCardPage() {
   return (

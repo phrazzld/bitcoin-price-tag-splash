@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import Button from '@/components/ui/Button';
 
 export default function TestButtonPage() {
   return (
@@ -21,7 +21,7 @@ export default function TestButtonPage() {
 
         <div>
           <h2 className="text-xl font-bold mb-4">Button with onClick</h2>
-          <Button onClick={() => alert("Button clicked!")}>Click Me</Button>
+          <Button onClick={() => alert('Button clicked!')}>Click Me</Button>
         </div>
 
         <div>

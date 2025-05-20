@@ -1,4 +1,4 @@
-import CTASection from "@/components/sections/CTASection";
+import CTASection from '@/components/sections/CTASection';
 
 export default function TestCTASectionPage() {
   return (

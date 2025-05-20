@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -8,12 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  className = "",
-  href,
-  ...props
-}) => {
+const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...props }) => {
   const buttonClasses = `
     bg-bitcoin-orange 
     text-white 
@@ -47,22 +42,14 @@ const Button: React.FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={buttonClasses}
-      >
+      <a href={href} target="_blank" rel="noopener noreferrer" className={buttonClasses}>
         {children}
       </a>
     );
   }
 
   return (
-    <button
-      className={buttonClasses}
-      {...props}
-    >
+    <button className={buttonClasses} {...props}>
       {children}
     </button>
   );

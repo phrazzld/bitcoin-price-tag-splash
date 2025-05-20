@@ -3,6 +3,7 @@
 ## Phase 6: Code Quality Tooling
 
 - [x] **T032 · Chore · P0: install code quality tooling dependencies**
+
   - **Context:** Development Philosophy > Coding Standards > Address Violations, Don't Suppress
   - **Action:**
     1. Run `pnpm add -D prettier eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-prettier husky lint-staged typescript-eslint`.
@@ -16,6 +17,7 @@
   - **Depends‑on:** none
 
 - [x] **T033 · Chore · P1: configure Prettier with `.prettierrc.js`**
+
   - **Context:** Development Philosophy > Coding Standards > Address Violations, Don't Suppress
   - **Action:**
     1. Create `.prettierrc.js` in the project root.
@@ -43,6 +45,7 @@
   - **Depends‑on:** [T032]
 
 - [x] **T034 · Chore · P1: configure Prettier ignore patterns with `.prettierignore`**
+
   - **Context:** Development Philosophy > Coding Standards > Address Violations, Don't Suppress
   - **Action:**
     1. Create `.prettierignore` in the project root.
@@ -63,6 +66,7 @@
   - **Depends‑on:** [T032]
 
 - [x] **T035 · Chore · P1: verify and update TypeScript configuration**
+
   - **Context:** Development Philosophy > Coding Standards > Maximize Language Strictness
   - **Action:**
     1. Open `tsconfig.json` and confirm `"strict": true` is enabled.
@@ -75,10 +79,13 @@
   - **Depends‑on:** [T032]
 
 - [x] **T036 · Chore · P1: configure ESLint with strict type-aware rules**
+
   - **Context:** Development Philosophy > Coding Standards > Leverage Types Diligently, Address Violations, Don't Suppress
   - **Action:**
+
     1. Create or update `eslint.config.mjs` in the project root.
     2. Implement configuration with TypeScript-aware rules:
+
     ```javascript
     import tseslint from 'typescript-eslint';
     import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -98,7 +105,10 @@
         },
         rules: {
           '@typescript-eslint/no-explicit-any': 'error',
-          '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+          '@typescript-eslint/no-unused-vars': [
+            'error',
+            { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+          ],
           '@typescript-eslint/explicit-module-boundary-types': 'warn',
           '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
           '@typescript-eslint/no-misused-promises': 'error',
@@ -106,9 +116,10 @@
           'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
         },
       },
-      eslintPluginPrettierRecommended,
+      eslintPluginPrettierRecommended
     );
     ```
+
   - **Done‑when:**
     1. `eslint.config.mjs` exists with strict type-aware configuration.
   - **Verification:**
@@ -116,6 +127,7 @@
   - **Depends‑on:** [T032, T035]
 
 - [x] **T037 · Chore · P1: add formatting and linting scripts to package.json**
+
   - **Context:** Development Philosophy > Core Principles > Automate Everything
   - **Action:**
     1. Add the following scripts to `package.json`:
@@ -134,7 +146,8 @@
     1. Run each script with `--help` flag to confirm they execute properly.
   - **Depends‑on:** [T032]
 
-- [ ] **T038 · Chore · P1: format entire codebase with Prettier**
+- [x] **T038 · Chore · P1: format entire codebase with Prettier**
+
   - **Context:** Development Philosophy > Coding Standards
   - **Action:**
     1. Run `pnpm format:write` to apply Prettier formatting.
@@ -148,6 +161,7 @@
   - **Depends‑on:** [T033, T034, T037]
 
 - [ ] **T039 · Chore · P1: perform initial ESLint audit**
+
   - **Context:** Development Philosophy > Coding Standards > Address Violations, Don't Suppress
   - **Action:**
     1. Run `pnpm lint` on the codebase.
@@ -159,6 +173,7 @@
   - **Depends‑on:** [T036, T037]
 
 - [ ] **T040 · Refactor · P0: eliminate all `any` types from codebase**
+
   - **Context:** Development Philosophy > Coding Standards > Leverage Types Diligently
   - **Action:**
     1. Search for and replace all instances of `any` type.
@@ -172,6 +187,7 @@
   - **Depends‑on:** [T039]
 
 - [ ] **T041 · Refactor · P1: fix type-aware rule violations**
+
   - **Context:** Development Philosophy > Coding Standards > Leverage Types Diligently
   - **Action:**
     1. Address violations for type-aware rules (`no-floating-promises`, `no-misused-promises`, etc.).
@@ -183,6 +199,7 @@
   - **Depends‑on:** [T039]
 
 - [ ] **T042 · Refactor · P1: fix remaining ESLint violations**
+
   - **Context:** Development Philosophy > Coding Standards
   - **Action:**
     1. Address all remaining ESLint violations not covered by T040 and T041.
@@ -193,6 +210,7 @@
   - **Depends‑on:** [T039]
 
 - [ ] **T043 · Refactor · P1: review and remove/justify suppression comments**
+
   - **Context:** Development Philosophy > Coding Standards > Address Violations, Don't Suppress
   - **Action:**
     1. Search for suppression comments (`// eslint-disable`, `@ts-ignore`, `@ts-expect-error`).
@@ -204,6 +222,7 @@
   - **Depends‑on:** [T039]
 
 - [ ] **T044 · Chore · P1: setup pre-commit hooks with husky**
+
   - **Context:** Development Philosophy > Automation, Quality Gates, and CI/CD
   - **Action:**
     1. Run `pnpm husky install`.
@@ -216,6 +235,7 @@
   - **Depends‑on:** [T032]
 
 - [ ] **T045 · Chore · P1: configure lint-staged for optimized pre-commit checks**
+
   - **Context:** Development Philosophy > Automation, Quality Gates, and CI/CD
   - **Action:**
     1. Add `lint-staged` configuration to `package.json`:
@@ -233,6 +253,7 @@
   - **Depends‑on:** [T044]
 
 - [ ] **T046 · Chore · P1: integrate formatting and linting checks into CI pipeline**
+
   - **Context:** Development Philosophy > Automation, Quality Gates, and CI/CD
   - **Action:**
     1. Update CI workflow configuration (`.github/workflows/ci.yml` or equivalent).

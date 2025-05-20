@@ -1,25 +1,25 @@
-import React from "react";
-import Container from "../ui/Container";
-import FeatureCard from "../FeatureCard";
-import { Zap, Globe, RefreshCw } from "lucide-react";
+import React from 'react';
+import Container from '../ui/Container';
+import FeatureCard from '../FeatureCard';
+import { Zap, Globe, RefreshCw } from 'lucide-react';
 
 const FeaturesSection: React.FC = () => {
   const features = [
     {
       icon: <Zap size={24} />,
-      title: "Instant conversion",
-      description: "See Bitcoin values in real-time as you browse"
+      title: 'Instant conversion',
+      description: 'See Bitcoin values in real-time as you browse',
     },
     {
       icon: <Globe size={24} />,
-      title: "Works everywhere",
-      description: "Compatible with all major shopping sites"
+      title: 'Works everywhere',
+      description: 'Compatible with all major shopping sites',
     },
     {
       icon: <RefreshCw size={24} />,
-      title: "Always current",
-      description: "Live exchange rates updated continuously"
-    }
+      title: 'Always current',
+      description: 'Live exchange rates updated continuously',
+    },
   ];
 
   return (
