@@ -172,7 +172,7 @@
     1. Confirm ESLint output contains expected categories of issues.
   - **Depends‑on:** [T036, T037]
 
-- [ ] **T040 · Refactor · P0: eliminate all `any` types from codebase**
+- [x] **T040 · Refactor · P0: eliminate all `any` types from codebase**
 
   - **Context:** Development Philosophy > Coding Standards > Leverage Types Diligently
   - **Action:**
