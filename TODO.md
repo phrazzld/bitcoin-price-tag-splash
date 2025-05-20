@@ -74,7 +74,7 @@
     1. Run `pnpm tsc --noEmit` to confirm strict type-checking is applied.
   - **Depends‑on:** [T032]
 
-- [ ] **T036 · Chore · P1: configure ESLint with strict type-aware rules**
+- [x] **T036 · Chore · P1: configure ESLint with strict type-aware rules**
   - **Context:** Development Philosophy > Coding Standards > Leverage Types Diligently, Address Violations, Don't Suppress
   - **Action:**
     1. Create or update `eslint.config.mjs` in the project root.
