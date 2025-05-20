@@ -198,7 +198,7 @@
     1. Run `pnpm lint` and confirm no type-aware rule violations.
   - **Depends‑on:** [T039]
 
-- [ ] **T042 · Refactor · P1: fix remaining ESLint violations**
+- [x] **T042 · Refactor · P1: fix remaining ESLint violations**
 
   - **Context:** Development Philosophy > Coding Standards
   - **Action:**
