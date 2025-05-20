@@ -3,7 +3,7 @@ type TestParam = string | number | boolean;
 
 /**
  * This function is intentionally unused as part of the ESLint testing process.
- * 
+ *
  * JUSTIFICATION FOR SUPPRESSION:
  * This is a test file specifically created to validate ESLint rule configurations.
  * The @typescript-eslint/no-unused-vars suppression is necessary here as this function

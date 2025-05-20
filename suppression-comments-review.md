@@ -2,7 +2,7 @@
 
 ## Overview
 
-As part of task T043, a comprehensive review of all suppression comments in the codebase was conducted. This includes ESLint suppression comments (eslint-disable*) and TypeScript suppression comments (@ts-ignore, @ts-expect-error).
+As part of task T043, a comprehensive review of all suppression comments in the codebase was conducted. This includes ESLint suppression comments (eslint-disable\*) and TypeScript suppression comments (@ts-ignore, @ts-expect-error).
 
 ## Findings
 
