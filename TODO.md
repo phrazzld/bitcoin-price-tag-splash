@@ -209,7 +209,7 @@
     1. Run `pnpm lint` and confirm no errors or warnings.
   - **Depends‑on:** [T039]
 
-- [ ] **T043 · Refactor · P1: review and remove/justify suppression comments**
+- [x] **T043 · Refactor · P1: review and remove/justify suppression comments**
 
   - **Context:** Development Philosophy > Coding Standards > Address Violations, Don't Suppress
   - **Action:**
