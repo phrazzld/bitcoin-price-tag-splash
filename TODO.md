@@ -15,7 +15,7 @@
     1. Run `pnpm list prettier eslint husky lint-staged` to confirm installations.
   - **Depends‑on:** none
 
-- [ ] **T033 · Chore · P1: configure Prettier with `.prettierrc.js`**
+- [x] **T033 · Chore · P1: configure Prettier with `.prettierrc.js`**
   - **Context:** Development Philosophy > Coding Standards > Address Violations, Don't Suppress
   - **Action:**
     1. Create `.prettierrc.js` in the project root.
