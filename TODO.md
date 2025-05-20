@@ -234,7 +234,7 @@
     1. Make a test commit and confirm the hook runs.
   - **Depends‑on:** [T032]
 
-- [ ] **T045 · Chore · P1: configure lint-staged for optimized pre-commit checks**
+- [x] **T045 · Chore · P1: configure lint-staged for optimized pre-commit checks**
 
   - **Context:** Development Philosophy > Automation, Quality Gates, and CI/CD
   - **Action:**
