@@ -221,7 +221,7 @@
     1. Code review of any remaining suppression comments.
   - **Depends‑on:** [T039]
 
-- [ ] **T044 · Chore · P1: setup pre-commit hooks with husky**
+- [x] **T044 · Chore · P1: setup pre-commit hooks with husky**
 
   - **Context:** Development Philosophy > Automation, Quality Gates, and CI/CD
   - **Action:**
