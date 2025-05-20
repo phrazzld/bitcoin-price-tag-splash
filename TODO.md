@@ -115,7 +115,7 @@
     1. Run `npx eslint . --ext .ts,.tsx` on a sample file to confirm configuration.
   - **Depends‑on:** [T032, T035]
 
-- [ ] **T037 · Chore · P1: add formatting and linting scripts to package.json**
+- [x] **T037 · Chore · P1: add formatting and linting scripts to package.json**
   - **Context:** Development Philosophy > Core Principles > Automate Everything
   - **Action:**
     1. Add the following scripts to `package.json`:
