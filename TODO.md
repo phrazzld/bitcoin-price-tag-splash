@@ -267,7 +267,7 @@
     2. Push a clean commit to verify CI passes.
   - **Depends‑on:** [T037, T038, T042]
 
-- [ ] **T047 · Chore · P2: update project documentation with code quality standards**
+- [x] **T047 · Chore · P2: update project documentation with code quality standards**
   - **Context:** Development Philosophy > Documentation Approach
   - **Action:**
     1. Update `README.md` or create `CONTRIBUTING.md` to document:
