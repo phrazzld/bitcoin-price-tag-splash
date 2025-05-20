@@ -2,7 +2,7 @@
 
 import Navigation from '@/components/Navigation';
 
-export default function TestNavigationScroll() {
+export default function TestNavigationScroll(): React.ReactNode {
   return (
     <>
       <Navigation />

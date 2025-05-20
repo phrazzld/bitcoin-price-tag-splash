@@ -186,7 +186,7 @@
     2. Grep for `any` type usage and verify all instances are properly typed.
   - **Depends‑on:** [T039]
 
-- [ ] **T041 · Refactor · P1: fix type-aware rule violations**
+- [x] **T041 · Refactor · P1: fix type-aware rule violations**
 
   - **Context:** Development Philosophy > Coding Standards > Leverage Types Diligently
   - **Action:**

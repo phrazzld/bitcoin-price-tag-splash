@@ -11,7 +11,7 @@ import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
 
-export default function Home() {
+export default function Home(): React.ReactNode {
   return (
     <motion.div
       initial={{ opacity: 0 }}

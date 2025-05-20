@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 
-export default function TestFeaturesSection() {
+export default function TestFeaturesSection(): React.ReactNode {
   return (
     <>
       <Navigation />

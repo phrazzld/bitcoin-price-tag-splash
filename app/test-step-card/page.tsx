@@ -1,6 +1,6 @@
 import StepCard from '@/components/StepCard';
 
-export default function TestStepCardPage() {
+export default function TestStepCardPage(): React.ReactNode {
   return (
     <div className="p-8 space-y-12">
       <h1 className="text-2xl font-bold mb-8">StepCard Component Test</h1>

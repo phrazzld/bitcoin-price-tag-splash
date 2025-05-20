@@ -1,4 +1,4 @@
-export default function TestTailwind() {
+export default function TestTailwind(): React.ReactNode {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-8">Tailwind Config & Font Test</h1>

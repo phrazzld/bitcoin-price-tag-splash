@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
 
-export default function TestHeroAnimation() {
+export default function TestHeroAnimation(): React.ReactNode {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Navigation />

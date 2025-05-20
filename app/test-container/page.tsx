@@ -1,6 +1,6 @@
 import Container from '@/components/ui/Container';
 
-export default function TestContainerPage() {
+export default function TestContainerPage(): React.ReactNode {
   return (
     <main className="min-h-screen bg-gray-100">
       <div className="py-16">

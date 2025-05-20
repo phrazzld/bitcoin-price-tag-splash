@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 
-export default function TestHowItWorksSection() {
+export default function TestHowItWorksSection(): React.ReactNode {
   return (
     <>
       <Navigation />

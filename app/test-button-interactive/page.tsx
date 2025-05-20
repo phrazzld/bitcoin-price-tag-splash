@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
 
-export default function TestButtonInteractivePage() {
+export default function TestButtonInteractivePage(): React.ReactNode {
   const [count, setCount] = useState(0);
 
   return (

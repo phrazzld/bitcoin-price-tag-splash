@@ -12,7 +12,7 @@ const breakpoints = [
   { name: 'Desktop XL', width: 1440 },
 ];
 
-export default function TestResponsive() {
+export default function TestResponsive(): React.ReactNode {
   const [currentWidth, setCurrentWidth] = useState<number>(
     typeof window !== 'undefined' ? window.innerWidth : 1024
   );

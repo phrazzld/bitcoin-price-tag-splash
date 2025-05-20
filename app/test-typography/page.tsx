@@ -3,7 +3,7 @@
 import React from 'react';
 import Container from '@/components/ui/Container';
 
-export default function TestTypography() {
+export default function TestTypography(): React.ReactNode {
   return (
     <div className="py-8">
       <Container>

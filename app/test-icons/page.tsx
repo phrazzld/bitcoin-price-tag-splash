@@ -12,7 +12,7 @@ const iconNames: IconName[] = [
   'refreshCw',
 ];
 
-export default function TestIconsPage() {
+export default function TestIconsPage(): React.ReactNode {
   return (
     <main className="min-h-screen bg-gray-100 p-16">
       <div className="space-y-8">

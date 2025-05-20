@@ -2,7 +2,7 @@
 
 import ScrollReveal from '@/components/animation/ScrollReveal';
 
-export default function TestScrollReveal() {
+export default function TestScrollReveal(): React.ReactNode {
   return (
     <div className="min-h-screen p-8">
       <h1 className="text-4xl font-bold text-center mb-8">Scroll Reveal Test</h1>

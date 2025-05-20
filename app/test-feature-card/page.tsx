@@ -1,6 +1,6 @@
 import FeatureCard from '@/components/FeatureCard';
 
-export default function TestFeatureCardPage() {
+export default function TestFeatureCardPage(): React.ReactNode {
   return (
     <div className="p-8 space-y-8">
       <h1 className="text-2xl font-bold mb-8">FeatureCard Component Test</h1>

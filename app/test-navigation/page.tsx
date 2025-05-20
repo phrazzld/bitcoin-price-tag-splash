@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation';
 
-export default function TestNavigationPage() {
+export default function TestNavigationPage(): React.ReactNode {
   return (
     <div>
       <Navigation />
