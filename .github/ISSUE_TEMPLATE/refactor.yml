@@ -1,0 +1,47 @@
+name: Refactor Request
+description: Suggest a code refactoring task
+title: "[REFACTOR] "
+labels: [refactor]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a refactoring task!
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: Why is this refactor needed? What problems does it address?
+    validations:
+      required: true
+  - type: textarea
+    id: current-issues
+    attributes:
+      label: Current Issues
+      description: What issues exist in the current implementation?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How do you propose to refactor this code?
+    validations:
+      required: true
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Complexity
+      options:
+        - Small
+        - Medium
+        - Large
+    validations:
+      required: true
+  - type: input
+    id: files-affected
+    attributes:
+      label: Files/Components Affected
+      description: Which files or components will be affected by this refactor?
+    validations:
+      required: true

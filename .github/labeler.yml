@@ -1,0 +1,32 @@
+# Auto-labeler configuration
+component:ui:
+  - 'components/ui/**/*'
+
+component:design-system:
+  - 'components/**/*'
+  - 'tailwind.config.*'
+
+component:testing:
+  - '**/*.test.*'
+  - '**/*.spec.*'
+  - 'cypress/**/*'
+  - 'playwright/**/*'
+  - 'jest.config.*'
+  - 'vitest.config.*'
+
+component:performance:
+  - 'next.config.*'
+  - 'public/**/*.svg'
+  - 'public/**/*.png'
+  - 'public/**/*.jpg'
+  - 'public/**/*.webp'
+
+docs:
+  - '**/*.md'
+  - 'docs/**/*'
+
+test:
+  - '**/*.test.*'
+  - '**/*.spec.*'
+  - 'cypress/**/*'
+  - 'playwright/**/*'
