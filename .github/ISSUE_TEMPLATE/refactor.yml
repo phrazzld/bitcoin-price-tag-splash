@@ -1,6 +1,6 @@
 name: Refactor Request
 description: Suggest a code refactoring task
-title: "[REFACTOR] "
+title: '[REFACTOR] '
 labels: [refactor]
 body:
   - type: markdown
