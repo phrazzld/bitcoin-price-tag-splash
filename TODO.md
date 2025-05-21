@@ -61,7 +61,7 @@
     2. Verify via browser dev tools or logs that the observer is disconnected on unmount.
   - **Depends‑on:** none
 
-- [ ] **T005 · Refactor · P1: refactor `AnimatedBackground` component to use css animations**
+- [x] **T005 · Refactor · P1: refactor `AnimatedBackground` component to use css animations**
 
   - **Context:** PLAN.md > Implementation Steps > 4. Refactor AnimatedBackground Component; Architecture Approach > Components Affected > 3; Risk Mitigation > Visual Differences
   - **Action:**
@@ -77,7 +77,7 @@
     2. Test with `prefers-reduced-motion` enabled.
   - **Depends‑on:** [T002, T003]
 
-- [ ] **T006 · Refactor · P1: refactor page-level fade-in on `app/page.tsx` to css**
+- [x] **T006 · Refactor · P1: refactor page-level fade-in on `app/page.tsx` to css**
 
   - **Context:** PLAN.md > Implementation Steps > 5. Refactor Page-Level Fade-in; Architecture Approach > Components Affected > 1; Risk Mitigation > Visual Differences
   - **Action:**
@@ -93,7 +93,7 @@
     2. Test with `prefers-reduced-motion` enabled.
   - **Depends‑on:** [T002, T003]
 
-- [ ] **T007 · Refactor · P1: refactor `ScrollReveal` component to use css and intersectionobserver**
+- [x] **T007 · Refactor · P1: refactor `ScrollReveal` component to use css and intersectionobserver**
 
   - **Context:** PLAN.md > Implementation Steps > 6. Refactor ScrollReveal Component; Architecture Approach > Components Affected > 2; Risk Mitigation > Visual Differences
   - **Action:**
@@ -112,7 +112,7 @@
     3. Visually compare against baselines and test with `prefers-reduced-motion` enabled.
   - **Depends‑on:** [T002, T003, T004]
 
-- [ ] **T008 · Test · P1: perform visual testing of all refactored animations**
+- [x] **T008 · Test · P1: perform visual testing of all refactored animations**
 
   - **Context:** PLAN.md > Testing Strategy > 1. Visual Testing
   - **Action:**
@@ -127,7 +127,7 @@
     2. Use browser developer tools to simulate various screen sizes.
   - **Depends‑on:** [T002, T005, T006, T007]
 
-- [ ] **T009 · Test · P1: perform accessibility testing for animations**
+- [x] **T009 · Test · P1: perform accessibility testing for animations**
 
   - **Context:** PLAN.md > Testing Strategy > 2. Accessibility Testing; Risk Mitigation > Accessibility
   - **Action:**
@@ -141,7 +141,7 @@
     2. Temporarily disable CSS animations (e.g., via browser dev tools) and verify content accessibility.
   - **Depends‑on:** [T003, T005, T006, T007]
 
-- [ ] **T010 · Test · P1: perform browser compatibility testing for animations**
+- [x] **T010 · Test · P1: perform browser compatibility testing for animations**
 
   - **Context:** PLAN.md > Testing Strategy > 3. Browser Compatibility Testing; Risk Mitigation > Browser Compatibility
   - **Action:**
@@ -156,7 +156,7 @@
     1. Manually test each animation on the latest stable versions of Chrome, Firefox, Safari, and Edge.
   - **Depends‑on:** [T005, T006, T007]
 
-- [ ] **T011 · Chore · P1: remove framer motion dependency from project**
+- [x] **T011 · Chore · P1: remove framer motion dependency from project**
 
   - **Context:** PLAN.md > Implementation Steps > 8. Remove Framer Motion Dependency
   - **Action:**
@@ -171,7 +171,7 @@
     2. Run a project-wide search for `framer-motion` and `import { motion }` to ensure all references are removed.
   - **Depends‑on:** [T005, T006, T007]
 
-- [ ] **T012 · Chore · P1: measure new bundle size and document improvements**
+- [x] **T012 · Chore · P1: measure new bundle size and document improvements**
 
   - **Context:** PLAN.md > Implementation Steps > 9. Measure New Bundle Size
   - **Action:**
@@ -184,7 +184,7 @@
     1. Confirm the comparison between the original and new bundle sizes is accurate and clear.
   - **Depends‑on:** [T011]
 
-- [ ] **T013 · Cleanup · P1: perform final code cleanup and documentation**
+- [x] **T013 · Cleanup · P1: perform final code cleanup and documentation**
 
   - **Context:** PLAN.md > Implementation Steps > 10. Code Cleanup and Documentation
   - **Action:**
@@ -199,7 +199,7 @@
     2. Review documentation for accuracy and clarity.
   - **Depends‑on:** [T011]
 
-- [ ] **T014 · Pull Request · P1: create pull request linking to issue #8**
+- [x] **T014 · Pull Request · P1: create pull request linking to issue #8**
   - **Context:** PLAN.md > Acceptance Criteria
   - **Action:**
     1. Push all changes to the feature branch.
