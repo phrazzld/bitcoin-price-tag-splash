@@ -1,33 +1,36 @@
-import { renderHook } from '@testing-library/react';
+import { renderHook, act } from '@testing-library/react';
 import { useIntersectionObserver } from '../use-intersection-observer';
 
-// Simple mock for IntersectionObserver
+// Mock IntersectionObserver
+const mockIntersectionObserver = jest.fn();
 const mockObserve = jest.fn();
 const mockUnobserve = jest.fn();
 const mockDisconnect = jest.fn();
 
-// Define a type for our global augmentation
+// Setup global mock
 declare global {
   interface Window {
     IntersectionObserverOriginal?: typeof IntersectionObserver;
   }
 }
 
-// Mock implementation of IntersectionObserver
 beforeAll(() => {
-  // Store the original implementation
+  // Store original
   window.IntersectionObserverOriginal = window.IntersectionObserver;
 
-  // Replace with mock
-  window.IntersectionObserver = jest.fn().mockImplementation(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function (this: any, callback: IntersectionObserverCallback) {
-      this.observe = mockObserve;
-      this.unobserve = mockUnobserve;
-      this.disconnect = mockDisconnect;
-      this.callback = callback;
-    }
-  ) as unknown as typeof IntersectionObserver;
+  // Mock implementation
+  mockIntersectionObserver.mockImplementation((callback) => {
+    return {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+      // Store callback for our tests to use
+      __callback: callback,
+    };
+  });
+
+  // Replace global
+  window.IntersectionObserver = mockIntersectionObserver;
 });
 
 // Restore original implementation
@@ -39,10 +42,10 @@ afterAll(() => {
 
 // Reset mocks between tests
 beforeEach(() => {
+  mockIntersectionObserver.mockClear();
   mockObserve.mockClear();
   mockUnobserve.mockClear();
   mockDisconnect.mockClear();
-  (window.IntersectionObserver as unknown as jest.Mock).mockClear();
 });
 
 describe('useIntersectionObserver hook', () => {
@@ -61,5 +64,62 @@ describe('useIntersectionObserver hook', () => {
     // The ref should be an object with a current property initially set to null
     expect(ref).toHaveProperty('current');
     expect(ref.current).toBeNull();
+  });
+
+  // Test 3: Verify isIntersecting updates when intersection occurs
+  it('should update isIntersecting to true when intersection occurs', () => {
+    // Mock entry for intersection
+    const mockEntry = {
+      isIntersecting: true,
+      boundingClientRect: {} as DOMRectReadOnly,
+      intersectionRatio: 1,
+      intersectionRect: {} as DOMRectReadOnly,
+      rootBounds: null,
+      target: document.createElement('div'),
+      time: Date.now(),
+    };
+
+    let observerCallback: IntersectionObserverCallback | null = null;
+
+    // Override the global mock for this specific test
+    mockIntersectionObserver.mockImplementation((callback) => {
+      observerCallback = callback;
+      return {
+        observe: mockObserve,
+        unobserve: mockUnobserve,
+        disconnect: mockDisconnect,
+      };
+    });
+
+    // Create a ref to a DOM element
+    const mockRef = { current: document.createElement('div') };
+
+    // Render the hook with the mockRef
+    const { result } = renderHook(() => {
+      const [ref, isIntersecting, entry] = useIntersectionObserver();
+
+      // Set the ref current value in the first render
+      if (!ref.current) {
+        ref.current = mockRef.current;
+      }
+
+      return [ref, isIntersecting, entry];
+    });
+
+    // Initially isIntersecting should be false
+    expect(result.current[1]).toBe(false);
+
+    // Verify the callback was stored
+    expect(observerCallback).not.toBeNull();
+
+    // Simulate an intersection event
+    act(() => {
+      if (observerCallback) {
+        observerCallback([mockEntry], {} as IntersectionObserver);
+      }
+    });
+
+    // Now isIntersecting should be true
+    expect(result.current[1]).toBe(true);
   });
 });

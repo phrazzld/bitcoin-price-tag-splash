@@ -19,7 +19,7 @@
   - **Done‑when:**
     1. Tests for initial state and ref handling pass.
   - **Depends‑on:** [T001]
-- [ ] **T003 · Test · P1**: test `useIntersectionObserver` intersection behavior
+- [x] **T003 · Test · P1**: test `useIntersectionObserver` intersection behavior
   - **Context:** Detailed Remedies -> cr-01 -> Step 4
   - **Action:**
     1. Write unit tests to verify `isIntersecting` becomes `true` when the mock observer triggers an intersection.
