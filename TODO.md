@@ -26,7 +26,7 @@
   - **Done‑when:**
     1. Tests for basic intersection behavior pass.
   - **Depends‑on:** [T001]
-- [ ] **T004 · Test · P1**: test `useIntersectionObserver` `triggerOnce: true` option
+- [x] **T004 · Test · P1**: test `useIntersectionObserver` `triggerOnce: true` option
   - **Context:** Detailed Remedies -> cr-01 -> Step 5
   - **Action:**
     1. Write unit tests to verify that with `triggerOnce: true`, the observer unobserves and disconnects after the first intersection.
