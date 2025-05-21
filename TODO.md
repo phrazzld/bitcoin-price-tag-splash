@@ -1,215 +1,194 @@
+```markdown
 # Todo
 
-## CSS-Only Animations Refactoring
+## CR-01 Add Unit Tests for `useIntersectionObserver` Hook
 
-- [x] **T001 · Chore · P2: create feature branch for css-only animations**
-
-  - **Context:** PLAN.md > Branch Strategy
+- [x] **T001 · Chore · P0**: set up test file and mock `IntersectionObserver` for `useIntersectionObserver`
+  - **Context:** Detailed Remedies -> cr-01 -> Steps 1, 2
   - **Action:**
-    1. Execute `git checkout -b feature/css-only-animations`.
+    1. Create test file: `lib/utils/__tests__/use-intersection-observer.test.ts`.
+    2. Implement a mock for the `IntersectionObserver` API to control callbacks and observe/unobserve/disconnect calls.
   - **Done‑when:**
-    1. Feature branch `feature/css-only-animations` is created locally and pushed to the remote repository.
+    1. Test file is created and the `IntersectionObserver` mock is functional within it.
+  - **Depends‑on:** none
+- [ ] **T002 · Test · P1**: test `useIntersectionObserver` initial state and ref handling
+  - **Context:** Detailed Remedies -> cr-01 -> Step 3
+  - **Action:**
+    1. Write unit tests to verify `isIntersecting` is initially `false`.
+    2. Write unit tests to verify the ref is correctly handled and `observe` is called.
+  - **Done‑when:**
+    1. Tests for initial state and ref handling pass.
+  - **Depends‑on:** [T001]
+- [ ] **T003 · Test · P1**: test `useIntersectionObserver` intersection behavior
+  - **Context:** Detailed Remedies -> cr-01 -> Step 4
+  - **Action:**
+    1. Write unit tests to verify `isIntersecting` becomes `true` when the mock observer triggers an intersection.
+  - **Done‑when:**
+    1. Tests for basic intersection behavior pass.
+  - **Depends‑on:** [T001]
+- [ ] **T004 · Test · P1**: test `useIntersectionObserver` `triggerOnce: true` option
+  - **Context:** Detailed Remedies -> cr-01 -> Step 5
+  - **Action:**
+    1. Write unit tests to verify that with `triggerOnce: true`, the observer unobserves and disconnects after the first intersection.
+  - **Done‑when:**
+    1. Tests for `triggerOnce: true` behavior pass.
+  - **Depends‑on:** [T001]
+- [ ] **T005 · Test · P1**: test `useIntersectionObserver` `triggerOnce: false` option
+  - **Context:** Detailed Remedies -> cr-01 -> Step 6
+  - **Action:**
+    1. Write unit tests to verify `isIntersecting` updates correctly on multiple intersections when `triggerOnce: false`.
+  - **Done‑when:**
+    1. Tests for `triggerOnce: false` behavior pass.
+  - **Depends‑on:** [T001]
+- [ ] **T006 · Test · P1**: test `useIntersectionObserver` `respectReducedMotion: true` option
+  - **Context:** Detailed Remedies -> cr-01 -> Step 7
+  - **Action:**
+    1. Mock `window.matchMedia('(prefers-reduced-motion: reduce)').matches`.
+    2. Write unit tests to verify `isIntersecting` is `true` immediately if `respectReducedMotion: true` and reduced motion is preferred.
+  - **Done‑when:**
+    1. Tests for `respectReducedMotion: true` behavior pass.
+  - **Depends‑on:** [T001]
+- [ ] **T007 · Test · P1**: test `useIntersectionObserver` unmount behavior
+  - **Context:** Detailed Remedies -> cr-01 -> Step 8
+  - **Action:**
+    1. Write unit tests to verify the observer is disconnected when the component unmounts.
+  - **Done‑when:**
+    1. Tests for unmount behavior pass.
+  - **Depends‑on:** [T001]
+- [ ] **T008 · Test · P1**: test `useIntersectionObserver` options passing
+  - **Context:** Detailed Remedies -> cr-01 -> Step 9
+  - **Action:**
+    1. Write unit tests to verify correct options (`threshold`, `rootMargin`) are passed to the `IntersectionObserver` constructor.
+  - **Done‑when:**
+    1. Tests for options passing pass.
+    2. All `useIntersectionObserver` tests collectively achieve >90% code coverage.
+  - **Depends‑on:** [T001]
+
+## CR-03 Remove Hardcoded Initial Styles from `AnimatedBackground`
+
+- [ ] **T009 · Refactor · P2**: remove inline `transform` styles from `AnimatedBackground` orbs
+  - **Context:** Detailed Remedies -> cr-03 -> Step 1
+  - **Action:**
+    1. In `components/ui/AnimatedBackground.tsx`, remove the inline `style` attributes for `transform` from the orb `div` elements.
+  - **Done‑when:**
+    1. Inline `transform` styles are removed.
+  - **Depends‑on:** none
+- [ ] **T010 · Refactor · P2**: verify/update CSS keyframes for `AnimatedBackground` initial orb state
+  - **Context:** Detailed Remedies -> cr-03 -> Steps 2, 3
+  - **Action:**
+    1. In `app/globals.css`, verify/update that the `0%` state of `@keyframes floatOrbOne` and `@keyframes floatOrbTwo` correctly defines their intended initial `transform` values.
+  - **Done‑when:**
+    1. CSS keyframes correctly define the initial `transform` for orbs.
   - **Verification:**
-    1. Verify the new branch exists on the remote repository.
+    1. Visually inspect `AnimatedBackground` component to ensure orbs start in the correct position and animate smoothly without jumps.
+  - **Depends‑on:** [T009]
+
+## CR-04 Refactor CSS Class Composition in `ScrollReveal`
+
+- [ ] **T011 · Refactor · P2**: refactor `ScrollReveal` class composition to use `clsx`
+  - **Context:** Detailed Remedies -> cr-04 -> Steps 1, 2, 3
+  - **Action:**
+    1. In `components/animation/ScrollReveal.tsx`, import `clsx`.
+    2. Refactor the `combinedClassName` logic to use `clsx`.
+  - **Done‑when:**
+    1. Class names in `ScrollReveal.tsx` are composed using `clsx`.
+  - **Verification:**
+    1. Test the `ScrollReveal` component with various `delay` and `duration` props to ensure correct classes are applied.
   - **Depends‑on:** none
 
-- [x] **T002 · Chore · P1: measure current bundle size and capture animation baselines**
+## CR-02 Implement Page Fade-In with Pure CSS
 
-  - **Context:** PLAN.md > Implementation Steps > 1. Measure Current Bundle Size
+- [ ] **T012 · Refactor · P2**: remove JS fade-in logic from specified page components
+  - **Context:** Detailed Remedies -> cr-02 -> Step 1
   - **Action:**
-    1. Use Next.js built-in tools to measure and document the current JavaScript bundle size.
-    2. Take screenshots and/or video recordings of all current Framer Motion animations to establish a visual baseline.
+    1. In `app/page.tsx`, `app/test-page-fade-in/page.tsx`, and `app/test-all-animations/page.tsx`, remove the `useState` and `useEffect` hooks used for the fade-in effect.
   - **Done‑when:**
-    1. Current bundle size metrics are recorded (e.g., in project documentation or a dedicated file).
-    2. Visual baselines (screenshots/recordings) of all affected animations are saved in a designated project folder (e.g., `docs/animation_baselines/before`).
+    1. JavaScript-based fade-in logic is removed from the specified page components.
+  - **Depends‑on:** none
+- [ ] **T013 · Refactor · P2**: apply CSS animation class directly to page containers for fade-in
+  - **Context:** Detailed Remedies -> cr-02 -> Step 2
+  - **Action:**
+    1. In the JSX of `app/page.tsx`, `app/test-page-fade-in/page.tsx`, and `app/test-all-animations/page.tsx`, apply the `fade-in` CSS class (or equivalent) directly to the main page container element.
+  - **Done‑when:**
+    1. The animation-triggering CSS class is applied directly in the JSX of specified page components.
+  - **Depends‑on:** [T012]
+- [ ] **T014 · Refactor · P2**: ensure CSS correctly defines pure CSS page fade-in animation
+  - **Context:** Detailed Remedies -> cr-02 -> Steps 3, 4
+  - **Action:**
+    1. Ensure the corresponding CSS animation (e.g., in `app/globals.css`) defines the initial state (e.g., `opacity: 0`), animates to the final state (`opacity: 1`), and uses `animation-fill-mode: forwards;`.
+  - **Done‑when:**
+    1. CSS for page fade-in is correctly implemented.
   - **Verification:**
-    1. Confirm bundle size report is clear and comprehensive.
-    2. Verify visual baselines clearly capture the behavior of current animations.
+    1. Visually verify the fade-in effect on page load for `app/page.tsx`, `app/test-page-fade-in/page.tsx`, and `app/test-all-animations/page.tsx`, ensuring no FOUC.
+  - **Depends‑on:** [T013]
+
+## CR-05 Add Explicit Return Types to Page Components
+
+- [ ] **T015 · Chore · P2**: add explicit return types to specified page components
+  - **Context:** Detailed Remedies -> cr-05 -> Steps 1, 2, 3
+  - **Action:**
+    1. Identify all new `page.tsx` files under `app/test-*` and `app/page.tsx`.
+    2. For each exported functional component, add an explicit return type (e.g., `: React.ReactNode` or `: JSX.Element`).
+  - **Done‑when:**
+    1. All specified page components have explicit return types.
+    2. `pnpm type-check` (or equivalent) passes without new type errors.
   - **Depends‑on:** none
 
-- [x] **T003 · Feature · P1: implement css animation utilities with reduced motion support**
+## CR-06 Implement Automated Accessibility (a11y) Checks
 
-  - **Context:** PLAN.md > Implementation Steps > 2. Create CSS Animation Utilities; Architecture Approach > New Components/Files to Create > 2; Risk Mitigation > Visual Differences, Accessibility
+- [ ] **T016 · Chore · P1**: install and configure `jest-axe`
+  - **Context:** Detailed Remedies -> cr-06 -> Step 1
   - **Action:**
-    1. Add CSS animation classes (e.g., `.fade-in`, `.slide-up`) and associated `@keyframes` to `app/globals.css`.
-    2. Utilize CSS variables for animation parameters (timing, easing, etc.) for consistency.
-    3. Implement `@media (prefers-reduced-motion: reduce)` overrides to disable or significantly reduce these animations.
-  - **Code Area:** `app/globals.css`
+    1. Install `jest-axe` as a dev dependency.
+    2. Configure `jest-axe` with the existing test runner (Jest/Vitest).
   - **Done‑when:**
-    1. A set of reusable CSS animation utility classes and keyframes are defined in `app/globals.css`.
-    2. CSS variables are used for animation parameters.
-    3. Animations correctly respect the `prefers-reduced-motion` media query.
-  - **Verification:**
-    1. Create a test page or use Storybook to visually verify each animation utility class.
-    2. Toggle the `prefers-reduced-motion` setting in browser/OS to confirm animations are disabled/reduced.
+    1. `jest-axe` is installed and configured for use in tests.
   - **Depends‑on:** none
-
-- [x] **T004 · Feature · P1: implement `useIntersectionObserver` react hook**
-
-  - **Context:** PLAN.md > Implementation Steps > 3. Create Intersection Observer Hook; Architecture Approach > New Components/Files to Create > 1
+- [ ] **T017 · Test · P1**: add `jest-axe` checks to animation components and page tests
+  - **Context:** Detailed Remedies -> cr-06 -> Step 2
   - **Action:**
-    1. Create the custom React hook `useIntersectionObserver` in `lib/utils/use-intersection-observer.ts`.
-    2. Implement logic to handle the `triggerOnce` behavior (unobserve after the first intersection).
-    3. Ensure proper cleanup (disconnecting the observer) in `useEffect` return statement.
-  - **Code Area:** `lib/utils/use-intersection-observer.ts`
+    1. Add `axe` checks to new or existing unit/integration tests for `ScrollReveal`, `AnimatedBackground`.
+    2. Add `axe` checks to tests for pages utilizing these animations (e.g., `app/test-all-animations/page.tsx`).
   - **Done‑when:**
-    1. The `useIntersectionObserver` hook is implemented, exported, and includes `triggerOnce` functionality.
-    2. The hook correctly cleans up the IntersectionObserver instance on component unmount.
-    3. Hook is unit tested for its core functionalities.
-  - **Verification:**
-    1. Test the hook in a sample component to confirm it correctly detects intersection and respects `triggerOnce`.
-    2. Verify via browser dev tools or logs that the observer is disconnected on unmount.
+    1. `jest-axe` checks are implemented for specified components and pages, and these tests pass.
+  - **Depends‑on:** [T016]
+- [ ] **T018 · Chore · P1**: create/update Storybook stories for `ScrollReveal` and `AnimatedBackground`
+  - **Context:** Detailed Remedies -> cr-06 -> Step 3
+  - **Action:**
+    1. Create or update Storybook stories for `ScrollReveal` and `AnimatedBackground` components, covering various states and props.
+  - **Done‑when:**
+    1. Storybook stories for `ScrollReveal` and `AnimatedBackground` are complete and accurately represent component usage.
   - **Depends‑on:** none
-
-- [x] **T005 · Refactor · P1: refactor `AnimatedBackground` component to use css animations**
-
-  - **Context:** PLAN.md > Implementation Steps > 4. Refactor AnimatedBackground Component; Architecture Approach > Components Affected > 3; Risk Mitigation > Visual Differences
+- [ ] **T019 · Chore · P1**: install and configure Storybook a11y addon
+  - **Context:** Detailed Remedies -> cr-06 -> Step 4
   - **Action:**
-    1. Remove Framer Motion dependencies and usage from `components/ui/AnimatedBackground.tsx`.
-    2. Replace existing animations with pure CSS `@keyframes` animations, utilizing utilities from T003 if applicable.
-  - **Code Area:** `components/ui/AnimatedBackground.tsx`
+    1. Install the Storybook a11y addon.
+    2. Configure the addon in the Storybook setup.
   - **Done‑when:**
-    1. `AnimatedBackground.tsx` uses only CSS for its animations.
-    2. The visual appearance and behavior of the background animation closely match the original baseline (from T002).
-    3. Animation respects `prefers-reduced-motion` settings (as implemented in T003).
+    1. Storybook a11y addon is installed and configured.
   - **Verification:**
-    1. Visually compare the refactored component's animation against the baseline recordings/screenshots.
-    2. Test with `prefers-reduced-motion` enabled.
-  - **Depends‑on:** [T002, T003]
-
-- [x] **T006 · Refactor · P1: refactor page-level fade-in on `app/page.tsx` to css**
-
-  - **Context:** PLAN.md > Implementation Steps > 5. Refactor Page-Level Fade-in; Architecture Approach > Components Affected > 1; Risk Mitigation > Visual Differences
+    1. The a11y panel/tab is visible and functional in Storybook.
+  - **Depends‑on:** none
+- [ ] **T020 · Test · P1**: verify `ScrollReveal` & `AnimatedBackground` pass Storybook a11y checks
+  - **Context:** Detailed Remedies -> cr-06 -> Step 5 (Storybook part)
   - **Action:**
-    1. Remove the `motion.div` wrapper and any associated Framer Motion logic from `app/page.tsx`.
-    2. Apply a CSS class (e.g., `.fade-in` from T003) to the main content container to achieve the fade-in effect.
-  - **Code Area:** `app/page.tsx`
+    1. Using the Storybook a11y addon, verify that `ScrollReveal` and `AnimatedBackground` stories pass accessibility checks.
   - **Done‑when:**
-    1. The page-level fade-in animation in `app/page.tsx` is implemented using only CSS.
-    2. The visual appearance and timing of the fade-in match the original baseline (from T002).
-    3. Animation respects `prefers-reduced-motion` settings (as implemented in T003).
-  - **Verification:**
-    1. Load `app/page.tsx` and visually compare the fade-in animation against the baseline.
-    2. Test with `prefers-reduced-motion` enabled.
-  - **Depends‑on:** [T002, T003]
-
-- [x] **T007 · Refactor · P1: refactor `ScrollReveal` component to use css and intersectionobserver**
-
-  - **Context:** PLAN.md > Implementation Steps > 6. Refactor ScrollReveal Component; Architecture Approach > Components Affected > 2; Risk Mitigation > Visual Differences
+    1. `ScrollReveal` and `AnimatedBackground` components pass a11y checks in Storybook.
+  - **Depends‑on:** [T018, T019]
+- [ ] **T021 · Chore · P1**: integrate automated a11y checks into CI pipeline
+  - **Context:** Detailed Remedies -> cr-06 -> Step 6 (and CI part of Step 5)
   - **Action:**
-    1. Remove Framer Motion dependencies and usage from `components/animation/ScrollReveal.tsx`.
-    2. Integrate the `useIntersectionObserver` hook (T004) to toggle CSS classes (from T003) that trigger animations.
-    3. Ensure the component's props API (timing, delay, thresholds) is maintained and mapped to CSS/hook options.
-  - **Code Area:** `components/animation/ScrollReveal.tsx`
+    1. Integrate `jest-axe` checks (as part of the test suite run) into the CI pipeline.
+    2. If feasible, integrate Storybook a11y addon checks into the CI pipeline.
   - **Done‑when:**
-    1. `ScrollReveal.tsx` uses CSS transitions/animations triggered by class changes via `useIntersectionObserver`.
-    2. The component maintains its props API for custom animation timing, delay, and thresholds.
-    3. The visual appearance and behavior of scroll-triggered animations match the original baseline (from T002).
-    4. Animations respect `prefers-reduced-motion` settings (as implemented in T003).
-  - **Verification:**
-    1. Test the `ScrollReveal` component on a page with scrollable content.
-    2. Verify that animations trigger correctly based on intersection and props.
-    3. Visually compare against baselines and test with `prefers-reduced-motion` enabled.
-  - **Depends‑on:** [T002, T003, T004]
+    1. Automated a11y checks are part of the CI pipeline.
+    2. The CI pipeline passes these checks.
+  - **Depends‑on:** [T017, T020]
 
-- [x] **T008 · Test · P1: perform visual testing of all refactored animations**
+### Clarifications & Assumptions
 
-  - **Context:** PLAN.md > Testing Strategy > 1. Visual Testing
-  - **Action:**
-    1. Test all refactored animations (page fade-in, background, scroll reveal) on designated test pages (e.g., `/test-*` routes) or relevant application pages.
-    2. Compare the visual appearance and behavior with the original animation baselines (from T002).
-    3. Test responsive behavior of animations on different screen sizes.
-  - **Done‑when:**
-    1. Visual appearance and animation quality remain consistent with the original animations, or deviations are documented and accepted.
-    2. Animations behave correctly across different screen sizes.
-  - **Verification:**
-    1. Conduct side-by-side visual comparisons with baselines from T002.
-    2. Use browser developer tools to simulate various screen sizes.
-  - **Depends‑on:** [T002, T005, T006, T007]
-
-- [x] **T009 · Test · P1: perform accessibility testing for animations**
-
-  - **Context:** PLAN.md > Testing Strategy > 2. Accessibility Testing; Risk Mitigation > Accessibility
-  - **Action:**
-    1. Verify that all refactored animations correctly respect the `prefers-reduced-motion` setting (as implemented in T003).
-    2. Ensure that content remains fully accessible and usable if animations fail or are disabled.
-  - **Done‑when:**
-    1. Animations are disabled or reduced appropriately when `prefers-reduced-motion` is active.
-    2. Content is accessible and readable even if CSS animations do not run.
-  - **Verification:**
-    1. Enable `prefers-reduced-motion` in OS/browser settings and observe animation behavior.
-    2. Temporarily disable CSS animations (e.g., via browser dev tools) and verify content accessibility.
-  - **Depends‑on:** [T003, T005, T006, T007]
-
-- [x] **T010 · Test · P1: perform browser compatibility testing for animations**
-
-  - **Context:** PLAN.md > Testing Strategy > 3. Browser Compatibility Testing; Risk Mitigation > Browser Compatibility
-  - **Action:**
-    1. Test all refactored animations on all supported browsers (Chrome, Firefox, Safari, Edge).
-    2. Verify graceful degradation of animations where CSS features might have limited support.
-    3. Check for any console errors or significant performance issues related to animations.
-  - **Done‑when:**
-    1. Animations work correctly and consistently across all supported browsers.
-    2. Graceful degradation is confirmed where applicable.
-    3. No new console errors or performance regressions are introduced by the CSS animations.
-  - **Verification:**
-    1. Manually test each animation on the latest stable versions of Chrome, Firefox, Safari, and Edge.
-  - **Depends‑on:** [T005, T006, T007]
-
-- [x] **T011 · Chore · P1: remove framer motion dependency from project**
-
-  - **Context:** PLAN.md > Implementation Steps > 8. Remove Framer Motion Dependency
-  - **Action:**
-    1. Execute `pnpm remove framer-motion`.
-    2. Verify that `framer-motion` is removed from `package.json` and the project's lock file.
-    3. Perform a codebase search to ensure no remaining Framer Motion imports or usages
-  - **Done‑when:**
-    1. Framer Motion is completely removed from the project's dependencies.
-    2. No import statements or usage of Framer Motion remain in the codebase.
-  - **Verification:**
-    1. Verify the package.json does not contain `framer-motion`.
-    2. Run a project-wide search for `framer-motion` and `import { motion }` to ensure all references are removed.
-  - **Depends‑on:** [T005, T006, T007]
-
-- [x] **T012 · Chore · P1: measure new bundle size and document improvements**
-
-  - **Context:** PLAN.md > Implementation Steps > 9. Measure New Bundle Size
-  - **Action:**
-    1. Use the same tools from T002 to measure the new JavaScript bundle size.
-    2. Calculate and document the bundle size reduction achieved.
-  - **Done‑when:**
-    1. New bundle size metrics are recorded in the same format as in T002.
-    2. The size reduction is documented (absolute and percentage).
-  - **Verification:**
-    1. Confirm the comparison between the original and new bundle sizes is accurate and clear.
-  - **Depends‑on:** [T011]
-
-- [x] **T013 · Cleanup · P1: perform final code cleanup and documentation**
-
-  - **Context:** PLAN.md > Implementation Steps > 10. Code Cleanup and Documentation
-  - **Action:**
-    1. Ensure all code is properly formatted and linted.
-    2. Add appropriate comments explaining the CSS animation approach where needed.
-    3. Update documentation (e.g., README, CLAUDE.md) regarding animation approach if necessary.
-  - **Done‑when:**
-    1. Code is clean, well-commented, and follows project standards.
-    2. Documentation accurately reflects the new approach to animations (CSS-only).
-  - **Verification:**
-    1. Verify code passes linting and type checking (`pnpm lint`, `pnpm type-check`).
-    2. Review documentation for accuracy and clarity.
-  - **Depends‑on:** [T011]
-
-- [x] **T014 · Pull Request · P1: create pull request linking to issue #8**
-  - **Context:** PLAN.md > Acceptance Criteria
-  - **Action:**
-    1. Push all changes to the feature branch.
-    2. Create a pull request on GitHub.
-    3. Include "Fixes #8" in the PR description to link it to issue #8.
-    4. Fill out the PR template with details of the changes made.
-  - **Done‑when:**
-    1. Pull request is created and linked to issue #8.
-    2. PR description includes details about the CSS animation approach, bundle size reduction, and testing performed.
-  - **Verification:**
-    1. Verify the PR links correctly to issue #8.
-    2. Ensure PR passes CI checks and is ready for review.
-  - **Depends‑on:** [T012, T013]
+- [ ] **Issue:** Confirm specific list of "pages utilizing these animations" for `jest-axe` checks in T017 beyond `ScrollReveal` and `AnimatedBackground` components themselves.
+  - **Context:** cr-06, Step 2. Assumed to include pages like `app/test-all-animations/page.tsx` as an example.
+  - **Blocking?:** no
+```
