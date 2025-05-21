@@ -11,14 +11,16 @@ const mockDisconnect = jest.fn();
 declare global {
   interface Window {
     IntersectionObserverOriginal?: typeof IntersectionObserver;
+    matchMediaOriginal?: typeof window.matchMedia;
   }
 }
 
 beforeAll(() => {
-  // Store original
+  // Store originals
   window.IntersectionObserverOriginal = window.IntersectionObserver;
+  window.matchMediaOriginal = window.matchMedia;
 
-  // Mock implementation
+  // Mock IntersectionObserver implementation
   mockIntersectionObserver.mockImplementation((callback) => {
     return {
       observe: mockObserve,
@@ -33,10 +35,13 @@ beforeAll(() => {
   window.IntersectionObserver = mockIntersectionObserver;
 });
 
-// Restore original implementation
+// Restore original implementations
 afterAll(() => {
   if (window.IntersectionObserverOriginal) {
     window.IntersectionObserver = window.IntersectionObserverOriginal;
+  }
+  if (window.matchMediaOriginal) {
+    window.matchMedia = window.matchMediaOriginal;
   }
 });
 
@@ -289,5 +294,92 @@ describe('useIntersectionObserver hook', () => {
 
     // unobserve should still not have been called, confirming continuous observation
     expect(mockUnobserve).not.toHaveBeenCalled();
+  });
+
+  // Test 6: Verify respectReducedMotion: true behavior
+  it('should immediately set isIntersecting to true when user prefers reduced motion', () => {
+    // Mock matchMedia to return true for prefers-reduced-motion
+    const mockMatchMedia = jest.fn().mockImplementation((query) => ({
+      matches: query === '(prefers-reduced-motion: reduce)',
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+    }));
+
+    // Replace window.matchMedia with our mock
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: mockMatchMedia,
+    });
+
+    // Render the hook with default options (respectReducedMotion: true by default)
+    const { result } = renderHook(() => useIntersectionObserver());
+
+    // isIntersecting should immediately be true due to reduced motion preference
+    expect(result.current[1]).toBe(true);
+
+    // Verify that matchMedia was called with the correct query
+    expect(mockMatchMedia).toHaveBeenCalledWith('(prefers-reduced-motion: reduce)');
+
+    // Verify that no IntersectionObserver was created since we're respecting reduced motion
+    expect(mockIntersectionObserver).not.toHaveBeenCalled();
+
+    // Cleanup: Reset the mock after this test
+    mockMatchMedia.mockClear();
+  });
+
+  // Test 7: Verify respectReducedMotion: false ignores user preference
+  it('should ignore reduced motion preference when respectReducedMotion is false', () => {
+    // Mock matchMedia to return true for prefers-reduced-motion
+    const mockMatchMedia = jest.fn().mockImplementation((query) => ({
+      matches: query === '(prefers-reduced-motion: reduce)',
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+    }));
+
+    // Replace window.matchMedia with our mock
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: mockMatchMedia,
+    });
+
+    // Create a fake observer object to be returned by the mock
+    const mockObserverInstance = {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+    };
+
+    // Override the global mock for this specific test
+    mockIntersectionObserver.mockImplementation(() => {
+      return mockObserverInstance;
+    });
+
+    // Create a ref to a DOM element
+    const mockElement = document.createElement('div');
+    const mockRef = { current: mockElement };
+
+    // Render the hook with respectReducedMotion: false
+    const { result } = renderHook(() => {
+      const [ref, isIntersecting, entry] = useIntersectionObserver({ respectReducedMotion: false });
+
+      // Set the ref current value in the first render
+      if (!ref.current) {
+        ref.current = mockRef.current;
+      }
+
+      return [ref, isIntersecting, entry];
+    });
+
+    // isIntersecting should be false initially (normal behavior, ignoring reduced motion)
+    expect(result.current[1]).toBe(false);
+
+    // Verify that an IntersectionObserver was created despite the user's reduced motion preference
+    expect(mockIntersectionObserver).toHaveBeenCalled();
+
+    // Verify observe was called with our mock element
+    expect(mockObserve).toHaveBeenCalledWith(mockElement);
+
+    // Cleanup: Reset the mock after this test
+    mockMatchMedia.mockClear();
   });
 });

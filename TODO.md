@@ -40,7 +40,7 @@
   - **Done‑when:**
     1. Tests for `triggerOnce: false` behavior pass.
   - **Depends‑on:** [T001]
-- [ ] **T006 · Test · P1**: test `useIntersectionObserver` `respectReducedMotion: true` option
+- [x] **T006 · Test · P1**: test `useIntersectionObserver` `respectReducedMotion: true` option
   - **Context:** Detailed Remedies -> cr-01 -> Step 7
   - **Action:**
     1. Mock `window.matchMedia('(prefers-reduced-motion: reduce)').matches`.
