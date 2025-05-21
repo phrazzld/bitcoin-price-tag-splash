@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import ScrollReveal from '@/components/animation/ScrollReveal';
@@ -12,13 +12,15 @@ import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
 
 export default function Home(): React.ReactNode {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Set isLoaded to true after component mounts to trigger the fade-in animation
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="relative"
-    >
+    <div className={`relative ${isLoaded ? 'fade-in' : 'opacity-0'}`}>
       <AnimatedBackground />
       <Navigation />
       <main className="relative z-10">
@@ -37,6 +39,6 @@ export default function Home(): React.ReactNode {
         </ScrollReveal>
       </main>
       <Footer />
-    </motion.div>
+    </div>
   );
 }

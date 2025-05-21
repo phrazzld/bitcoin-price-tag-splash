@@ -27,7 +27,7 @@
     2. Verify visual baselines clearly capture the behavior of current animations.
   - **Depends‑on:** none
 
-- [ ] **T003 · Feature · P1: implement css animation utilities with reduced motion support**
+- [x] **T003 · Feature · P1: implement css animation utilities with reduced motion support**
 
   - **Context:** PLAN.md > Implementation Steps > 2. Create CSS Animation Utilities; Architecture Approach > New Components/Files to Create > 2; Risk Mitigation > Visual Differences, Accessibility
   - **Action:**
@@ -44,7 +44,7 @@
     2. Toggle the `prefers-reduced-motion` setting in browser/OS to confirm animations are disabled/reduced.
   - **Depends‑on:** none
 
-- [ ] **T004 · Feature · P1: implement `useIntersectionObserver` react hook**
+- [x] **T004 · Feature · P1: implement `useIntersectionObserver` react hook**
 
   - **Context:** PLAN.md > Implementation Steps > 3. Create Intersection Observer Hook; Architecture Approach > New Components/Files to Create > 1
   - **Action:**

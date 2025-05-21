@@ -1,45 +1,45 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+import React from 'react';
+import useIntersectionObserver from '@/lib/utils/use-intersection-observer';
 
 interface ScrollRevealProps {
   children: React.ReactNode;
-  yOffset?: number;
-  duration?: number;
-  delay?: number;
+  threshold?: number;
+  triggerOnce?: boolean;
   className?: string;
+  // Delay options align with the CSS utility classes
+  delay?: 'none' | 'short' | 'medium';
+  // Duration options align with the CSS utility classes
+  duration?: 'short' | 'medium' | 'long';
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
-  yOffset = 40,
-  duration = 0.6,
-  delay = 0,
-  className,
+  threshold = 0.15,
+  triggerOnce = true,
+  className = '',
+  delay = 'none',
+  duration = 'medium',
 }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    amount: 0.15,
-    margin: '0px 0px -100px 0px',
+  const [ref, isIntersecting] = useIntersectionObserver<HTMLDivElement>({
+    threshold,
+    triggerOnce,
+    rootMargin: '0px 0px -100px 0px', // Same as the original margin
   });
-  const prefersReducedMotion = useReducedMotion();
+
+  // Combine the animation state classes with any additional classes
+  const combinedClassName = `
+    ${className}
+    ${isIntersecting ? 'scroll-reveal-final' : 'scroll-reveal-initial'}
+    delay-${delay}
+    duration-${duration}
+  `;
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: yOffset, scale: 0.95 }}
-      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: yOffset, scale: 0.95 }}
-      transition={{
-        duration: prefersReducedMotion ? 0 : duration,
-        delay: prefersReducedMotion ? 0 : delay,
-        ease: [0.25, 0.1, 0.25, 1],
-      }}
-      className={className}
-    >
+    <div ref={ref} className={combinedClassName.trim()}>
       {children}
-    </motion.div>
+    </div>
   );
 };
 
