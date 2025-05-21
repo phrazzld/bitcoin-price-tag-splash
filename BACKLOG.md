@@ -4,30 +4,6 @@
 
 ### Foundations & Developer Experience
 
-- ✅ **[COMPLETED] Formalize Prettier Integration for Consistent Code Formatting**
-
-  - **Complexity**: Simple
-  - **Rationale**: Ensures non-negotiable code style consistency across the project, improving readability and reducing cognitive load, aligning with _Formatting (TypeScript Appendix 2)_ and _Coding Standards_.
-  - **Expected Outcome**: Prettier fully configured (`.prettierrc.js` or similar, `.prettierignore`). Integrated with pre-commit hooks and a CI check for formatting.
-  - **Dependencies**: None
-  - **Completed in PR #1**: Configured Prettier with `.prettierrc.js` and `.prettierignore`, integrated with pre-commit hooks via Husky and lint-staged.
-
-- ✅ **[COMPLETED] Strengthen ESLint Configuration and Enforce Stricter Type Checking**
-
-  - **Complexity**: Medium
-  - **Rationale**: Improves code quality, type safety, and early bug detection through more rigorous static analysis. Aligns with _Coding Standards (TypeScript Appendix 3)_, _Maximize Language Strictness_, and _Leverage Types Diligently_.
-  - **Expected Outcome**: `eslint.config.mjs` updated with stricter rules (e.g., `plugin:@typescript-eslint/recommended-requiring-type-checking`, `no-explicit-any` violations fixed). Existing codebase compliant.
-  - **Dependencies**: None
-  - **Completed in PR #1**: Created `eslint.config.mjs` with strict TypeScript-aware rules, fixed all type and linting violations in the codebase.
-
-- ✅ **[COMPLETED] Implement Pre-commit Hooks for Automated Code Quality Checks**
-
-  - **Complexity**: Medium
-  - **Rationale**: Enforces coding standards locally before commits, reducing CI build failures and improving code consistency from the start. Aligns with _Automate Everything (Core Philosophy 6.1)_.
-  - **Expected Outcome**: Husky and lint-staged configured to automatically run linters (ESLint) and formatters (Prettier) before each commit.
-  - **Dependencies**: Formalize Prettier Integration, Strengthen ESLint Configuration
-  - **Completed in PR #1**: Set up Husky with pre-commit hooks that run lint-staged for formatting and linting, added type-checking to prevent type errors.
-
 - **[Enhancement] Implement Automated Testing Foundation for Core Components**
 
   - **Complexity**: Large
@@ -35,27 +11,11 @@
   - **Expected Outcome**: Basic test infrastructure (e.g., Jest/Vitest with React Testing Library) configured. Initial unit/integration tests for critical UI components (e.g., Button, Container) and one key interactive section (e.g., HeroSection).
   - **Dependencies**: None
 
-- ✅ **[COMPLETED] Establish Basic CI Pipeline for Linting, Building, and Testing**
-
-  - **Complexity**: Medium
-  - **Rationale**: Automates essential quality checks, providing rapid feedback and ensuring code merged to the main branch is verified. Aligns with _Automate Everything (Core Philosophy 6.2)_ and _Testing Strategy_.
-  - **Expected Outcome**: A CI pipeline (e.g., using GitHub Actions) that runs on every push and pull request, including stages for code linting, application building, and running automated tests.
-  - **Dependencies**: Implement Automated Testing Foundation, Strengthen ESLint Configuration, Formalize Prettier Integration
-  - **Completed in PR #1**: Created a GitHub Actions workflow in `.github/workflows/ci.yml` that runs formatting checks, linting, and builds the application on every push and pull request.
-
-- ✅ **[COMPLETED] Update Root README.md with Comprehensive Project-Specific Information**
-
-  - **Complexity**: Small
-  - **Rationale**: Provides an accurate, helpful entry point for new developers and contributors, facilitating smoother onboarding and project understanding. Aligns with _Documentation Approach (Core Philosophy 7.2)_.
-  - **Expected Outcome**: `README.md` updated with project purpose, pnpm-specific setup, key scripts, architecture overview, and link to development philosophy.
-  - **Dependencies**: None
-  - **Completed in PR #1**: Updated README.md with project description, pnpm setup instructions, and development standards information. Added a comprehensive CONTRIBUTING.md with detailed code quality guidelines.
-
 - **[Feature] Enforce Conventional Commits and Set Up Automated Changelog Generation**
   - **Complexity**: Medium
   - **Rationale**: Creates a standardized, readable commit history, enabling automated semantic versioning and changelog generation. Aligns with _Semantic Versioning and Release Automation (Core Philosophy)_.
   - **Expected Outcome**: Tools like `commitlint` integrated to enforce Conventional Commits. Automated changelog generation (e.g., using `standard-version` or `semantic-release`) configured.
-  - **Dependencies**: CI Pipeline (for release automation integration)
+  - **Dependencies**: None
 
 ### Component Architecture & Design System
 
@@ -107,7 +67,7 @@
   - **Complexity**: Medium
   - **Rationale**: Validates critical user pathways end-to-end, ensuring core functionality remains intact and preventing regressions in key interactions. Aligns with _Testability_ and _Testing Strategy (Frontend Appendix)_.
   - **Expected Outcome**: An E2E testing framework (e.g., Playwright or Cypress) set up. Initial E2E tests for one primary user flow (e.g., splash page rendering, CTA interactivity).
-  - **Dependencies**: Establish Basic CI Pipeline for Linting, Building, and Testing
+  - **Dependencies**: None
 
 ## Medium Priority
 
@@ -118,7 +78,7 @@
   - **Complexity**: Small
   - **Rationale**: Facilitates easier onboarding for new developers and ensures clear configuration requirements for deployment. Aligns with _Configuration Management (Core Philosophy)_ and _Documentation Approach (Core Philosophy 7.2)_.
   - **Expected Outcome**: `.env.example` file created listing all required environment variables with descriptions. Usage documented in `README.md`.
-  - **Dependencies**: Update Root README.md with Comprehensive Project-Specific Information
+  - **Dependencies**: None
 
 - **[Enhancement] Update tsconfig.json to Target a Modern ECMAScript Version & Stricter Settings**
   - **Complexity**: Small
@@ -141,14 +101,6 @@
   - **Rationale**: Enforces a single, standardized method for displaying icons, improving component modularity and making icon set updates easier. Aligns with _Modularity_ and _Component Architecture (Frontend Appendix 1)_.
   - **Expected Outcome**: All direct icon library imports in components like `FeaturesSection.tsx` replaced with usage of the standardized `Icon` wrapper component.
   - **Dependencies**: None
-
-- ✅ **[COMPLETED] Resolve FeatureCard Icon Prop Type Mismatch for Type Safety**
-
-  - **Complexity**: Small
-  - **Rationale**: Corrects a type inconsistency, preventing potential runtime errors and improving component API clarity. Aligns with _Leverage Types Diligently (Coding Standards 2.2)_.
-  - **Expected Outcome**: `FeatureCard`'s `icon` prop type changed to `React.ReactNode` or `FeaturesSection` updated to pass an `IconName` string, ensuring type consistency.
-  - **Dependencies**: Ensure Consistent Usage of Standardized Icon Component (if deciding on `IconName`)
-  - **Completed in PR #1**: Fixed the type mismatch by updating the `FeaturesSection` component to use `IconName` string values that match the `FeatureCard` prop type requirements.
 
 - **[Research] Evaluate and Decide on shadcn/ui Integration Strategy**
   - **Complexity**: Medium
@@ -210,7 +162,7 @@
   - **Complexity**: Small
   - **Rationale**: Proactively detects known security vulnerabilities in project dependencies, reducing security risks. Aligns with _Security #3 (Core Philosophy)_ and _Automate Everything_.
   - **Expected Outcome**: CI pipeline includes a step to run `pnpm audit --audit-level=high` (or similar), failing the build if high/critical vulnerabilities are found.
-  - **Dependencies**: Establish Basic CI Pipeline for Linting, Building, and Testing
+  - **Dependencies**: None
 
 - **[Refactor] Audit and Remove Unused Project Dependencies**
 
@@ -222,4 +174,5 @@
 - **[Enhancement] Implement Barrel Files for Key Component and Utility Modules**
   - **Complexity**: Small
   - **Rationale**: Simplifies import statements and improves module organization for commonly used components and utilities.
-  - **Expected Outcome**: `index.ts` files created for key directories (
+  - **Expected Outcome**: `index.ts` files created for key directories
+  - **Dependencies**: None
