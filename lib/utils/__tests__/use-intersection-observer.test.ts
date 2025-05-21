@@ -51,6 +51,22 @@ beforeEach(() => {
   mockObserve.mockClear();
   mockUnobserve.mockClear();
   mockDisconnect.mockClear();
+
+  // Reset to default implementation
+  mockIntersectionObserver.mockImplementation((callback) => {
+    return {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+      // Store callback for our tests to use
+      __callback: callback,
+    };
+  });
+
+  // Reset window.matchMedia to original if it was mocked
+  if (window.matchMediaOriginal) {
+    window.matchMedia = window.matchMediaOriginal;
+  }
 });
 
 // Helper to create mock entries
@@ -381,5 +397,55 @@ describe('useIntersectionObserver hook', () => {
 
     // Cleanup: Reset the mock after this test
     mockMatchMedia.mockClear();
+  });
+
+  // Test 8: Verify observer cleanup on component unmount
+  it('should disconnect and unobserve when component unmounts', () => {
+    // Create a fake observer object to be returned by the mock
+    const mockObserverInstance = {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+    };
+
+    // Override the global mock for this specific test
+    mockIntersectionObserver.mockImplementation(() => {
+      return mockObserverInstance;
+    });
+
+    // Create a ref to a DOM element
+    const mockElement = document.createElement('div');
+    const mockRef = { current: mockElement };
+
+    // Render the hook with a ref element
+    const { unmount } = renderHook(() => {
+      const [ref, isIntersecting, entry] = useIntersectionObserver();
+
+      // Set the ref current value in the first render
+      if (!ref.current) {
+        ref.current = mockRef.current;
+      }
+
+      return [ref, isIntersecting, entry];
+    });
+
+    // Verify that an IntersectionObserver was created and observe was called
+    expect(mockIntersectionObserver).toHaveBeenCalled();
+    expect(mockObserve).toHaveBeenCalledWith(mockElement);
+
+    // Clear the mocks to ensure we're only testing unmount behavior
+    mockUnobserve.mockClear();
+    mockDisconnect.mockClear();
+
+    // Unmount the component
+    unmount();
+
+    // Verify that cleanup was performed
+    expect(mockUnobserve).toHaveBeenCalledWith(mockElement);
+    expect(mockDisconnect).toHaveBeenCalled();
+
+    // Verify that both cleanup functions were called exactly once
+    expect(mockUnobserve).toHaveBeenCalledTimes(1);
+    expect(mockDisconnect).toHaveBeenCalledTimes(1);
   });
 });

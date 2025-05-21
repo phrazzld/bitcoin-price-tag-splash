@@ -48,7 +48,7 @@
   - **Done‑when:**
     1. Tests for `respectReducedMotion: true` behavior pass.
   - **Depends‑on:** [T001]
-- [ ] **T007 · Test · P1**: test `useIntersectionObserver` unmount behavior
+- [x] **T007 · Test · P1**: test `useIntersectionObserver` unmount behavior
   - **Context:** Detailed Remedies -> cr-01 -> Step 8
   - **Action:**
     1. Write unit tests to verify the observer is disconnected when the component unmounts.
