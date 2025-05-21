@@ -1,25 +1,23 @@
-import Icon, { type IconName } from "@/components/ui/Icon";
+import Icon, { type IconName } from '@/components/ui/Icon';
 
 const iconNames: IconName[] = [
-  "check",
-  "zap",
-  "shield",
-  "download",
-  "star",
-  "chevronRight",
-  "globe",
-  "dollarSign",
-  "refreshCw",
+  'check',
+  'zap',
+  'shield',
+  'download',
+  'star',
+  'chevronRight',
+  'globe',
+  'dollarSign',
+  'refreshCw',
 ];
 
-export default function TestIconsPage() {
+export default function TestIconsPage(): React.ReactNode {
   return (
     <main className="min-h-screen bg-gray-100 p-16">
       <div className="space-y-8">
         <div>
-          <h2 className="text-xl font-bold mb-4">
-            Default Icons (24px, 2px stroke)
-          </h2>
+          <h2 className="text-xl font-bold mb-4">Default Icons (24px, 2px stroke)</h2>
           <div className="flex gap-4 items-center bg-white p-4 rounded">
             {iconNames.map((name) => (
               <div key={name} className="text-center">

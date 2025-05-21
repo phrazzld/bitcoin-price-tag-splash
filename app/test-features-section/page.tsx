@@ -1,7 +1,7 @@
-import Navigation from "@/components/Navigation";
-import FeaturesSection from "@/components/sections/FeaturesSection";
+import Navigation from '@/components/Navigation';
+import FeaturesSection from '@/components/sections/FeaturesSection';
 
-export default function TestFeaturesSection() {
+export default function TestFeaturesSection(): React.ReactNode {
   return (
     <>
       <Navigation />
@@ -12,9 +12,7 @@ export default function TestFeaturesSection() {
           <p className="text-gray-600">
             The section should display 3 feature cards in a responsive grid.
           </p>
-          <p className="text-gray-600 mt-2">
-            Desktop: 3 columns | Mobile: 1 column
-          </p>
+          <p className="text-gray-600 mt-2">Desktop: 3 columns | Mobile: 1 column</p>
           <p className="text-gray-600 mt-2">
             Padding: Desktop 120px vertical | Mobile 64px vertical
           </p>

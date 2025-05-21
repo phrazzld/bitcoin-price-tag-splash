@@ -1,7 +1,7 @@
-import React from "react";
-import Container from "./ui/Container";
-import Button from "./ui/Button";
-import { CHROME_STORE_URL } from "@/lib/constants";
+import React from 'react';
+import Container from './ui/Container';
+import Button from './ui/Button';
+import { CHROME_STORE_URL } from '@/lib/constants';
 
 const Navigation: React.FC = () => {
   return (
@@ -15,10 +15,7 @@ const Navigation: React.FC = () => {
             <span className="font-bold text-lg text-gray-900">Bitcoin Price Tag</span>
           </div>
           <div>
-            <Button 
-              href={CHROME_STORE_URL}
-              className="px-5 py-2.5 font-medium"
-            >
+            <Button href={CHROME_STORE_URL} className="px-5 py-2.5 font-medium">
               Add to Chrome
             </Button>
           </div>

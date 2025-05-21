@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useRef } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import React, { useRef } from 'react';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -16,13 +16,13 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   yOffset = 40,
   duration = 0.6,
   delay = 0,
-  className
+  className,
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
     amount: 0.15,
-    margin: "0px 0px -100px 0px"
+    margin: '0px 0px -100px 0px',
   });
   const prefersReducedMotion = useReducedMotion();
 
@@ -34,7 +34,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       transition={{
         duration: prefersReducedMotion ? 0 : duration,
         delay: prefersReducedMotion ? 0 : delay,
-        ease: [0.25, 0.1, 0.25, 1]
+        ease: [0.25, 0.1, 0.25, 1],
       }}
       className={className}
     >

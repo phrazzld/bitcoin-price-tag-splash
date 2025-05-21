@@ -26,13 +26,16 @@ pnpm install          # Install dependencies
 ## Architecture
 
 ### Design System
+
 The project follows Swiss minimalism with:
+
 - 12-column grid system (24px gutters, max-width 1200px)
 - Bitcoin Orange (#F7931A) as primary color
 - Inter Variable font for typography
 - 8-point spatial system (multiples of 8px)
 
 ### Component Structure
+
 ```
 /components
   /ui                 # Basic UI components (Button, Container, Icon)
@@ -41,20 +44,25 @@ The project follows Swiss minimalism with:
 ```
 
 ### Section Components
+
 Each section follows a pattern:
+
 - Imports Container for consistent layout
 - Uses responsive padding (64px mobile, 120px desktop)
 - Centers content appropriately
 - Test pages exist in `/app/test-*` directories
 
 ### Task Management
+
 The project uses a detailed TODO.md system with:
+
 - Task IDs (T001-T031)
 - Dependencies between tasks
 - Three states: [ ] unstarted, [~] in progress, [x] complete
 - Each task follows the pattern: acquire → classify → plan → implement → validate → finalize
 
 ### Key Technical Constraints
+
 - PNPM enforced via preinstall script
 - CSS animations only (no JavaScript for animations)
 - Semantic HTML required

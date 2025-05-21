@@ -12,11 +12,11 @@ const configFiles = [
   'tailwind.config.js',
   'tailwind.config.css',
   'app/tailwind.css',
-  'app/globals.css'
+  'app/globals.css',
 ];
 
 console.log('Checking for configuration files:');
-configFiles.forEach(file => {
+configFiles.forEach((file) => {
   const exists = fs.existsSync(path.join(process.cwd(), file));
   console.log(`  ${file}: ${exists ? '✓' : '✗'}`);
 });
@@ -36,11 +36,11 @@ console.log('  Has bitcoin-orange: ', globalsContent.includes('bitcoin-orange'))
 const searchDir = (dir, pattern) => {
   const files = fs.readdirSync(dir);
   const matches = [];
-  
-  files.forEach(file => {
+
+  files.forEach((file) => {
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
-    
+
     if (stat.isDirectory() && !file.startsWith('.') && file !== 'node_modules') {
       matches.push(...searchDir(filePath, pattern));
     } else if (file.endsWith('.tsx') || file.endsWith('.ts')) {
@@ -50,12 +50,12 @@ const searchDir = (dir, pattern) => {
       }
     }
   });
-  
+
   return matches;
 };
 
 console.log('\nFiles using bg-bitcoin-orange:');
 const matches = searchDir(process.cwd(), 'bg-bitcoin-orange');
-matches.forEach(file => console.log('  ', file));
+matches.forEach((file) => console.log('  ', file));
 
 console.log('\nDone.');

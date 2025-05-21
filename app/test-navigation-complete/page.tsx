@@ -1,6 +1,6 @@
-import Navigation from "@/components/Navigation";
+import Navigation from '@/components/Navigation';
 
-export default function TestNavigationCompletePage() {
+export default function TestNavigationCompletePage(): React.ReactNode {
   return (
     <div className="min-h-screen bg-gray-100">
       <Navigation />

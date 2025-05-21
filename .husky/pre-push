@@ -1,0 +1,2 @@
+# Run pre-push checks (type-check and build)
+pnpm pre-push

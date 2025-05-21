@@ -1,0 +1,3 @@
+# Run pre-commit checks (lint-staged and type-check)
+pnpm pre-commit
+

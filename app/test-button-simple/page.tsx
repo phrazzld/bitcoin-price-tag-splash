@@ -1,6 +1,6 @@
-import Button from "@/components/ui/Button";
+import Button from '@/components/ui/Button';
 
-export default function TestButtonSimplePage() {
+export default function TestButtonSimplePage(): React.ReactNode {
   return (
     <main className="min-h-screen bg-gray-100 p-16">
       <div className="space-y-8">

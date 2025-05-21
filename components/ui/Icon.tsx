@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 import {
   Check,
   Zap,
@@ -12,7 +12,7 @@ import {
   DollarSign,
   RefreshCw,
   type LucideProps,
-} from "lucide-react";
+} from 'lucide-react';
 
 const icons = {
   check: Check,
@@ -28,7 +28,7 @@ const icons = {
 
 export type IconName = keyof typeof icons;
 
-interface IconProps extends Omit<LucideProps, "ref"> {
+interface IconProps extends Omit<LucideProps, 'ref'> {
   name: IconName;
   size?: number;
   strokeWidth?: number;
@@ -39,7 +39,7 @@ const Icon: React.FC<IconProps> = ({
   name,
   size = 24,
   strokeWidth = 2,
-  className = "",
+  className = '',
   ...props
 }) => {
   const IconComponent = icons[name];
@@ -49,14 +49,7 @@ const Icon: React.FC<IconProps> = ({
     return null;
   }
 
-  return (
-    <IconComponent
-      size={size}
-      strokeWidth={strokeWidth}
-      className={className}
-      {...props}
-    />
-  );
+  return <IconComponent size={size} strokeWidth={strokeWidth} className={className} {...props} />;
 };
 
 export default Icon;

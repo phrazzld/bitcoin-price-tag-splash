@@ -1,6 +1,8 @@
-import Button from "@/components/ui/Button";
+'use client';
 
-export default function TestButtonPage() {
+import Button from '@/components/ui/Button';
+
+export default function TestButtonPage(): React.ReactNode {
   return (
     <main className="min-h-screen bg-gray-100 p-16">
       <div className="space-y-8">
@@ -21,7 +23,7 @@ export default function TestButtonPage() {
 
         <div>
           <h2 className="text-xl font-bold mb-4">Button with onClick</h2>
-          <Button onClick={() => alert("Button clicked!")}>Click Me</Button>
+          <Button onClick={() => alert('Button clicked!')}>Click Me</Button>
         </div>
 
         <div>

@@ -1,13 +1,13 @@
-import StepCard from "@/components/StepCard";
+import StepCard from '@/components/StepCard';
 
-export default function TestStepCardPage() {
+export default function TestStepCardPage(): React.ReactNode {
   return (
     <div className="p-8 space-y-12">
       <h1 className="text-2xl font-bold mb-8">StepCard Component Test</h1>
 
       <div className="max-w-sm mx-auto">
         <StepCard
-          stepNumber={1}
+          number={1}
           screenshot="/placeholder-screenshot-1.jpg"
           description="Install the extension from Chrome Web Store with one click"
         />
@@ -15,7 +15,7 @@ export default function TestStepCardPage() {
 
       <div className="max-w-sm mx-auto">
         <StepCard
-          stepNumber={2}
+          number={2}
           screenshot="/placeholder-screenshot-2.jpg"
           description="Browse any website and see prices automatically converted"
         />
@@ -23,7 +23,7 @@ export default function TestStepCardPage() {
 
       <div className="max-w-sm mx-auto">
         <StepCard
-          stepNumber={3}
+          number={3}
           screenshot="/placeholder-screenshot-3.jpg"
           description="Click on prices to see real-time Bitcoin values"
         />
