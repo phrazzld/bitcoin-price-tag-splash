@@ -205,4 +205,89 @@ describe('useIntersectionObserver hook', () => {
     // These verify the triggerOnce: true behavior correctly
     expect(mockUnobserve).not.toHaveBeenCalled();
   });
+
+  // Test 5: Verify triggerOnce: false behavior allows multiple intersections
+  it('should continue to update isIntersecting on multiple intersections when triggerOnce is false', () => {
+    let observerCallback: IntersectionObserverCallback | null = null;
+
+    // Create a fake observer object to be returned by the mock
+    const mockObserverInstance = {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+    };
+
+    // Override the global mock for this specific test
+    mockIntersectionObserver.mockImplementation((callback) => {
+      observerCallback = callback;
+      return mockObserverInstance;
+    });
+
+    // Create a ref to a DOM element
+    const mockElement = document.createElement('div');
+    const mockRef = { current: mockElement };
+
+    // Render the hook with triggerOnce: false
+    const { result } = renderHook(() => {
+      const [ref, isIntersecting, entry] = useIntersectionObserver({ triggerOnce: false });
+
+      // Set the ref current value in the first render
+      if (!ref.current) {
+        ref.current = mockRef.current;
+      }
+
+      return [ref, isIntersecting, entry];
+    });
+
+    // Initially isIntersecting should be false
+    expect(result.current[1]).toBe(false);
+
+    // Verify observe was called with our mock element
+    expect(mockObserve).toHaveBeenCalledWith(mockElement);
+
+    // Reset the unobserve mock to ensure a clean state
+    mockUnobserve.mockClear();
+
+    // Simulate first intersection (entering viewport)
+    act(() => {
+      if (observerCallback) {
+        const firstEntry = createMockEntry(true);
+        observerCallback([firstEntry], mockObserverInstance as unknown as IntersectionObserver);
+      }
+    });
+
+    // After first intersection: isIntersecting should be true
+    expect(result.current[1]).toBe(true);
+
+    // With triggerOnce: false, unobserve should NOT be called
+    expect(mockUnobserve).not.toHaveBeenCalled();
+
+    // Simulate second intersection (leaving viewport)
+    act(() => {
+      if (observerCallback) {
+        const secondEntry = createMockEntry(false);
+        observerCallback([secondEntry], mockObserverInstance as unknown as IntersectionObserver);
+      }
+    });
+
+    // After second intersection: isIntersecting should be false
+    expect(result.current[1]).toBe(false);
+
+    // unobserve should still not have been called
+    expect(mockUnobserve).not.toHaveBeenCalled();
+
+    // Simulate third intersection (entering viewport again)
+    act(() => {
+      if (observerCallback) {
+        const thirdEntry = createMockEntry(true);
+        observerCallback([thirdEntry], mockObserverInstance as unknown as IntersectionObserver);
+      }
+    });
+
+    // After third intersection: isIntersecting should be true again
+    expect(result.current[1]).toBe(true);
+
+    // unobserve should still not have been called, confirming continuous observation
+    expect(mockUnobserve).not.toHaveBeenCalled();
+  });
 });

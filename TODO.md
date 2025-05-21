@@ -33,7 +33,7 @@
   - **Done‑when:**
     1. Tests for `triggerOnce: true` behavior pass.
   - **Depends‑on:** [T001]
-- [ ] **T005 · Test · P1**: test `useIntersectionObserver` `triggerOnce: false` option
+- [x] **T005 · Test · P1**: test `useIntersectionObserver` `triggerOnce: false` option
   - **Context:** Detailed Remedies -> cr-01 -> Step 6
   - **Action:**
     1. Write unit tests to verify `isIntersecting` updates correctly on multiple intersections when `triggerOnce: false`.
