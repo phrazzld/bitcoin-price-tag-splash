@@ -66,7 +66,7 @@
 
 ## CR-03 Remove Hardcoded Initial Styles from `AnimatedBackground`
 
-- [ ] **T009 · Refactor · P2**: remove inline `transform` styles from `AnimatedBackground` orbs
+- [x] **T009 · Refactor · P2**: remove inline `transform` styles from `AnimatedBackground` orbs
   - **Context:** Detailed Remedies -> cr-03 -> Step 1
   - **Action:**
     1. In `components/ui/AnimatedBackground.tsx`, remove the inline `style` attributes for `transform` from the orb `div` elements.

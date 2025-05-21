@@ -6,15 +6,9 @@ const AnimatedBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Floating orbs */}
-      <div
-        className="absolute w-96 h-96 rounded-full bg-bitcoin-orange/5 blur-3xl float-orb-one"
-        style={{ transform: 'translate(-100px, -100px)' }}
-      />
+      <div className="absolute w-96 h-96 rounded-full bg-bitcoin-orange/5 blur-3xl float-orb-one" />
 
-      <div
-        className="absolute right-0 bottom-0 w-96 h-96 rounded-full bg-bitcoin-orange/5 blur-3xl float-orb-two"
-        style={{ transform: 'translate(100px, 100px)' }}
-      />
+      <div className="absolute right-0 bottom-0 w-96 h-96 rounded-full bg-bitcoin-orange/5 blur-3xl float-orb-two" />
 
       {/* Grid pattern */}
       <div
