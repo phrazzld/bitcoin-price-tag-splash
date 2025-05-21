@@ -11,7 +11,7 @@
   - **Done‑when:**
     1. Test file is created and the `IntersectionObserver` mock is functional within it.
   - **Depends‑on:** none
-- [ ] **T002 · Test · P1**: test `useIntersectionObserver` initial state and ref handling
+- [x] **T002 · Test · P1**: test `useIntersectionObserver` initial state and ref handling
   - **Context:** Detailed Remedies -> cr-01 -> Step 3
   - **Action:**
     1. Write unit tests to verify `isIntersecting` is initially `false`.
