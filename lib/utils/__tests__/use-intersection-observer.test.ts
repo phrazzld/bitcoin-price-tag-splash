@@ -448,4 +448,212 @@ describe('useIntersectionObserver hook', () => {
     expect(mockUnobserve).toHaveBeenCalledTimes(1);
     expect(mockDisconnect).toHaveBeenCalledTimes(1);
   });
+
+  // Test 9: Verify default options are passed to IntersectionObserver constructor
+  it('should pass default options to IntersectionObserver constructor', () => {
+    // Create a fake observer object to be returned by the mock
+    const mockObserverInstance = {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+    };
+
+    // Override the global mock for this specific test to capture constructor arguments
+    mockIntersectionObserver.mockImplementation((_callback, _options) => {
+      return mockObserverInstance;
+    });
+
+    // Create a ref to a DOM element
+    const mockElement = document.createElement('div');
+    const mockRef = { current: mockElement };
+
+    // Render the hook with default options
+    renderHook(() => {
+      const [ref, isIntersecting, entry] = useIntersectionObserver();
+
+      // Set the ref current value in the first render
+      if (!ref.current) {
+        ref.current = mockRef.current;
+      }
+
+      return [ref, isIntersecting, entry];
+    });
+
+    // Verify IntersectionObserver was called with default options
+    expect(mockIntersectionObserver).toHaveBeenCalledWith(expect.any(Function), {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0,
+    });
+  });
+
+  // Test 10: Verify custom threshold option is passed to IntersectionObserver constructor
+  it('should pass custom threshold option to IntersectionObserver constructor', () => {
+    // Create a fake observer object to be returned by the mock
+    const mockObserverInstance = {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+    };
+
+    // Override the global mock for this specific test to capture constructor arguments
+    mockIntersectionObserver.mockImplementation((_callback, _options) => {
+      return mockObserverInstance;
+    });
+
+    // Create a ref to a DOM element
+    const mockElement = document.createElement('div');
+    const mockRef = { current: mockElement };
+
+    const customThreshold = 0.5;
+
+    // Render the hook with custom threshold
+    renderHook(() => {
+      const [ref, isIntersecting, entry] = useIntersectionObserver({ threshold: customThreshold });
+
+      // Set the ref current value in the first render
+      if (!ref.current) {
+        ref.current = mockRef.current;
+      }
+
+      return [ref, isIntersecting, entry];
+    });
+
+    // Verify IntersectionObserver was called with custom threshold
+    expect(mockIntersectionObserver).toHaveBeenCalledWith(expect.any(Function), {
+      root: null,
+      rootMargin: '0px',
+      threshold: customThreshold,
+    });
+  });
+
+  // Test 11: Verify custom rootMargin option is passed to IntersectionObserver constructor
+  it('should pass custom rootMargin option to IntersectionObserver constructor', () => {
+    // Create a fake observer object to be returned by the mock
+    const mockObserverInstance = {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+    };
+
+    // Override the global mock for this specific test to capture constructor arguments
+    mockIntersectionObserver.mockImplementation((_callback, _options) => {
+      return mockObserverInstance;
+    });
+
+    // Create a ref to a DOM element
+    const mockElement = document.createElement('div');
+    const mockRef = { current: mockElement };
+
+    const customRootMargin = '10px 20px 30px 40px';
+
+    // Render the hook with custom rootMargin
+    renderHook(() => {
+      const [ref, isIntersecting, entry] = useIntersectionObserver({
+        rootMargin: customRootMargin,
+      });
+
+      // Set the ref current value in the first render
+      if (!ref.current) {
+        ref.current = mockRef.current;
+      }
+
+      return [ref, isIntersecting, entry];
+    });
+
+    // Verify IntersectionObserver was called with custom rootMargin
+    expect(mockIntersectionObserver).toHaveBeenCalledWith(expect.any(Function), {
+      root: null,
+      rootMargin: customRootMargin,
+      threshold: 0,
+    });
+  });
+
+  // Test 12: Verify custom root option is passed to IntersectionObserver constructor
+  it('should pass custom root option to IntersectionObserver constructor', () => {
+    // Create a fake observer object to be returned by the mock
+    const mockObserverInstance = {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+    };
+
+    // Override the global mock for this specific test to capture constructor arguments
+    mockIntersectionObserver.mockImplementation((_callback, _options) => {
+      return mockObserverInstance;
+    });
+
+    // Create a ref to a DOM element
+    const mockElement = document.createElement('div');
+    const mockRef = { current: mockElement };
+
+    // Create a custom root element
+    const customRoot = document.createElement('div');
+
+    // Render the hook with custom root
+    renderHook(() => {
+      const [ref, isIntersecting, entry] = useIntersectionObserver({ root: customRoot });
+
+      // Set the ref current value in the first render
+      if (!ref.current) {
+        ref.current = mockRef.current;
+      }
+
+      return [ref, isIntersecting, entry];
+    });
+
+    // Verify IntersectionObserver was called with custom root
+    expect(mockIntersectionObserver).toHaveBeenCalledWith(expect.any(Function), {
+      root: customRoot,
+      rootMargin: '0px',
+      threshold: 0,
+    });
+  });
+
+  // Test 13: Verify multiple custom options are passed to IntersectionObserver constructor
+  it('should pass multiple custom options to IntersectionObserver constructor', () => {
+    // Create a fake observer object to be returned by the mock
+    const mockObserverInstance = {
+      observe: mockObserve,
+      unobserve: mockUnobserve,
+      disconnect: mockDisconnect,
+    };
+
+    // Override the global mock for this specific test to capture constructor arguments
+    mockIntersectionObserver.mockImplementation((_callback, _options) => {
+      return mockObserverInstance;
+    });
+
+    // Create a ref to a DOM element
+    const mockElement = document.createElement('div');
+    const mockRef = { current: mockElement };
+
+    // Create custom option values
+    const customRoot = document.createElement('div');
+    const customRootMargin = '15px';
+    const customThreshold = [0, 0.25, 0.5, 0.75, 1];
+
+    // Render the hook with multiple custom options
+    renderHook(() => {
+      const [ref, isIntersecting, entry] = useIntersectionObserver({
+        root: customRoot,
+        rootMargin: customRootMargin,
+        threshold: customThreshold,
+      });
+
+      // Set the ref current value in the first render
+      if (!ref.current) {
+        ref.current = mockRef.current;
+      }
+
+      return [ref, isIntersecting, entry];
+    });
+
+    // Verify IntersectionObserver was called with all custom options
+    expect(mockIntersectionObserver).toHaveBeenCalledWith(expect.any(Function), {
+      root: customRoot,
+      rootMargin: customRootMargin,
+      threshold: customThreshold,
+    });
+  });
 });

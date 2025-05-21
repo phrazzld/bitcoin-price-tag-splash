@@ -55,7 +55,7 @@
   - **Done‑when:**
     1. Tests for unmount behavior pass.
   - **Depends‑on:** [T001]
-- [ ] **T008 · Test · P1**: test `useIntersectionObserver` options passing
+- [x] **T008 · Test · P1**: test `useIntersectionObserver` options passing
   - **Context:** Detailed Remedies -> cr-01 -> Step 9
   - **Action:**
     1. Write unit tests to verify correct options (`threshold`, `rootMargin`) are passed to the `IntersectionObserver` constructor.
