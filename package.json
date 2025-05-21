@@ -12,7 +12,10 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "format:check": "prettier --check .",
-    "format:write": "prettier --write ."
+    "format:write": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "pre-commit": "lint-staged && pnpm type-check",
+    "pre-push": "pnpm type-check && pnpm build"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.5",
