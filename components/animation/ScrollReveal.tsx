@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { clsx } from 'clsx';
 import useIntersectionObserver from '@/lib/utils/use-intersection-observer';
 
 interface ScrollRevealProps {
@@ -29,15 +30,15 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   });
 
   // Combine the animation state classes with any additional classes
-  const combinedClassName = `
-    ${className}
-    ${isIntersecting ? 'scroll-reveal-final' : 'scroll-reveal-initial'}
-    delay-${delay}
-    duration-${duration}
-  `;
+  const combinedClassName = clsx(
+    className,
+    isIntersecting ? 'scroll-reveal-final' : 'scroll-reveal-initial',
+    `delay-${delay}`,
+    `duration-${duration}`
+  );
 
   return (
-    <div ref={ref} className={combinedClassName.trim()}>
+    <div ref={ref} className={combinedClassName}>
       {children}
     </div>
   );

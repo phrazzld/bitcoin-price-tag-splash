@@ -73,7 +73,7 @@
   - **Done‑when:**
     1. Inline `transform` styles are removed.
   - **Depends‑on:** none
-- [ ] **T010 · Refactor · P2**: verify/update CSS keyframes for `AnimatedBackground` initial orb state
+- [~] **T010 · Refactor · P2**: verify/update CSS keyframes for `AnimatedBackground` initial orb state
   - **Context:** Detailed Remedies -> cr-03 -> Steps 2, 3
   - **Action:**
     1. In `app/globals.css`, verify/update that the `0%` state of `@keyframes floatOrbOne` and `@keyframes floatOrbTwo` correctly defines their intended initial `transform` values.
@@ -85,7 +85,7 @@
 
 ## CR-04 Refactor CSS Class Composition in `ScrollReveal`
 
-- [ ] **T011 · Refactor · P2**: refactor `ScrollReveal` class composition to use `clsx`
+- [x] **T011 · Refactor · P2**: refactor `ScrollReveal` class composition to use `clsx`
   - **Context:** Detailed Remedies -> cr-04 -> Steps 1, 2, 3
   - **Action:**
     1. In `components/animation/ScrollReveal.tsx`, import `clsx`.
