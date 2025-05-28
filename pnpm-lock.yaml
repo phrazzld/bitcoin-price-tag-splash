@@ -36,6 +36,9 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3
         version: 3.3.1
+      '@storybook/addon-a11y':
+        specifier: ^9.0.0
+        version: 9.0.0(storybook@9.0.0(@testing-library/dom@10.4.0)(prettier@3.5.3))
       '@storybook/addon-docs':
         specifier: ^9.0.0
         version: 9.0.0(@types/react@19.1.4)(storybook@9.0.0(@testing-library/dom@10.4.0)(prettier@3.5.3))
@@ -1306,6 +1309,11 @@ packages:
 
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
+
+  '@storybook/addon-a11y@9.0.0':
+    resolution: {integrity: sha512-lFiIQc3PPnrm310mT+sSKniPaiulXW1UMkr4nJw0DCko8BgWM1SItag22xMKbTb+QCV7SO+gJaAgRUFmIpngfg==}
+    peerDependencies:
+      storybook: ^9.0.0
 
   '@storybook/addon-docs@9.0.0':
     resolution: {integrity: sha512-uTUfJvZL3cYbDKllYXWTZTa353sO6xyyNjG8xrjDNqUIod/V0JSxbMNt/87HT443SeWZzNiWQGoenR4op7fJMA==}
@@ -6506,6 +6514,12 @@ snapshots:
   '@sinonjs/fake-timers@10.3.0':
     dependencies:
       '@sinonjs/commons': 3.0.1
+
+  '@storybook/addon-a11y@9.0.0(storybook@9.0.0(@testing-library/dom@10.4.0)(prettier@3.5.3))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      axe-core: 4.10.3
+      storybook: 9.0.0(@testing-library/dom@10.4.0)(prettier@3.5.3)
 
   '@storybook/addon-docs@9.0.0(@types/react@19.1.4)(storybook@9.0.0(@testing-library/dom@10.4.0)(prettier@3.5.3))':
     dependencies:

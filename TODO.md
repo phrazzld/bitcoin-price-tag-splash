@@ -152,14 +152,14 @@
   - **Done‑when:**
     1. `jest-axe` checks are implemented for specified components and pages, and these tests pass.
   - **Depends‑on:** [T016]
-- [~] **T018 · Chore · P1**: create/update Storybook stories for `ScrollReveal` and `AnimatedBackground`
+- [x] **T018 · Chore · P1**: create/update Storybook stories for `ScrollReveal` and `AnimatedBackground`
   - **Context:** Detailed Remedies -> cr-06 -> Step 3
   - **Action:**
     1. Create or update Storybook stories for `ScrollReveal` and `AnimatedBackground` components, covering various states and props.
   - **Done‑when:**
     1. Storybook stories for `ScrollReveal` and `AnimatedBackground` are complete and accurately represent component usage.
   - **Depends‑on:** none
-- [ ] **T019 · Chore · P1**: install and configure Storybook a11y addon
+- [x] **T019 · Chore · P1**: install and configure Storybook a11y addon
   - **Context:** Detailed Remedies -> cr-06 -> Step 4
   - **Action:**
     1. Install the Storybook a11y addon.
