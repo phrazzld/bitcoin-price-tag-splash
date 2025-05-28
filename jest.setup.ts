@@ -1,5 +1,6 @@
 // Optional: configure or set up a testing framework before each test
 import '@testing-library/jest-dom';
+import 'jest-axe/extend-expect';
 
 // Mock necessary browser APIs that might not be available in the test environment
 // but are used in the components under test.

@@ -136,7 +136,7 @@
 
 ## CR-06 Implement Automated Accessibility (a11y) Checks
 
-- [ ] **T016 · Chore · P1**: install and configure `jest-axe`
+- [x] **T016 · Chore · P1**: install and configure `jest-axe`
   - **Context:** Detailed Remedies -> cr-06 -> Step 1
   - **Action:**
     1. Install `jest-axe` as a dev dependency.
