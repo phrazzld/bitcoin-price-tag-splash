@@ -112,7 +112,7 @@
   - **Done‑when:**
     1. The animation-triggering CSS class is applied directly in the JSX of specified page components.
   - **Depends‑on:** [T012]
-- [ ] **T014 · Refactor · P2**: ensure CSS correctly defines pure CSS page fade-in animation
+- [x] **T014 · Refactor · P2**: ensure CSS correctly defines pure CSS page fade-in animation
   - **Context:** Detailed Remedies -> cr-02 -> Steps 3, 4
   - **Action:**
     1. Ensure the corresponding CSS animation (e.g., in `app/globals.css`) defines the initial state (e.g., `opacity: 0`), animates to the final state (`opacity: 1`), and uses `animation-fill-mode: forwards;`.
