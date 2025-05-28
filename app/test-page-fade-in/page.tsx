@@ -1,22 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 export default function TestPageFadeInPage(): React.ReactNode {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [reset, setReset] = useState(0);
-
-  useEffect(() => {
-    // Set isLoaded to true after component mounts to trigger the fade-in animation
-    setIsLoaded(true);
-  }, [reset]);
-
-  const handleReset = () => {
-    setIsLoaded(false);
-    // Force a re-render with a new reset value to trigger the useEffect again
-    setTimeout(() => setReset((prev) => prev + 1), 10);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <header className="relative z-10 mb-12">
@@ -28,7 +14,7 @@ export default function TestPageFadeInPage(): React.ReactNode {
 
       <div className="max-w-3xl mx-auto space-y-8">
         {/* Test container with the fade-in animation */}
-        <div className={`p-8 bg-white shadow-lg rounded-xl ${isLoaded ? 'fade-in' : 'opacity-0'}`}>
+        <div className="p-8 bg-white shadow-lg rounded-xl">
           <h2 className="text-2xl font-bold mb-4">Fade-In Animation</h2>
           <p className="text-gray-700 mb-6">
             This container uses the same CSS animation technique that replaces the Framer Motion
@@ -53,16 +39,6 @@ export default function TestPageFadeInPage(): React.ReactNode {
               <li>Automatically respects the user&apos;s reduced motion preferences</li>
             </ul>
           </div>
-        </div>
-
-        {/* Reset button */}
-        <div className="flex justify-center">
-          <button
-            onClick={handleReset}
-            className="px-6 py-3 bg-bitcoin-orange text-white rounded-lg hover:bg-amber-600 transition-colors"
-          >
-            Reset Animation
-          </button>
         </div>
 
         {/* Motion preferences display */}

@@ -1,24 +1,18 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import ScrollReveal from '@/components/animation/ScrollReveal';
 import useIntersectionObserver from '@/lib/utils/use-intersection-observer';
 
 export default function TestAllAnimationsPage(): React.ReactNode {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [animationSectionRef, isIntersecting] = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.1,
     triggerOnce: true,
   });
 
-  useEffect(() => {
-    // Set isLoaded to true after component mounts to trigger the fade-in animation
-    setIsLoaded(true);
-  }, []);
-
   return (
-    <div className={`min-h-[300vh] relative ${isLoaded ? 'fade-in' : 'opacity-0'}`}>
+    <div className="min-h-[300vh] relative">
       {/* Background with floating orbs */}
       <AnimatedBackground />
 

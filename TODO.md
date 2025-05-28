@@ -98,7 +98,7 @@
 
 ## CR-02 Implement Page Fade-In with Pure CSS
 
-- [ ] **T012 · Refactor · P2**: remove JS fade-in logic from specified page components
+- [x] **T012 · Refactor · P2**: remove JS fade-in logic from specified page components
   - **Context:** Detailed Remedies -> cr-02 -> Step 1
   - **Action:**
     1. In `app/page.tsx`, `app/test-page-fade-in/page.tsx`, and `app/test-all-animations/page.tsx`, remove the `useState` and `useEffect` hooks used for the fade-in effect.

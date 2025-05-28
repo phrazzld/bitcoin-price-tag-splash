@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navigation from '@/components/Navigation';
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import ScrollReveal from '@/components/animation/ScrollReveal';
@@ -12,15 +12,8 @@ import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
 
 export default function Home(): React.ReactNode {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    // Set isLoaded to true after component mounts to trigger the fade-in animation
-    setIsLoaded(true);
-  }, []);
-
   return (
-    <div className={`relative ${isLoaded ? 'fade-in' : 'opacity-0'}`}>
+    <div className="relative">
       <AnimatedBackground />
       <Navigation />
       <main className="relative z-10">
