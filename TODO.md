@@ -144,7 +144,7 @@
   - **Done‑when:**
     1. `jest-axe` is installed and configured for use in tests.
   - **Depends‑on:** none
-- [ ] **T017 · Test · P1**: add `jest-axe` checks to animation components and page tests
+- [x] **T017 · Test · P1**: add `jest-axe` checks to animation components and page tests
   - **Context:** Detailed Remedies -> cr-06 -> Step 2
   - **Action:**
     1. Add `axe` checks to new or existing unit/integration tests for `ScrollReveal`, `AnimatedBackground`.
@@ -152,7 +152,7 @@
   - **Done‑when:**
     1. `jest-axe` checks are implemented for specified components and pages, and these tests pass.
   - **Depends‑on:** [T016]
-- [ ] **T018 · Chore · P1**: create/update Storybook stories for `ScrollReveal` and `AnimatedBackground`
+- [~] **T018 · Chore · P1**: create/update Storybook stories for `ScrollReveal` and `AnimatedBackground`
   - **Context:** Detailed Remedies -> cr-06 -> Step 3
   - **Action:**
     1. Create or update Storybook stories for `ScrollReveal` and `AnimatedBackground` components, covering various states and props.
