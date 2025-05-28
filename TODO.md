@@ -73,7 +73,7 @@
   - **Done‑when:**
     1. Inline `transform` styles are removed.
   - **Depends‑on:** none
-- [~] **T010 · Refactor · P2**: verify/update CSS keyframes for `AnimatedBackground` initial orb state
+- [x] **T010 · Refactor · P2**: verify/update CSS keyframes for `AnimatedBackground` initial orb state
   - **Context:** Detailed Remedies -> cr-03 -> Steps 2, 3
   - **Action:**
     1. In `app/globals.css`, verify/update that the `0%` state of `@keyframes floatOrbOne` and `@keyframes floatOrbTwo` correctly defines their intended initial `transform` values.
