@@ -13,7 +13,7 @@ import Footer from '@/components/sections/Footer';
 
 export default function Home(): React.ReactNode {
   return (
-    <div className="relative">
+    <div className="relative fade-in">
       <AnimatedBackground />
       <Navigation />
       <main className="relative z-10">

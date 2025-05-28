@@ -12,7 +12,7 @@ export default function TestAllAnimationsPage(): React.ReactNode {
   });
 
   return (
-    <div className="min-h-[300vh] relative">
+    <div className="min-h-[300vh] relative fade-in">
       {/* Background with floating orbs */}
       <AnimatedBackground />
 
@@ -30,8 +30,8 @@ export default function TestAllAnimationsPage(): React.ReactNode {
           <h2 className="text-2xl font-bold mb-4">1. Page Fade-In Animation</h2>
           <p className="mb-4">
             This entire page uses the page-level fade-in animation that was previously implemented
-            with Framer Motion in app/page.tsx. The animation is now handled with CSS and
-            React&apos;s useState/useEffect.
+            with Framer Motion in app/page.tsx. The animation is now handled with pure CSS,
+            triggered automatically on page load without any JavaScript.
           </p>
           <div className="p-4 bg-gray-100 rounded-lg">
             <pre className="text-sm overflow-x-auto">
@@ -42,14 +42,15 @@ export default function TestAllAnimationsPage(): React.ReactNode {
   to { opacity: 1; }
 }
 
-// Component Implementation
-const [isLoaded, setIsLoaded] = useState(false);
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
 
-useEffect(() => {
-  setIsLoaded(true);
-}, []);
-
-<div className={\`...\${isLoaded ? 'fade-in' : 'opacity-0'}\`}>
+// Component Implementation (Pure CSS)
+<div className="... fade-in">
   ...content...
 </div>`}
               </code>

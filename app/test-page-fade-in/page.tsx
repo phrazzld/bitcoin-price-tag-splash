@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function TestPageFadeInPage(): React.ReactNode {
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-50 p-6 fade-in">
       <header className="relative z-10 mb-12">
         <h1 className="text-3xl font-bold text-center">Page Fade-In Test</h1>
         <p className="text-center text-gray-600 mt-2">
@@ -17,9 +17,9 @@ export default function TestPageFadeInPage(): React.ReactNode {
         <div className="p-8 bg-white shadow-lg rounded-xl">
           <h2 className="text-2xl font-bold mb-4">Fade-In Animation</h2>
           <p className="text-gray-700 mb-6">
-            This container uses the same CSS animation technique that replaces the Framer Motion
-            animation in the main app/page.tsx file. The animation triggers when the component
-            mounts using React&apos;s useState and useEffect hooks.
+            This page demonstrates the pure CSS fade-in animation technique that replaces the Framer
+            Motion animation in the main app/page.tsx file. The animation triggers automatically on
+            page load using CSS animations without any JavaScript.
           </p>
 
           <div className="bg-gray-100 p-4 rounded-lg">
@@ -29,13 +29,11 @@ export default function TestPageFadeInPage(): React.ReactNode {
                 Uses the <code>fade-in</code> CSS class from globals.css
               </li>
               <li>
-                Initial state is <code>opacity-0</code> to prevent flash of content
+                CSS animation starts with <code>opacity: 0</code> and animates to{' '}
+                <code>opacity: 1</code>
               </li>
-              <li>
-                React&apos;s <code>useState</code> and <code>useEffect</code> to trigger the
-                animation on mount
-              </li>
-              <li>No JavaScript animation libraries required</li>
+              <li>Animation triggers immediately on page load via pure CSS</li>
+              <li>No JavaScript required for the animation</li>
               <li>Automatically respects the user&apos;s reduced motion preferences</li>
             </ul>
           </div>

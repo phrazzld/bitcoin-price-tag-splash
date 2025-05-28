@@ -105,7 +105,7 @@
   - **Done‑when:**
     1. JavaScript-based fade-in logic is removed from the specified page components.
   - **Depends‑on:** none
-- [ ] **T013 · Refactor · P2**: apply CSS animation class directly to page containers for fade-in
+- [x] **T013 · Refactor · P2**: apply CSS animation class directly to page containers for fade-in
   - **Context:** Detailed Remedies -> cr-02 -> Step 2
   - **Action:**
     1. In the JSX of `app/page.tsx`, `app/test-page-fade-in/page.tsx`, and `app/test-all-animations/page.tsx`, apply the `fade-in` CSS class (or equivalent) directly to the main page container element.
