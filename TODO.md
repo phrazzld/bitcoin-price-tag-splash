@@ -124,7 +124,7 @@
 
 ## CR-05 Add Explicit Return Types to Page Components
 
-- [ ] **T015 · Chore · P2**: add explicit return types to specified page components
+- [x] **T015 · Chore · P2**: add explicit return types to specified page components
   - **Context:** Detailed Remedies -> cr-05 -> Steps 1, 2, 3
   - **Action:**
     1. Identify all new `page.tsx` files under `app/test-*` and `app/page.tsx`.
