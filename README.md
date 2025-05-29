@@ -65,3 +65,4 @@ For visual testing of animation components, visit these routes:
 - `/test-page-fade-in` - Tests the page fade-in animation
 - `/test-scroll-reveal` - Tests the scroll-triggered reveal animations
 - `/test-all-animations` - Comprehensive test of all animation types
+<!-- CI Cache Test 1 -->
