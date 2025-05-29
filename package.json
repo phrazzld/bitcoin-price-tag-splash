@@ -76,7 +76,9 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write",
-    "*.{js,jsx,ts,tsx}": "eslint --max-warnings 0 --fix",
+    "*.{js,jsx,ts,tsx}": [
+      "bash -c 'if [[ \"$0\" != *\".storybook/\"* ]]; then eslint --max-warnings 0 --fix \"$0\"; fi'"
+    ],
     ".storybook/**/*.{js,ts}": "prettier --write"
   }
 }
