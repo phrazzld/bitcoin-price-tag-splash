@@ -169,7 +169,7 @@
   - **Verification:**
     1. The a11y panel/tab is visible and functional in Storybook.
   - **Depends‑on:** none
-- [ ] **T020 · Test · P1**: verify `ScrollReveal` & `AnimatedBackground` pass Storybook a11y checks
+- [x] **T020 · Test · P1**: verify `ScrollReveal` & `AnimatedBackground` pass Storybook a11y checks
   - **Context:** Detailed Remedies -> cr-06 -> Step 5 (Storybook part)
   - **Action:**
     1. Using the Storybook a11y addon, verify that `ScrollReveal` and `AnimatedBackground` stories pass accessibility checks.
