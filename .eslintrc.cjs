@@ -10,6 +10,7 @@ module.exports = {
     'dist',
     '.next',
     'out',
+    'storybook-static',
     'test-tailwind-config.js',
     'test.js',
     '.storybook',
