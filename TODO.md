@@ -201,7 +201,7 @@
     3. CI can successfully execute Storybook a11y tests without "Executable doesn't exist" errors.
   - **Depends‑on:** none
 
-- [ ] **T023 · Optimize · P1**: implement browser binary caching for CI performance
+- [x] **T023 · Optimize · P1**: implement browser binary caching for CI performance
 
   - **Context:** CI-RESOLUTION-PLAN.md -> Phase 2 Optimization
   - **Action:**
