@@ -176,7 +176,7 @@
   - **Done‑when:**
     1. `ScrollReveal` and `AnimatedBackground` components pass a11y checks in Storybook.
   - **Depends‑on:** [T018, T019]
-- [ ] **T021 · Chore · P1**: integrate automated a11y checks into CI pipeline
+- [x] **T021 · Chore · P1**: integrate automated a11y checks into CI pipeline
   - **Context:** Detailed Remedies -> cr-06 -> Step 6 (and CI part of Step 5)
   - **Action:**
     1. Integrate `jest-axe` checks (as part of the test suite run) into the CI pipeline.
@@ -185,10 +185,4 @@
     1. Automated a11y checks are part of the CI pipeline.
     2. The CI pipeline passes these checks.
   - **Depends‑on:** [T017, T020]
-
-### Clarifications & Assumptions
-
-- [ ] **Issue:** Confirm specific list of "pages utilizing these animations" for `jest-axe` checks in T017 beyond `ScrollReveal` and `AnimatedBackground` components themselves.
-  - **Context:** cr-06, Step 2. Assumed to include pages like `app/test-all-animations/page.tsx` as an example.
-  - **Blocking?:** no
 ```

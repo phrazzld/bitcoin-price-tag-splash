@@ -20,7 +20,8 @@
     "pre-commit": "lint-staged && pnpm type-check",
     "pre-push": "pnpm type-check && pnpm build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.5",
@@ -38,6 +39,7 @@
     "@storybook/addon-docs": "^9.0.0",
     "@storybook/addon-onboarding": "^9.0.0",
     "@storybook/nextjs": "^9.0.0",
+    "@storybook/test-runner": "^0.22.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -48,6 +50,7 @@
     "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
+    "axe-playwright": "^2.1.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.3.2",
     "eslint-config-prettier": "^10.1.5",

@@ -101,11 +101,16 @@ If your commit is rejected due to linting errors:
 
 ### CI Pipeline
 
-Our CI pipeline automatically checks formatting and linting on all pull requests and pushed commits:
+Our CI pipeline automatically runs comprehensive checks on all pull requests and pushed commits:
 
 - `pnpm format:check` verifies all files adhere to our formatting standards
 - `pnpm lint` ensures no linting errors or warnings exist
-- Builds are failed if either check reports errors
+- `pnpm type-check` verifies TypeScript type safety
+- `pnpm test` runs all tests including accessibility checks with jest-axe
+- `pnpm build` ensures the Next.js app builds successfully
+- `pnpm build-storybook` and `pnpm test-storybook` run Storybook accessibility tests
+
+All checks must pass before code can be merged. See [CI Accessibility Testing](docs/ci-accessibility-testing.md) for details on a11y testing.
 
 ## Code Suppression Policy
 

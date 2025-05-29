@@ -1,6 +1,19 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'plugin:@typescript-eslint/recommended', 'prettier', 'plugin:storybook/recommended'],
-  ignorePatterns: ['node_modules', 'dist', '.next', 'out', 'test-tailwind-config.js', 'test.js', '.storybook'],
+  extends: [
+    'next/core-web-vitals',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'plugin:storybook/recommended',
+  ],
+  ignorePatterns: [
+    'node_modules',
+    'dist',
+    '.next',
+    'out',
+    'test-tailwind-config.js',
+    'test.js',
+    '.storybook',
+  ],
 
   // Default settings for all files
   parser: '@typescript-eslint/parser',
