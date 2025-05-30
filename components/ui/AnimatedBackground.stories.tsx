@@ -130,7 +130,7 @@ export const WithFormOverlay: Story = {
                 width: '100%',
                 padding: '12px',
                 backgroundColor: '#F7931A',
-                color: 'white',
+                color: '#212121',
                 border: 'none',
                 borderRadius: '6px',
                 fontSize: '16px',
@@ -230,7 +230,7 @@ export const WithManyElements: Story = {
               key={i}
               style={{
                 backgroundColor: i % 2 === 0 ? '#F7931A' : '#333',
-                color: 'white',
+                color: i % 2 === 0 ? '#212121' : 'white',
                 padding: '20px',
                 borderRadius: '4px',
                 textAlign: 'center',
