@@ -217,7 +217,7 @@
     2. Verify cache invalidation when Playwright version changes.
   - **Depends‑on:** [T022]
 
-- [ ] **T024 · Test · P0**: validate CI fix with comprehensive testing
+- [x] **T024 · Test · P0**: validate CI fix with comprehensive testing
 
   - **Context:** CI-RESOLUTION-PLAN.md -> Success Criteria
   - **Action:**
