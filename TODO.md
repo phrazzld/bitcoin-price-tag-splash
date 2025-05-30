@@ -11,9 +11,9 @@
 
 ### T033 - Commit and push existing color contrast fixes [depends on T032]
 
-- [ ] Commit the changes to AnimatedBackground.stories.tsx
-- [ ] Push to the feature branch
-- [ ] Verify CI passes
+- [x] Commit the changes to AnimatedBackground.stories.tsx
+- [x] Push to the feature branch
+- [x] Verify CI passes
 
 ### T034 - Implement prefers-reduced-motion support [depends on T033]
 
