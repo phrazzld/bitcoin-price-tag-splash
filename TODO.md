@@ -236,7 +236,7 @@
     3. Check for any new CI warnings or failures.
   - **Depends‑on:** [T022]
 
-- [ ] **T025 · Docs · P2**: update documentation for CI browser requirements
+- [x] **T025 · Docs · P2**: update documentation for CI browser requirements
   - **Context:** CI-RESOLUTION-PLAN.md -> Implementation Details
   - **Action:**
     1. Update `docs/ci-accessibility-testing.md` to document Playwright browser installation requirement.

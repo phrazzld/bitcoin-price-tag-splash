@@ -18,6 +18,9 @@ Thank you for your interest in contributing to the Bitcoin Price Tag splash page
 
    # Install dependencies
    pnpm install
+
+   # Install Playwright browsers for Storybook testing (one-time setup)
+   pnpm exec playwright install chromium
    ```
 
 3. **Development Commands**
@@ -31,6 +34,12 @@ Thank you for your interest in contributing to the Bitcoin Price Tag splash page
 
    # Start production server
    pnpm start
+
+   # Run Storybook for component development
+   pnpm storybook
+
+   # Run Storybook accessibility tests
+   pnpm test-storybook
    ```
 
 ## Code Quality Standards
@@ -108,9 +117,12 @@ Our CI pipeline automatically runs comprehensive checks on all pull requests and
 - `pnpm type-check` verifies TypeScript type safety
 - `pnpm test` runs all tests including accessibility checks with jest-axe
 - `pnpm build` ensures the Next.js app builds successfully
+- Installs Playwright browsers for Storybook testing
 - `pnpm build-storybook` and `pnpm test-storybook` run Storybook accessibility tests
 
-All checks must pass before code can be merged. See [CI Accessibility Testing](docs/ci-accessibility-testing.md) for details on a11y testing.
+**Note on Browser Dependencies**: The CI pipeline installs Playwright browsers (Chromium) to run Storybook accessibility tests. This is handled automatically in CI, but developers need to install browsers locally for Storybook testing (see Development Environment Setup).
+
+All checks must pass before code can be merged. See [CI Accessibility Testing](docs/ci-accessibility-testing.md) for details on a11y testing and browser requirements.
 
 ## Code Suppression Policy
 

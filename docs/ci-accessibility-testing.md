@@ -59,6 +59,29 @@ The test-runner automatically:
 - Runs accessibility checks after story loads
 - Reports detailed violations if found
 
+## Browser Installation Requirements
+
+### Playwright Browsers
+
+The Storybook test-runner uses Playwright for browser automation, which requires browser binaries to be installed. In CI, we explicitly install Chromium after the build step:
+
+```yaml
+- name: Install Playwright browsers
+  run: pnpm exec playwright install --with-deps chromium
+```
+
+**Why is this needed?**
+
+- Playwright browsers are not included in npm packages due to their size (~100-200MB)
+- The `--with-deps` flag ensures system dependencies are also installed
+- We install only Chromium (not all browsers) to optimize CI performance
+
+**Direct Dependency Requirement**
+
+- Playwright must be listed as a direct dev dependency in `package.json`
+- Without this, `pnpm exec playwright` will fail with "Command not found"
+- This ensures consistent versions and proper command availability
+
 ## CI Pipeline Flow
 
 ```yaml
@@ -68,8 +91,9 @@ The test-runner automatically:
 4. Type check
 5. Run tests (includes jest-axe)
 6. Build Next.js app
-7. Build Storybook
-8. Run Storybook a11y tests
+7. Install Playwright browsers
+8. Build Storybook
+9. Run Storybook a11y tests
 ```
 
 ## Handling Failures
@@ -86,6 +110,57 @@ The test-runner automatically:
 - Test locally: `pnpm storybook` then `pnpm test-storybook`
 - May indicate story-specific issues not caught in unit tests
 
+## Troubleshooting
+
+### Common CI Failures
+
+#### "Command playwright not found"
+
+**Problem**: Playwright is not available as a direct dependency.
+
+**Solution**: Ensure `playwright` is listed in `devDependencies`:
+
+```bash
+pnpm add -D playwright
+```
+
+#### Browser executable not found
+
+**Problem**: Playwright browsers are not installed in CI.
+
+**Solution**: Add browser installation step to CI workflow after dependencies are installed.
+
+#### Cache not working
+
+**Problem**: Browser binaries are downloaded on every CI run.
+
+**Solution**:
+
+- Ensure CI workflow includes cache step for `~/.cache/ms-playwright`
+- Note: GitHub Actions only saves cache on successful runs
+- Fix any failing tests to enable cache persistence
+
+### Performance Considerations
+
+#### Browser Installation Impact
+
+- Initial download: ~30-60 seconds depending on network
+- Chromium size: ~100-200MB
+- With cache hit: Installation step skipped entirely
+
+#### CI Duration Expectations
+
+- Total pipeline: ~3-5 minutes (with cache)
+- Browser installation: ~8 seconds (when cached)
+- Storybook build: ~20-30 seconds
+- A11y tests: ~5-10 seconds
+
+#### Optimization Strategies
+
+1. **Install only required browsers**: Use `chromium` instead of all browsers
+2. **Enable caching**: Configure GitHub Actions cache for Playwright binaries
+3. **Parallel execution**: Run independent steps concurrently where possible
+
 ## Running Locally
 
 ### jest-axe Tests
@@ -97,6 +172,9 @@ pnpm test
 ### Storybook Tests
 
 ```bash
+# Install Playwright browsers locally (one-time setup)
+pnpm exec playwright install chromium
+
 # Terminal 1: Start Storybook
 pnpm storybook
 
