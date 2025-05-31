@@ -24,10 +24,10 @@
 
 ### T035 - Fix focus indicator visibility during animations [depends on T033]
 
-- [ ] Review all animated components for focus states
-- [ ] Add explicit z-index for focus indicators
-- [ ] Ensure outline/border visibility during transforms
-- [ ] Verify keyboard navigation works smoothly
+- [x] Review all animated components for focus states
+- [x] Add explicit z-index for focus indicators
+- [x] Ensure outline/border visibility during transforms
+- [x] Verify keyboard navigation works smoothly
 
 ### T036 - Add ARIA attributes for animated elements [depends on T033]
 

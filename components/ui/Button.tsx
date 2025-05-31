@@ -10,6 +10,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...props }) => {
   const buttonClasses = `
+    relative
     bg-bitcoin-orange 
     text-white 
     rounded-lg 
@@ -32,10 +33,6 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...prop
     disabled:cursor-not-allowed 
     disabled:hover:transform-none
     disabled:hover:shadow-none
-    focus:outline-none 
-    focus:ring-2 
-    focus:ring-bitcoin-orange 
-    focus:ring-offset-2
     min-h-[44px]
     shadow-sm
     inline-block

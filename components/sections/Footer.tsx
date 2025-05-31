@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-bitcoin-orange transition-colors motion-reduce:transition-none"
+            className="relative hover:text-bitcoin-orange transition-colors motion-reduce:transition-none rounded-sm"
           >
             GitHub
           </a>
