@@ -25,6 +25,7 @@ const FeaturesSection: React.FC = () => {
   return (
     <section className="py-16 md:py-[120px]">
       <Container>
+        <h2 className="sr-only">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {features.map((feature, index) => (
             <FeatureCard

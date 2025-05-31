@@ -1,39 +1,14 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const AnimatedBackground: React.FC = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       {/* Floating orbs */}
-      <motion.div
-        className="absolute w-96 h-96 rounded-full bg-bitcoin-orange/5 blur-3xl"
-        initial={{ x: -100, y: -100 }}
-        animate={{
-          x: [100, -100, 100],
-          y: [-100, 200, -100],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
+      <div className="absolute w-96 h-96 rounded-full bg-bitcoin-orange/5 blur-3xl float-orb-one motion-reduce:[animation-play-state:paused]" />
 
-      <motion.div
-        className="absolute right-0 bottom-0 w-96 h-96 rounded-full bg-bitcoin-orange/5 blur-3xl"
-        initial={{ x: 100, y: 100 }}
-        animate={{
-          x: [-100, 100, -100],
-          y: [100, -200, 100],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
+      <div className="absolute right-0 bottom-0 w-96 h-96 rounded-full bg-bitcoin-orange/5 blur-3xl float-orb-two motion-reduce:[animation-play-state:paused]" />
 
       {/* Grid pattern */}
       <div

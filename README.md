@@ -1,6 +1,6 @@
 # Bitcoin Price Tag Splash Page
 
-A modern splash page for the Bitcoin Price Tag browser extension, built with Next.js, React, TypeScript, and Tailwind CSS.
+A modern splash page for the Bitcoin Price Tag browser extension, built with Next.js, React, TypeScript, and Tailwind CSS, featuring CSS-only animations for optimal performance and accessibility.
 
 ## Getting Started
 
@@ -40,3 +40,29 @@ This project follows strict code quality standards enforced by automated tools:
 - CI pipeline with formatting and linting checks
 
 For detailed information about our code quality standards and development workflow, please see [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## Animation System
+
+This project uses CSS-only animations for improved performance and accessibility:
+
+- CSS keyframes animations with custom easing and timing functions
+- CSS transitions for scroll-reveal effects
+- Intersection Observer API for triggering scroll-based animations
+- Proper support for `prefers-reduced-motion` user preference
+- No JavaScript animation libraries needed
+
+Animation documentation can be found in:
+
+- `/docs/animation_baselines/after/css-animations.md` - Animation implementation details
+- `/docs/animation_baselines/after/bundle-size.md` - Performance benefits
+- Test pages in `/app/test-*/page.tsx` provide visual demonstrations of each animation type
+
+### Testing Animation Components
+
+For visual testing of animation components, visit these routes:
+
+- `/test-animated-background` - Tests the floating orbs animation
+- `/test-page-fade-in` - Tests the page fade-in animation
+- `/test-scroll-reveal` - Tests the scroll-triggered reveal animations
+- `/test-all-animations` - Comprehensive test of all animation types
+<!-- CI Cache Test 1 -->

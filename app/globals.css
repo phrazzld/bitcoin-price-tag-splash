@@ -5,6 +5,7 @@
 /* Custom theme extensions */
 @layer theme {
   :root {
+    /* Colors */
     --color-bitcoin-orange: #f7931a;
     --color-gray-100: #f8f8f8;
     --color-gray-300: #e0e0e0;
@@ -12,11 +13,24 @@
     --color-gray-700: #616161;
     --color-gray-900: #212121;
 
+    /* Typography */
     --font-family-sans: Inter Variable, sans-serif;
 
+    /* Spacing */
     --spacing-18: 4.5rem;
     --spacing-88: 22rem;
     --spacing-120: 30rem;
+
+    /* Animation parameters */
+    --animation-duration-short: 0.3s;
+    --animation-duration-medium: 0.6s;
+    --animation-duration-long: 1s;
+    --animation-delay-none: 0s;
+    --animation-delay-short: 0.1s;
+    --animation-delay-medium: 0.3s;
+    --animation-easing-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --animation-easing-entrance: cubic-bezier(0, 0, 0.2, 1);
+    --animation-easing-exit: cubic-bezier(0.4, 0, 1, 1);
   }
 }
 
@@ -45,6 +59,26 @@
     box-shadow:
       0 0 0 2px white,
       0 0 0 4px var(--color-bitcoin-orange);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.001s !important;
+      animation-delay: 0s !important;
+      animation-iteration-count: 1 !important;
+      animation-play-state: paused !important;
+      transition-duration: 0.001s !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
@@ -78,5 +112,196 @@
   }
   .ring-bitcoin-orange {
     --tw-ring-color: var(--color-bitcoin-orange);
+  }
+}
+
+/* Animation utilities */
+@layer animation {
+  /* Fade animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  /* Slide animations */
+  @keyframes slideInUp {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Scale animations */
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Combined animations (for ScrollReveal) */
+  @keyframes revealIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Floating orb animations (for AnimatedBackground) */
+  @keyframes floatOrbOne {
+    0% {
+      transform: translate(-100px, -100px);
+    }
+    50% {
+      transform: translate(100px, 200px);
+    }
+    100% {
+      transform: translate(-100px, -100px);
+    }
+  }
+
+  @keyframes floatOrbTwo {
+    0% {
+      transform: translate(100px, 100px);
+    }
+    50% {
+      transform: translate(-100px, -200px);
+    }
+    100% {
+      transform: translate(100px, 100px);
+    }
+  }
+
+  /* Animation classes */
+  .fade-in {
+    animation-name: fadeIn;
+    animation-duration: var(--animation-duration-short);
+    animation-timing-function: var(--animation-easing-entrance);
+    animation-fill-mode: forwards;
+  }
+
+  .fade-out {
+    animation-name: fadeOut;
+    animation-duration: var(--animation-duration-short);
+    animation-timing-function: var(--animation-easing-exit);
+    animation-fill-mode: forwards;
+  }
+
+  .slide-in-up {
+    animation-name: slideInUp;
+    animation-duration: var(--animation-duration-medium);
+    animation-timing-function: var(--animation-easing-entrance);
+    animation-fill-mode: forwards;
+  }
+
+  .slide-in-down {
+    animation-name: slideInDown;
+    animation-duration: var(--animation-duration-medium);
+    animation-timing-function: var(--animation-easing-entrance);
+    animation-fill-mode: forwards;
+  }
+
+  .scale-in {
+    animation-name: scaleIn;
+    animation-duration: var(--animation-duration-medium);
+    animation-timing-function: var(--animation-easing-entrance);
+    animation-fill-mode: forwards;
+  }
+
+  /* ScrollReveal classes */
+  .scroll-reveal-initial {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  .scroll-reveal-final {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition:
+      opacity var(--animation-duration-medium) var(--animation-easing-entrance),
+      transform var(--animation-duration-medium) var(--animation-easing-entrance);
+  }
+
+  /* Float orb classes (for AnimatedBackground) */
+  .float-orb-one {
+    animation-name: floatOrbOne;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  .float-orb-two {
+    animation-name: floatOrbTwo;
+    animation-duration: 25s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  /* Delay classes */
+  .delay-none {
+    animation-delay: var(--animation-delay-none);
+    transition-delay: var(--animation-delay-none);
+  }
+
+  .delay-short {
+    animation-delay: var(--animation-delay-short);
+    transition-delay: var(--animation-delay-short);
+  }
+
+  .delay-medium {
+    animation-delay: var(--animation-delay-medium);
+    transition-delay: var(--animation-delay-medium);
+  }
+
+  /* Duration classes */
+  .duration-short {
+    animation-duration: var(--animation-duration-short);
+    transition-duration: var(--animation-duration-short);
+  }
+
+  .duration-medium {
+    animation-duration: var(--animation-duration-medium);
+    transition-duration: var(--animation-duration-medium);
+  }
+
+  .duration-long {
+    animation-duration: var(--animation-duration-long);
+    transition-duration: var(--animation-duration-long);
   }
 }
