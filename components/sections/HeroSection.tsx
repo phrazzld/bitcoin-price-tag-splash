@@ -11,11 +11,15 @@ const HeroSection: React.FC = () => {
       style={{ height: 'calc(100vh - 64px)' }}
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white" />
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"
+        aria-hidden="true"
+      />
 
       {/* Subtle geometric pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
+        aria-hidden="true"
         style={{
           backgroundImage: `repeating-linear-gradient(45deg, #000000 0px, #000000 1px, transparent 1px, transparent 80px),
                          repeating-linear-gradient(-45deg, #000000 0px, #000000 1px, transparent 1px, transparent 80px)`,
@@ -33,18 +37,22 @@ const HeroSection: React.FC = () => {
           </h1>
 
           <div className="relative inline-block">
-            <div className={styles.conversionContainer}>
+            <div
+              className={styles.conversionContainer}
+              aria-label="Price conversion demonstration: 99 dollars 99 cents converts to 0.00234584 Bitcoin"
+            >
               <div className={styles.conversionAnimation}>
                 <span className={`${styles.priceValue} ${styles.usdPrice}`}>$99.99</span>
                 <span className={`${styles.priceValue} ${styles.btcPrice}`}>0.00234584 BTC</span>
               </div>
-              <div className={styles.conversionArrow}>
+              <div className={styles.conversionArrow} aria-hidden="true">
                 <svg
                   width="40"
                   height="40"
                   viewBox="0 0 40 40"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
                   <path
                     d="M25 20L25 14L31 20L25 26L25 20ZM15 20L15 26L9 20L15 14L15 20Z"

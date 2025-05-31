@@ -4,7 +4,7 @@ import React from 'react';
 
 const AnimatedBackground: React.FC = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       {/* Floating orbs */}
       <div className="absolute w-96 h-96 rounded-full bg-bitcoin-orange/5 blur-3xl float-orb-one motion-reduce:[animation-play-state:paused]" />
 

@@ -31,10 +31,10 @@
 
 ### T036 - Add ARIA attributes for animated elements [depends on T033]
 
-- [ ] Identify components needing ARIA labels
-- [ ] Add aria-live regions for dynamic content
-- [ ] Implement proper role attributes
-- [ ] Ensure state changes are announced
+- [x] Identify components needing ARIA labels
+- [x] Add aria-live regions for dynamic content
+- [x] Implement proper role attributes
+- [x] Ensure state changes are announced
 
 ### T037 - Test with assistive technologies [depends on T034, T035, T036]
 
