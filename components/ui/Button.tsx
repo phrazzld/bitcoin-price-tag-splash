@@ -22,8 +22,12 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...prop
     hover:shadow-lg
     hover:transform
     hover:-translate-y-0.5
+    motion-reduce:transition-none
+    motion-reduce:hover:transform-none
+    motion-reduce:hover:shadow-sm
     active:bg-[#C77518] 
     active:translate-y-0
+    motion-reduce:active:transform-none
     disabled:opacity-50 
     disabled:cursor-not-allowed 
     disabled:hover:transform-none

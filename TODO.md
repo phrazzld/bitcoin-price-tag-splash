@@ -17,10 +17,10 @@
 
 ### T034 - Implement prefers-reduced-motion support [depends on T033]
 
-- [ ] Audit all CSS animations in the codebase
-- [ ] Add @media (prefers-reduced-motion: reduce) queries
-- [ ] Provide static or minimal animation alternatives
-- [ ] Test with reduced motion preference enabled
+- [x] Audit all CSS animations in the codebase
+- [x] Add @media (prefers-reduced-motion: reduce) queries
+- [x] Provide static or minimal animation alternatives
+- [x] Test with reduced motion preference enabled
 
 ### T035 - Fix focus indicator visibility during animations [depends on T033]
 

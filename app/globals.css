@@ -72,6 +72,8 @@
     ::after {
       animation-duration: 0.001s !important;
       animation-delay: 0s !important;
+      animation-iteration-count: 1 !important;
+      animation-play-state: paused !important;
       transition-duration: 0.001s !important;
       scroll-behavior: auto !important;
     }
