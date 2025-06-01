@@ -31,7 +31,7 @@
     2. Import and use types in other files to verify compatibility
   - **Depends‑on:** none
 
-- [ ] **T003 · Feature · P0: Implement correlation ID service with UUID generation and context propagation**
+- [x] **T003 · Feature · P0: Implement correlation ID service with UUID generation and context propagation**
 
   - **Context:** Phase 1: Foundation - Create Correlation ID Service (PLAN.md Section 3.2)
   - **Action:**
