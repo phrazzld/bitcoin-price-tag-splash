@@ -49,7 +49,7 @@
     3. Verify same correlation ID is maintained within a session
   - **Depends‑on:** T001
 
-- [ ] **T004 · Feature · P0: Create core logger service with Pino integration and environment configuration**
+- [x] **T004 · Feature · P0: Create core logger service with Pino integration and environment configuration**
 
   - **Context:** Phase 1: Foundation - Create Core Logger Service (PLAN.md Section 5.1)
   - **Action:**
