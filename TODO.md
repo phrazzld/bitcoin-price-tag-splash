@@ -69,7 +69,7 @@
     3. Test all log levels and verify proper metadata inclusion
   - **Depends‑on:** T001, T002, T003
 
-- [ ] **T005 · Chore · P1: Configure NEXT_PUBLIC_LOG_LEVEL environment variable**
+- [x] **T005 · Chore · P1: Configure NEXT_PUBLIC_LOG_LEVEL environment variable**
   - **Context:** Phase 1: Foundation - Environment Configuration (PLAN.md Section 3.3)
   - **Action:**
     1. Add `NEXT_PUBLIC_LOG_LEVEL` to `.env.local`, `.env.example`, and document in README

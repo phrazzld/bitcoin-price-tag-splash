@@ -57,6 +57,31 @@ Animation documentation can be found in:
 - `/docs/animation_baselines/after/bundle-size.md` - Performance benefits
 - Test pages in `/app/test-*/page.tsx` provide visual demonstrations of each animation type
 
+## Environment Variables
+
+The application supports configuration through environment variables. Copy `.env.example` to `.env.local` for local development:
+
+```bash
+cp .env.example .env.local
+```
+
+### Available Variables
+
+#### `NEXT_PUBLIC_LOG_LEVEL`
+
+Controls the minimum log level for structured logging output.
+
+- **Type:** `'error' | 'warn' | 'info' | 'debug'`
+- **Default:** `'debug'` in development, `'info'` in production
+- **Example:** `NEXT_PUBLIC_LOG_LEVEL=warn`
+
+This variable configures the application's logging verbosity:
+
+- `error`: Only critical errors
+- `warn`: Warnings and errors
+- `info`: Informational messages, warnings, and errors (recommended for production)
+- `debug`: All logs including detailed debug information (recommended for development)
+
 ### Testing Animation Components
 
 For visual testing of animation components, visit these routes:
