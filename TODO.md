@@ -104,7 +104,7 @@
     2. Check test coverage report to ensure adequate coverage
   - **Depends‑on:** T004, T005
 
-- [ ] **T007 · Test · P1: Implement unit tests for correlation ID service**
+- [x] **T007 · Test · P1: Implement unit tests for correlation ID service**
 
   - **Context:** Phase 2: Integration & Testing - Comprehensive Unit Tests (PLAN.md)
   - **Action:**
