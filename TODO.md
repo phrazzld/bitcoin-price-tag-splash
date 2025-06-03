@@ -121,7 +121,7 @@
     2. Test React Context behavior in isolated test environment
   - **Depends‑on:** T003
 
-- [ ] **T008 · Refactor · P1: Replace console.warn in Icon.tsx with structured logger**
+- [x] **T008 · Refactor · P1: Replace console.warn in Icon.tsx with structured logger**
 
   - **Context:** Phase 2: Integration & Testing - Replace Existing Console Usage (PLAN.md Section 5.2)
   - **Action:**
@@ -139,7 +139,7 @@
     3. Confirm component still renders correctly and handles missing icons gracefully
   - **Depends‑on:** T004
 
-- [ ] **T009 · Feature · P1: Implement React Error Boundary with structured logging**
+- [x] **T009 · Feature · P1: Implement React Error Boundary with structured logging**
 
   - **Context:** Phase 2: Integration & Testing - Add component-level error boundary logging (PLAN.md)
   - **Action:**
