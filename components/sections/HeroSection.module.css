@@ -1,29 +1,54 @@
 .conversionContainer {
   position: relative;
   display: inline-block;
-  margin: 3rem 0;
+  margin: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .conversionContainer {
+    margin: 5rem 0;
+  }
 }
 
 .conversionAnimation {
   position: relative;
   display: inline-block;
-  font-family: 'Monaco', 'Courier New', monospace;
-  font-size: 2rem;
+  font-family:
+    'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-size: 2.5rem;
   font-weight: 700;
-  height: 3rem;
-  line-height: 3rem;
-  background: linear-gradient(to right, #f8f8f8, #ffffff);
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  min-width: 300px;
+  height: 4rem;
+  line-height: 4rem;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f8f8 100%);
+  padding: 1.25rem 2.5rem;
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 1px 0px rgba(247, 147, 26, 0.1);
+  border: 1px solid rgba(247, 147, 26, 0.08);
+  min-width: 350px;
 }
 
 @media (min-width: 768px) {
   .conversionAnimation {
-    font-size: 2.5rem;
-    min-width: 400px;
-    padding: 1.5rem 3rem;
+    font-size: 3rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    min-width: 450px;
+    padding: 1.75rem 3.5rem;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .conversionAnimation {
+    font-size: 3.5rem;
+    height: 5rem;
+    line-height: 5rem;
+    min-width: 500px;
+    padding: 2rem 4rem;
+    border-radius: 24px;
   }
 }
 
@@ -147,6 +172,8 @@
 .btcPrice {
   animation: animateBtc 8s infinite;
   color: #f7931a;
+  font-weight: 800;
+  text-shadow: 0 0 20px rgba(247, 147, 26, 0.15);
 }
 
 /* Accessibility */

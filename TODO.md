@@ -9,7 +9,7 @@
   - Add proper line height and spacing for better readability
   - Ensure typography follows Swiss minimalism principles
 
-- [ ] **T002 · Typography · P1: Redesign Bitcoin amount display**
+- [x] **T002 · Typography · P1: Redesign Bitcoin amount display**
 
   - Create a more prominent and visually appealing Bitcoin amount component
   - Improve number formatting and spacing (0.00234584 BTC)
