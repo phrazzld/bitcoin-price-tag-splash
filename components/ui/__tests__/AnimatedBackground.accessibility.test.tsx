@@ -2,20 +2,29 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import AnimatedBackground from '../AnimatedBackground';
+import { CorrelationProvider } from '@/lib/logging/correlation';
 
 // Extend Jest matchers
 expect.extend(toHaveNoViolations);
 
 describe('AnimatedBackground Accessibility', () => {
   it('should have no accessibility violations', async () => {
-    const { container } = render(<AnimatedBackground />);
+    const { container } = render(
+      <CorrelationProvider>
+        <AnimatedBackground />
+      </CorrelationProvider>
+    );
 
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 
   it('should render decorative elements that do not interfere with screen readers', async () => {
-    const { container } = render(<AnimatedBackground />);
+    const { container } = render(
+      <CorrelationProvider>
+        <AnimatedBackground />
+      </CorrelationProvider>
+    );
 
     // Verify the component renders without accessibility issues
     const results = await axe(container);
@@ -27,7 +36,11 @@ describe('AnimatedBackground Accessibility', () => {
   });
 
   it('should have proper structure for background decorative content', async () => {
-    const { container } = render(<AnimatedBackground />);
+    const { container } = render(
+      <CorrelationProvider>
+        <AnimatedBackground />
+      </CorrelationProvider>
+    );
 
     // The component should be absolutely positioned and not interfere with content
     const backgroundElement = container.firstChild as HTMLElement;
@@ -42,14 +55,16 @@ describe('AnimatedBackground Accessibility', () => {
   it('should maintain accessibility when used as background in content areas', async () => {
     // Test the component when used with actual content on top
     const { container } = render(
-      <div>
-        <AnimatedBackground />
-        <main>
-          <h1>Main Content</h1>
-          <p>This content should be accessible despite the animated background.</p>
-          <button type="button">Interactive element</button>
-        </main>
-      </div>
+      <CorrelationProvider>
+        <div>
+          <AnimatedBackground />
+          <main>
+            <h1>Main Content</h1>
+            <p>This content should be accessible despite the animated background.</p>
+            <button type="button">Interactive element</button>
+          </main>
+        </div>
+      </CorrelationProvider>
     );
 
     const results = await axe(container);

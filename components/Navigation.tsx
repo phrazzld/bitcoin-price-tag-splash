@@ -1,9 +1,32 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect } from 'react';
 import Container from './ui/Container';
 import Button from './ui/Button';
 import { CHROME_STORE_URL } from '@/lib/constants';
+import { logger } from '@/lib/logging/logger';
+import { useCorrelationId } from '@/lib/logging/correlation';
 
 const Navigation: React.FC = () => {
+  const correlationId = useCorrelationId();
+
+  useEffect(() => {
+    // Log navigation mount
+    logger.debug('Navigation component mounted', 'Navigation', {
+      event_type: 'component_lifecycle',
+      lifecycle_stage: 'mount',
+      correlation_id_from_hook: correlationId,
+    });
+
+    return () => {
+      logger.debug('Navigation component unmounted', 'Navigation', {
+        event_type: 'component_lifecycle',
+        lifecycle_stage: 'unmount',
+        correlation_id_from_hook: correlationId,
+      });
+    };
+  }, [correlationId]);
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-md z-50 border-b border-gray-100"

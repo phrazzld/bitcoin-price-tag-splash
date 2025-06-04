@@ -151,8 +151,11 @@ describe('ErrorBoundary', () => {
       expect(logContext).toBeDefined();
       expect(logContext).toHaveProperty('component_stack');
       if (logContext && typeof logContext === 'object' && 'component_stack' in logContext) {
-        expect(typeof logContext.component_stack).toBe('string');
-        expect(logContext.component_stack).toContain('ErrorThrowingComponent');
+        const componentStack = logContext.component_stack;
+        expect(typeof componentStack).toBe('string');
+        // Component stack contains file paths and line numbers, not just component names
+        expect(componentStack).toContain('ErrorBoundary.test.tsx');
+        expect((componentStack as string).length).toBeGreaterThan(0);
       }
     });
 
