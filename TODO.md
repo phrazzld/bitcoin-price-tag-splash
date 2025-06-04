@@ -16,7 +16,7 @@
   - Add proper monospace font for the numerical value
   - Enhance visual hierarchy to make this the focal point
 
-- [ ] **T003 · Typography · P1: Improve body text hierarchy and spacing**
+- [x] **T003 · Typography · P1: Improve body text hierarchy and spacing**
 
   - Refine "Convert any price to Bitcoin automatically while you browse" text
   - Improve line height, font weight, and color contrast

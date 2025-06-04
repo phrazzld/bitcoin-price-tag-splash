@@ -128,10 +128,7 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          <p
-            className="mb-10 md:mb-12 text-gray-600 px-4 md:px-0 text-lg"
-            style={{ lineHeight: '1.6' }}
-          >
+          <p className="max-w-2xl mx-auto mb-12 md:mb-16 text-gray-700 px-4 md:px-0 text-xl md:text-2xl font-medium leading-relaxed tracking-tight">
             Convert any price to Bitcoin automatically while you browse
           </p>
 
