@@ -86,12 +86,8 @@ const HeroSection: React.FC = () => {
 
       <Container className="relative z-10">
         <div className="max-w-[900px] mx-auto text-center">
-          <h1
-            className="font-bold mb-8 text-gray-900"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', lineHeight: '1.1' }}
-          >
-            See Bitcoin prices
-            <span className="text-bitcoin-orange"> everywhere</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.15] tracking-[-0.02em] mb-12 text-gray-900">
+            See Bitcoin prices <span className="text-bitcoin-orange">everywhere</span>
           </h1>
 
           <div className="relative inline-block">
