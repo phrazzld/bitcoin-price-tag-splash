@@ -8,12 +8,25 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   href?: string;
+  loading?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...props }) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  className = '',
+  href,
+  loading = false,
+  ...props
+}) => {
   const correlationId = useCorrelationId();
 
   const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // Prevent clicks when loading
+    if (loading) {
+      event.preventDefault();
+      return;
+    }
+
     // Log button click interaction
     logger.info('Button clicked', 'Button', {
       event_type: 'user_interaction',
@@ -21,6 +34,7 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...prop
       button_text: typeof children === 'string' ? children : 'Complex content',
       has_href: !!href,
       href_destination: href || undefined,
+      is_loading: loading,
       correlation_id_from_hook: correlationId,
     });
 
@@ -30,7 +44,37 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...prop
     }
   };
 
-  const handleAnchorClick = (_event: React.MouseEvent<HTMLAnchorElement>) => {
+  const LoadingSpinner = () => (
+    <svg
+      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+      ></circle>
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      ></path>
+    </svg>
+  );
+
+  const handleAnchorClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    // Prevent navigation when loading
+    if (loading) {
+      event.preventDefault();
+      return;
+    }
+
     // Log anchor click interaction
     logger.info('Button clicked', 'Button', {
       event_type: 'user_interaction',
@@ -38,6 +82,7 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...prop
       button_text: typeof children === 'string' ? children : 'Complex content',
       has_href: !!href,
       href_destination: href || undefined,
+      is_loading: loading,
       correlation_id_from_hook: correlationId,
     });
   };
@@ -92,6 +137,7 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...prop
     motion-reduce:hover:scale-100
     motion-reduce:active:transform-none
     motion-reduce:active:scale-100
+    ${loading ? 'cursor-wait opacity-90' : ''}
     ${className}
   `.trim();
 
@@ -103,15 +149,28 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...prop
         rel="noopener noreferrer"
         className={buttonClasses}
         onClick={handleAnchorClick}
+        aria-disabled={loading}
       >
-        {children}
+        <span className="flex items-center justify-center">
+          {loading && <LoadingSpinner />}
+          <span className={loading ? 'opacity-70' : ''}>{children}</span>
+        </span>
       </a>
     );
   }
 
   return (
-    <button className={buttonClasses} {...props} onClick={handleButtonClick}>
-      {children}
+    <button
+      className={buttonClasses}
+      {...props}
+      onClick={handleButtonClick}
+      disabled={props.disabled || loading}
+      aria-disabled={loading}
+    >
+      <span className="flex items-center justify-center">
+        {loading && <LoadingSpinner />}
+        <span className={loading ? 'opacity-70' : ''}>{children}</span>
+      </span>
     </button>
   );
 };
