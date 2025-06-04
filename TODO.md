@@ -67,7 +67,7 @@
   - Ensure proper responsive spacing that scales appropriately
   - Remove any inconsistent or arbitrary spacing values
 
-- [ ] **T010 · Layout · P1: Improve element alignment and positioning**
+- [~] **T010 · Layout · P1: Improve element alignment and positioning**
 
   - Center-align all hero content with proper max-width constraints
   - Improve horizontal alignment of buttons and text elements

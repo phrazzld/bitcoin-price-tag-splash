@@ -90,7 +90,7 @@ const HeroSection: React.FC = () => {
             See Bitcoin prices <span className="text-bitcoin-orange">everywhere</span>
           </h1>
 
-          <div className="relative inline-block my-16 md:my-24">
+          <div className="flex justify-center my-16 md:my-24">
             <div
               className={styles.conversionContainer}
               aria-label="Price conversion demonstration: 99 dollars 99 cents converts to 0.00234584 Bitcoin"
@@ -128,11 +128,13 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          <p className="max-w-2xl mx-auto mb-12 md:mb-16 text-gray-700 px-4 md:px-0 text-xl md:text-2xl font-medium leading-relaxed tracking-tight">
+          <p className="max-w-[800px] mx-auto mb-12 md:mb-16 text-gray-700 text-xl md:text-2xl font-medium leading-relaxed tracking-tight">
             Convert any price to Bitcoin automatically while you browse
           </p>
 
-          <Button href={CHROME_STORE_URL}>Add to Chrome</Button>
+          <div className="flex justify-center">
+            <Button href={CHROME_STORE_URL}>Add to Chrome</Button>
+          </div>
         </div>
       </Container>
     </section>
