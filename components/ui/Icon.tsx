@@ -13,6 +13,7 @@ import {
   RefreshCw,
   type LucideProps,
 } from 'lucide-react';
+import { logger } from '@/lib/logging/logger';
 
 const icons = {
   check: Check,
@@ -45,7 +46,12 @@ const Icon: React.FC<IconProps> = ({
   const IconComponent = icons[name];
 
   if (!IconComponent) {
-    console.warn(`Icon "${name}" not found`);
+    logger.warn(`Icon "${name}" not found`, 'Icon', {
+      event_type: 'component_error',
+      requested_icon: name,
+      available_icons: Object.keys(icons),
+      fallback_behavior: 'render_null',
+    });
     return null;
   }
 

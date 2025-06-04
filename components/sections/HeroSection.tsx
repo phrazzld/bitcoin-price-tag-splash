@@ -1,12 +1,70 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect } from 'react';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 import styles from './HeroSection.module.css';
 import { CHROME_STORE_URL } from '@/lib/constants';
+import { logger } from '@/lib/logging/logger';
+import { useCorrelationId } from '@/lib/logging/correlation';
 
 const HeroSection: React.FC = () => {
+  const correlationId = useCorrelationId();
+
+  useEffect(() => {
+    // Log hero section view
+    logger.info('Hero section viewed', 'HeroSection', {
+      event_type: 'component_lifecycle',
+      lifecycle_stage: 'mount',
+      correlation_id_from_hook: correlationId,
+    });
+
+    // Track visibility using Intersection Observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            logger.info('Hero section became visible', 'HeroSection', {
+              event_type: 'user_interaction',
+              interaction_type: 'section_view',
+              visibility_ratio: entry.intersectionRatio,
+              correlation_id_from_hook: correlationId,
+            });
+            observer.disconnect(); // Only log first view
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const heroElement = document.querySelector('[data-section="hero"]');
+    if (heroElement) {
+      observer.observe(heroElement);
+    }
+
+    return () => {
+      observer.disconnect();
+      logger.debug('Hero section unmounted', 'HeroSection', {
+        event_type: 'component_lifecycle',
+        lifecycle_stage: 'unmount',
+        correlation_id_from_hook: correlationId,
+      });
+    };
+  }, [correlationId]);
+
+  const handlePriceConversionView = () => {
+    logger.info('Price conversion demo viewed', 'HeroSection', {
+      event_type: 'user_interaction',
+      interaction_type: 'price_conversion_view',
+      demo_amount_usd: 99.99,
+      demo_amount_btc: 0.00234584,
+      correlation_id_from_hook: correlationId,
+    });
+  };
+
   return (
     <section
+      data-section="hero"
       className="relative flex items-center justify-center overflow-hidden"
       style={{ height: 'calc(100vh - 64px)' }}
     >
@@ -40,6 +98,16 @@ const HeroSection: React.FC = () => {
             <div
               className={styles.conversionContainer}
               aria-label="Price conversion demonstration: 99 dollars 99 cents converts to 0.00234584 Bitcoin"
+              onClick={handlePriceConversionView}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handlePriceConversionView();
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              style={{ cursor: 'pointer' }}
             >
               <div className={styles.conversionAnimation}>
                 <span className={`${styles.priceValue} ${styles.usdPrice}`}>$99.99</span>

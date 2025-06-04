@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '@fontsource-variable/inter';
 import './globals.css';
+import { CorrelationProvider } from '@/lib/logging/correlation';
 
 export const metadata: Metadata = {
   title: 'Bitcoin Price Tag - See Bitcoin prices everywhere',
@@ -45,7 +46,9 @@ export default function RootLayout({
 }>): React.ReactNode {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <CorrelationProvider>{children}</CorrelationProvider>
+      </body>
     </html>
   );
 }

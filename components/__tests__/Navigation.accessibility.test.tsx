@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import Navigation from '../Navigation';
+import { CorrelationProvider } from '@/lib/logging/correlation';
 
 describe('Navigation Accessibility', () => {
   it('should have proper navigation role and label', () => {
-    render(<Navigation />);
+    render(
+      <CorrelationProvider>
+        <Navigation />
+      </CorrelationProvider>
+    );
 
     // Navigation should be properly labeled
     const nav = screen.getByRole('navigation');
@@ -12,7 +17,11 @@ describe('Navigation Accessibility', () => {
   });
 
   it('should hide decorative Bitcoin symbol from screen readers', () => {
-    render(<Navigation />);
+    render(
+      <CorrelationProvider>
+        <Navigation />
+      </CorrelationProvider>
+    );
 
     // Bitcoin symbol should be decorative
     const bitcoinSymbol = screen.getByText('₿');
@@ -20,7 +29,11 @@ describe('Navigation Accessibility', () => {
   });
 
   it('should have accessible brand text', () => {
-    render(<Navigation />);
+    render(
+      <CorrelationProvider>
+        <Navigation />
+      </CorrelationProvider>
+    );
 
     // Brand text should be accessible
     const brandText = screen.getByText('Bitcoin Price Tag');
@@ -29,7 +42,11 @@ describe('Navigation Accessibility', () => {
   });
 
   it('should have accessible navigation button', () => {
-    render(<Navigation />);
+    render(
+      <CorrelationProvider>
+        <Navigation />
+      </CorrelationProvider>
+    );
 
     // Navigation CTA should be accessible
     const navButton = screen.getByRole('link', { name: /add to chrome/i });

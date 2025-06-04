@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import { logger } from '@/lib/logging/logger';
+import { useCorrelationId } from '@/lib/logging/correlation';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -9,6 +11,36 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...props }) => {
+  const correlationId = useCorrelationId();
+
+  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // Log button click interaction
+    logger.info('Button clicked', 'Button', {
+      event_type: 'user_interaction',
+      interaction_type: 'button_click',
+      button_text: typeof children === 'string' ? children : 'Complex content',
+      has_href: !!href,
+      href_destination: href || undefined,
+      correlation_id_from_hook: correlationId,
+    });
+
+    // Call original onClick if provided
+    if (props.onClick) {
+      props.onClick(event);
+    }
+  };
+
+  const handleAnchorClick = (_event: React.MouseEvent<HTMLAnchorElement>) => {
+    // Log anchor click interaction
+    logger.info('Button clicked', 'Button', {
+      event_type: 'user_interaction',
+      interaction_type: 'button_click',
+      button_text: typeof children === 'string' ? children : 'Complex content',
+      has_href: !!href,
+      href_destination: href || undefined,
+      correlation_id_from_hook: correlationId,
+    });
+  };
   const buttonClasses = `
     relative
     bg-bitcoin-orange 
@@ -43,14 +75,20 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...prop
 
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={buttonClasses}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={buttonClasses}
+        onClick={handleAnchorClick}
+      >
         {children}
       </a>
     );
   }
 
   return (
-    <button className={buttonClasses} {...props}>
+    <button className={buttonClasses} {...props} onClick={handleButtonClick}>
       {children}
     </button>
   );
