@@ -86,11 +86,11 @@ const HeroSection: React.FC = () => {
 
       <Container className="relative z-10">
         <div className="max-w-[900px] mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.15] tracking-[-0.02em] mb-12 text-gray-900">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.15] tracking-[-0.02em] mb-16 md:mb-20 text-gray-900">
             See Bitcoin prices <span className="text-bitcoin-orange">everywhere</span>
           </h1>
 
-          <div className="relative inline-block">
+          <div className="relative inline-block my-16 md:my-24">
             <div
               className={styles.conversionContainer}
               aria-label="Price conversion demonstration: 99 dollars 99 cents converts to 0.00234584 Bitcoin"

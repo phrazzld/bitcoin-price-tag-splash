@@ -1,13 +1,6 @@
 .conversionContainer {
   position: relative;
   display: inline-block;
-  margin: 4rem 0;
-}
-
-@media (min-width: 768px) {
-  .conversionContainer {
-    margin: 5rem 0;
-  }
 }
 
 .conversionAnimation {
