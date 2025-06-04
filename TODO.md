@@ -31,7 +31,7 @@
 
 ## Button Design System
 
-- [ ] **T005 · Buttons · P1: Redesign primary button component**
+- [x] **T005 · Buttons · P1: Redesign primary button component**
 
   - Create new button design with proper sizing, padding, and typography
   - Implement Bitcoin orange (#F7931A) as primary color with proper contrast

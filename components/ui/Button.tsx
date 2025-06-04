@@ -43,33 +43,55 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', href, ...prop
   };
   const buttonClasses = `
     relative
-    bg-bitcoin-orange 
-    text-white 
-    rounded-lg 
-    px-6 md:px-8 
-    py-3 md:py-4 
-    font-medium 
-    transition-all
-    duration-200 
-    hover:bg-[#E0841A] 
-    hover:shadow-lg
-    hover:transform
-    hover:-translate-y-0.5
-    motion-reduce:transition-none
-    motion-reduce:hover:transform-none
-    motion-reduce:hover:shadow-sm
-    active:bg-[#C77518] 
-    active:translate-y-0
-    motion-reduce:active:transform-none
-    disabled:opacity-50 
-    disabled:cursor-not-allowed 
-    disabled:hover:transform-none
-    disabled:hover:shadow-none
-    min-h-[44px]
-    shadow-sm
     inline-block
     text-center
     cursor-pointer
+    text-base
+    md:text-lg
+    font-semibold
+    tracking-tight
+    leading-none
+    text-white 
+    bg-gradient-to-b
+    from-[#F7931A]
+    to-[#E0841A]
+    rounded-xl
+    px-6
+    md:px-8
+    py-3
+    md:py-4
+    min-h-[48px]
+    shadow-[0_4px_12px_rgba(247,147,26,0.25),0_2px_4px_rgba(0,0,0,0.1)]
+    border
+    border-[rgba(255,255,255,0.15)]
+    transition-all
+    duration-200
+    ease-out
+    hover:from-[#E0841A]
+    hover:to-[#C77518]
+    hover:shadow-[0_8px_20px_rgba(247,147,26,0.35),0_4px_8px_rgba(0,0,0,0.15)]
+    hover:transform
+    hover:-translate-y-1
+    hover:scale-[1.02]
+    focus-visible:outline
+    focus-visible:outline-2
+    focus-visible:outline-offset-2
+    focus-visible:outline-bitcoin-orange
+    active:from-[#C77518]
+    active:to-[#B86A16]
+    active:translate-y-0
+    active:scale-100
+    active:shadow-[0_2px_8px_rgba(247,147,26,0.3),0_1px_2px_rgba(0,0,0,0.2)]
+    disabled:opacity-50
+    disabled:cursor-not-allowed
+    disabled:hover:transform-none
+    disabled:hover:shadow-[0_4px_12px_rgba(247,147,26,0.25),0_2px_4px_rgba(0,0,0,0.1)]
+    disabled:hover:scale-100
+    motion-reduce:transition-none
+    motion-reduce:hover:transform-none
+    motion-reduce:hover:scale-100
+    motion-reduce:active:transform-none
+    motion-reduce:active:scale-100
     ${className}
   `.trim();
 

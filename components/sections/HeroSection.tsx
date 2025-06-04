@@ -132,12 +132,7 @@ const HeroSection: React.FC = () => {
             Convert any price to Bitcoin automatically while you browse
           </p>
 
-          <Button
-            href={CHROME_STORE_URL}
-            className="px-8 py-4 text-lg font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
-          >
-            Add to Chrome
-          </Button>
+          <Button href={CHROME_STORE_URL}>Add to Chrome</Button>
         </div>
       </Container>
     </section>
