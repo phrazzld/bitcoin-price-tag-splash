@@ -19,7 +19,7 @@
     3. Check that correlation ID functionality works in story context
   - **Depends‑on:** none (blocking CI)
 
-- [ ] **T019 · Test · P0: Verify CI pipeline passes with Storybook fix**
+- [x] **T019 · Test · P0: Verify CI pipeline passes with Storybook fix**
 
   - **Context:** Confirm that adding CorrelationProvider resolves all CI failures
   - **Action:**
