@@ -1,5 +1,58 @@
 # Todo
 
+## CI Resolution (CRITICAL)
+
+- [x] **T018 · Fix · P0: Add CorrelationProvider to Storybook preview configuration**
+
+  - **Context:** CI failing due to components using `useCorrelationId` hook without CorrelationProvider in Storybook environment
+  - **Action:**
+    1. Update `.storybook/preview.ts` to import `CorrelationProvider` from `@/lib/logging/correlation`
+    2. Add decorators configuration to wrap all stories with CorrelationProvider
+    3. Ensure correlation context is available for all Storybook stories
+  - **Done‑when:**
+    1. `.storybook/preview.ts` includes CorrelationProvider as a global decorator
+    2. All Storybook stories render without "useCorrelationId must be used within CorrelationProvider" errors
+    3. ScrollReveal and AnimatedBackground stories pass smoke tests
+  - **Verification:**
+    1. Run `pnpm storybook` locally and verify stories render without errors
+    2. Run `pnpm test-storybook` and verify all accessibility tests pass
+    3. Check that correlation ID functionality works in story context
+  - **Depends‑on:** none (blocking CI)
+
+- [ ] **T019 · Test · P0: Verify CI pipeline passes with Storybook fix**
+
+  - **Context:** Confirm that adding CorrelationProvider resolves all CI failures
+  - **Action:**
+    1. Push changes to trigger CI run
+    2. Monitor code-quality check for Storybook a11y tests
+    3. Verify all previously failing stories now pass
+    4. Confirm no regression in other CI checks
+  - **Done‑when:**
+    1. All CI checks pass (2/2 checks passing)
+    2. No new failures introduced by the fix
+    3. PR is ready for merge
+  - **Verification:**
+    1. Check GitHub Actions for successful code-quality run
+    2. Review CI logs to ensure no remaining "useCorrelationId" errors
+    3. Confirm auto-label check continues to pass
+  - **Depends‑on:** T018
+
+- [ ] **T020 · Cleanup · P1: Remove temporary CI analysis files**
+
+  - **Context:** Clean up temporary analysis files created during CI debugging
+  - **Action:**
+    1. Remove `CI-FAILURE-SUMMARY.md`
+    2. Remove `CI-RESOLUTION-PLAN.md`
+    3. Update this TODO.md to mark CI resolution tasks complete
+  - **Done‑when:**
+    1. Temporary files are removed from repository
+    2. Working directory is clean
+    3. CI resolution section is marked complete
+  - **Verification:**
+    1. Verify files are removed with `git status`
+    2. Confirm no unnecessary files remain in repository
+  - **Depends‑on:** T019
+
 ## Logging Foundation
 
 - [x] **T001 · Chore · P0: Install Pino and UUID dependencies for structured logging**
