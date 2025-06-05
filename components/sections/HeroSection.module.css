@@ -18,8 +18,8 @@
   border-radius: 16px;
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.08),
-    0 1px 0px rgba(247, 147, 26, 0.1);
-  border: 1px solid rgba(247, 147, 26, 0.08);
+    0 1px 0px rgba(199, 117, 24, 0.1);
+  border: 1px solid rgba(199, 117, 24, 0.08);
   min-width: 350px;
 }
 
@@ -133,17 +133,17 @@
   55% {
     width: 0;
     opacity: 1;
-    border-right-color: #f7931a;
+    border-right-color: #c77518;
   }
   70% {
     width: 14ch;
     opacity: 1;
-    border-right-color: #f7931a;
+    border-right-color: #c77518;
   }
   85% {
     width: 14ch;
     opacity: 1;
-    border-right-color: #f7931a;
+    border-right-color: #c77518;
   }
   95% {
     width: 14ch;
@@ -164,9 +164,9 @@
 
 .btcPrice {
   animation: animateBtc 8s infinite;
-  color: #f7931a;
+  color: #c77518;
   font-weight: 800;
-  text-shadow: 0 0 20px rgba(247, 147, 26, 0.15);
+  text-shadow: 0 0 20px rgba(199, 117, 24, 0.15);
 }
 
 /* Accessibility */

@@ -38,14 +38,14 @@
   - Add subtle shadows, borders, or gradients for depth and sophistication
   - Ensure buttons feel clickable and modern
 
-- [ ] **T006 · Buttons · P1: Implement comprehensive button states**
+- [x] **T006 · Buttons · P1: Implement comprehensive button states**
 
   - Design and implement hover states with smooth transitions
   - Add proper focus states for keyboard accessibility
   - Create active/pressed states for better user feedback
   - Add loading states for better UX during interactions
 
-- [ ] **T007 · Buttons · P1: Improve button sizing and spacing**
+- [x] **T007 · Buttons · P1: Improve button sizing and spacing**
 
   - Standardize button dimensions for consistency
   - Improve internal padding and text alignment
@@ -82,7 +82,7 @@
 
 ## Visual Polish & Refinement
 
-- [ ] **T012 · Visual · P1: Improve color consistency and contrast**
+- [x] **T012 · Visual · P1: Improve color consistency and contrast**
 
   - Ensure Bitcoin orange is used consistently and purposefully
   - Improve text contrast ratios for better accessibility

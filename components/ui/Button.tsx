@@ -131,37 +131,37 @@ const Button: React.FC<ButtonProps> = ({
     leading-none
     text-white 
     bg-gradient-to-b
-    from-[#F7931A]
-    to-[#E0841A]
+    from-[#c77518]
+    to-[#b86a16]
     ${currentSize.borderRadius}
     ${currentSize.padding}
     ${currentSize.minHeight}
     mx-1
-    shadow-[0_4px_12px_rgba(247,147,26,0.25),0_2px_4px_rgba(0,0,0,0.1)]
+    shadow-[0_4px_12px_rgba(199,117,24,0.25),0_2px_4px_rgba(0,0,0,0.1)]
     border
     border-[rgba(255,255,255,0.15)]
     transition-all
     duration-200
     ease-out
-    hover:from-[#E0841A]
-    hover:to-[#C77518]
-    hover:shadow-[0_8px_20px_rgba(247,147,26,0.35),0_4px_8px_rgba(0,0,0,0.15)]
+    hover:from-[#b86a16]
+    hover:to-[#a05914]
+    hover:shadow-[0_8px_20px_rgba(199,117,24,0.35),0_4px_8px_rgba(0,0,0,0.15)]
     hover:transform
     hover:-translate-y-1
     hover:scale-[1.02]
     focus-visible:outline
     focus-visible:outline-2
     focus-visible:outline-offset-2
-    focus-visible:outline-bitcoin-orange
-    active:from-[#C77518]
-    active:to-[#B86A16]
+    focus-visible:outline-[#c77518]
+    active:from-[#a05914]
+    active:to-[#8a4e12]
     active:translate-y-0
     active:scale-100
-    active:shadow-[0_2px_8px_rgba(247,147,26,0.3),0_1px_2px_rgba(0,0,0,0.2)]
+    active:shadow-[0_2px_8px_rgba(199,117,24,0.3),0_1px_2px_rgba(0,0,0,0.2)]
     disabled:opacity-50
     disabled:cursor-not-allowed
     disabled:hover:transform-none
-    disabled:hover:shadow-[0_4px_12px_rgba(247,147,26,0.25),0_2px_4px_rgba(0,0,0,0.1)]
+    disabled:hover:shadow-[0_4px_12px_rgba(199,117,24,0.25),0_2px_4px_rgba(0,0,0,0.1)]
     disabled:hover:scale-100
     motion-reduce:transition-none
     motion-reduce:hover:transform-none
