@@ -118,7 +118,7 @@
   - Add proper ARIA labels and descriptions where needed
   - Verify screen reader compatibility and experience
 
-- [ ] **T017 · A11y · P1: Enhance color contrast and readability**
+- [x] **T017 · A11y · P1: Enhance color contrast and readability**
 
   - Verify all text meets WCAG AA contrast requirements
   - Test readability across different devices and lighting conditions

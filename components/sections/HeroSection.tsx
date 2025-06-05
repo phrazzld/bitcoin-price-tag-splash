@@ -127,7 +127,7 @@ const HeroSection: React.FC = () => {
                 >
                   <path
                     d="M25 20L25 14L31 20L25 26L25 20ZM15 20L15 26L9 20L15 14L15 20Z"
-                    fill="#c77518"
+                    fill="var(--color-bitcoin-orange-700)"
                     fillOpacity="0.6"
                   />
                 </svg>
