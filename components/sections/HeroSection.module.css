@@ -3,6 +3,40 @@
   display: inline-block;
 }
 
+/* Subtle attention pulse every 12 seconds */
+.conversionContainer::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background: linear-gradient(
+    135deg,
+    rgba(199, 117, 24, 0.1) 0%,
+    rgba(212, 113, 26, 0.08) 50%,
+    rgba(199, 117, 24, 0.1) 100%
+  );
+  border-radius: 24px;
+  opacity: 0;
+  z-index: -1;
+  animation: subtleGlow 12s ease-in-out infinite;
+}
+
+@keyframes subtleGlow {
+  0%,
+  85%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  8%,
+  12% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
 .conversionAnimation {
   position: relative;
   display: inline-block;
@@ -13,14 +47,26 @@
   height: 4rem;
   line-height: 4rem;
   letter-spacing: -0.01em;
-  background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f8f8 100%);
+  background: linear-gradient(135deg, #fefefe 0%, #ffffff 50%, #fafafa 100%);
   padding: 1.25rem 2.5rem;
   border-radius: 16px;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.08),
-    0 1px 0px rgba(199, 117, 24, 0.1);
-  border: 1px solid rgba(199, 117, 24, 0.08);
+    0 12px 48px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(199, 117, 24, 0.08),
+    0 1px 0px rgba(199, 117, 24, 0.15);
+  border: 1px solid rgba(199, 117, 24, 0.12);
   min-width: 350px;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects for enhanced interactivity */
+.conversionContainer:hover .conversionAnimation {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 64px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(199, 117, 24, 0.12),
+    0 2px 0px rgba(199, 117, 24, 0.2);
 }
 
 @media (min-width: 768px) {
@@ -31,6 +77,18 @@
     min-width: 450px;
     padding: 1.75rem 3.5rem;
     border-radius: 20px;
+    box-shadow:
+      0 16px 56px rgba(0, 0, 0, 0.14),
+      0 6px 20px rgba(199, 117, 24, 0.1),
+      0 1px 0px rgba(199, 117, 24, 0.18);
+  }
+
+  .conversionContainer:hover .conversionAnimation {
+    transform: translateY(-3px);
+    box-shadow:
+      0 20px 72px rgba(0, 0, 0, 0.18),
+      0 10px 28px rgba(199, 117, 24, 0.15),
+      0 2px 0px rgba(199, 117, 24, 0.25);
   }
 }
 
@@ -42,6 +100,18 @@
     min-width: 500px;
     padding: 2rem 4rem;
     border-radius: 24px;
+    box-shadow:
+      0 20px 64px rgba(0, 0, 0, 0.16),
+      0 8px 24px rgba(199, 117, 24, 0.12),
+      0 1px 0px rgba(199, 117, 24, 0.2);
+  }
+
+  .conversionContainer:hover .conversionAnimation {
+    transform: translateY(-4px);
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.2),
+      0 12px 32px rgba(199, 117, 24, 0.18),
+      0 2px 0px rgba(199, 117, 24, 0.3);
   }
 }
 
@@ -66,7 +136,7 @@
   animation: pulseArrow 8s infinite;
 }
 
-/* Arrow pulse animation */
+/* Arrow pulse animation with enhanced emphasis */
 @keyframes pulseArrow {
   0%,
   100% {
@@ -75,12 +145,22 @@
   }
   45%,
   55% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.15);
   }
   50% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Shimmer effect for BTC text emphasis */
+@keyframes shimmerText {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 
@@ -166,11 +246,34 @@
   animation: animateBtc 8s infinite;
   color: #c77518;
   font-weight: 800;
-  text-shadow: 0 0 20px rgba(199, 117, 24, 0.15);
+  text-shadow:
+    0 0 24px rgba(199, 117, 24, 0.25),
+    0 0 8px rgba(199, 117, 24, 0.15);
+  background: linear-gradient(135deg, #c77518 0%, #d4711a 50%, #c77518 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation:
+    animateBtc 8s infinite,
+    shimmerText 3s ease-in-out infinite;
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
+  .conversionContainer::before {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .conversionAnimation {
+    transition: none !important;
+  }
+
+  .conversionContainer:hover .conversionAnimation {
+    transform: none !important;
+  }
+
   .priceValue {
     animation: none !important;
     opacity: 0;
@@ -181,6 +284,17 @@
   .usdPrice {
     opacity: 1;
     position: static;
+    color: #616161;
+  }
+
+  .btcPrice {
+    animation: none !important;
+    opacity: 1;
+    position: static;
+    color: #c77518;
+    background: none !important;
+    -webkit-text-fill-color: unset !important;
+    text-shadow: none !important;
   }
 
   .conversionArrow {

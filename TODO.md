@@ -89,7 +89,7 @@
   - Refine gray tones and ensure they work harmoniously
   - Add subtle color variations for depth without complexity
 
-- [ ] **T013 · Visual · P1: Enhance visual hierarchy and emphasis**
+- [x] **T013 · Visual · P1: Enhance visual hierarchy and emphasis**
 
   - Make the Bitcoin amount display more prominent and engaging
   - Improve the visual flow from headline to amount to description to CTA
