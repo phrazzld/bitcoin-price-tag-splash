@@ -99,9 +99,9 @@ const HeroSection: React.FC = () => {
             id="hero-heading"
             className="typography-display hero-responsive-spacing text-gray-900 text-shadow-micro"
           >
-            See Bitcoin prices{' '}
+            Think in Bitcoin,{' '}
             <span className="text-bitcoin-orange font-extrabold relative text-shadow-subtle">
-              everywhere
+              spend smarter
             </span>
           </h1>
 
@@ -155,7 +155,7 @@ const HeroSection: React.FC = () => {
             id="hero-description"
             className="responsive-content-max-width mx-auto hero-responsive-spacing text-gray-600 typography-body-large opacity-90 text-shadow-micro"
           >
-            Convert any price to Bitcoin automatically while you browse
+            See the true Bitcoin cost of every purchase and make better financial decisions
           </p>
 
           <div className="flex justify-center thumb-friendly-positioning">
@@ -164,7 +164,7 @@ const HeroSection: React.FC = () => {
               size="large"
               className="touch-target-optimized mobile-button-spacing"
             >
-              Add to Chrome
+              Install Free Extension
             </Button>
           </div>
         </div>

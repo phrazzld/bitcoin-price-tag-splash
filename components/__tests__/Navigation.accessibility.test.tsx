@@ -49,7 +49,7 @@ describe('Navigation Accessibility', () => {
     );
 
     // Navigation CTA should be accessible
-    const navButton = screen.getByRole('link', { name: /add to chrome/i });
+    const navButton = screen.getByRole('link', { name: /install extension/i });
     expect(navButton).toBeInTheDocument();
     expect(navButton).toHaveAttribute('href');
   });

@@ -51,7 +51,7 @@ const Navigation: React.FC = () => {
               size="small"
               className="touch-target-optimized mobile-button-spacing font-medium"
             >
-              <span className="hidden sm:inline">Add to Chrome</span>
+              <span className="hidden sm:inline">Install Extension</span>
               <span className="sm:hidden">Install</span>
             </Button>
           </div>

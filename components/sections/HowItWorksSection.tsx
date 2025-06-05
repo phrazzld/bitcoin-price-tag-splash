@@ -7,17 +7,17 @@ const HowItWorksSection: React.FC = () => {
     {
       number: 1,
       screenshot: <div className="w-full h-48 bg-gray-200 rounded" />,
-      description: 'Install the extension from Chrome Web Store',
+      description: 'Install the free Bitcoin Price Tag extension',
     },
     {
       number: 2,
       screenshot: <div className="w-full h-48 bg-gray-200 rounded" />,
-      description: 'Browse any website with prices',
+      description: 'Shop normally on any e-commerce site',
     },
     {
       number: 3,
       screenshot: <div className="w-full h-48 bg-gray-200 rounded" />,
-      description: 'See Bitcoin values automatically',
+      description: 'Instantly see the true Bitcoin cost of every purchase',
     },
   ];
 

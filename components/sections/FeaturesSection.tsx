@@ -7,18 +7,18 @@ const FeaturesSection: React.FC = () => {
   const features = [
     {
       icon: 'zap' as IconName,
-      title: 'Instant conversion',
-      description: 'See Bitcoin values in real-time as you browse',
+      title: 'Instant awareness',
+      description: "See what you're really spending in Bitcoin terms",
     },
     {
       icon: 'globe' as IconName,
-      title: 'Works everywhere',
-      description: 'Compatible with all major shopping sites',
+      title: 'Universal compatibility',
+      description: 'Works on every major shopping and commerce site',
     },
     {
       icon: 'refreshCw' as IconName,
-      title: 'Always current',
-      description: 'Live exchange rates updated continuously',
+      title: 'Real-time accuracy',
+      description: 'Live Bitcoin prices ensure precise calculations',
     },
   ];
 

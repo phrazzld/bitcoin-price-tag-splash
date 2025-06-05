@@ -12,7 +12,7 @@ const CTASection: React.FC = () => {
             className="font-bold text-gray-900 responsive-content-spacing"
             style={{ fontSize: '2.25rem', lineHeight: '1.2' }}
           >
-            Start seeing Bitcoin prices
+            Start making Bitcoin-conscious decisions
           </h2>
           <div className="thumb-friendly-positioning">
             <Button
@@ -20,7 +20,7 @@ const CTASection: React.FC = () => {
               size="large"
               className="touch-target-optimized mobile-button-spacing"
             >
-              Get Started
+              Install Free Extension
             </Button>
           </div>
         </div>

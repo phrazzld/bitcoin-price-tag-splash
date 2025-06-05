@@ -57,7 +57,7 @@ describe('HeroSection Accessibility', () => {
     // Main heading should be accessible
     const heading = screen.getByRole('heading', { level: 1 });
     expect(heading).toBeInTheDocument();
-    expect(heading).toHaveTextContent('See Bitcoin prices everywhere');
+    expect(heading).toHaveTextContent('Think in Bitcoin, spend smarter');
   });
 
   it('should have accessible call-to-action button', () => {
@@ -68,7 +68,7 @@ describe('HeroSection Accessibility', () => {
     );
 
     // CTA button should be accessible
-    const ctaButton = screen.getByRole('link', { name: /add to chrome/i });
+    const ctaButton = screen.getByRole('link', { name: /install free extension/i });
     expect(ctaButton).toBeInTheDocument();
     expect(ctaButton).toHaveAttribute('href');
   });
