@@ -94,6 +94,14 @@
   }
 }
 
+/* Font Loading Optimization */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap; /* Improve font loading performance */
+  src: local('Inter Variable'), local('InterVariable');
+}
+
 /* Base styles */
 @layer base {
   html {
@@ -416,84 +424,94 @@
     }
   }
 
-  /* Slide animations */
+  /* Slide animations - GPU optimized with transform3d */
   @keyframes slideInUp {
     from {
-      transform: translateY(40px);
+      transform: translate3d(0, 40px, 0);
       opacity: 0;
     }
     to {
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
       opacity: 1;
     }
   }
 
   @keyframes slideInDown {
     from {
-      transform: translateY(-40px);
+      transform: translate3d(0, -40px, 0);
       opacity: 0;
     }
     to {
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
       opacity: 1;
     }
   }
 
-  /* Scale animations */
+  /* Scale animations - GPU optimized */
   @keyframes scaleIn {
     from {
-      transform: scale(0.95);
+      transform: scale3d(0.95, 0.95, 1);
       opacity: 0;
     }
     to {
-      transform: scale(1);
+      transform: scale3d(1, 1, 1);
       opacity: 1;
     }
   }
 
-  /* Combined animations (for ScrollReveal) */
+  /* Combined animations (for ScrollReveal) - GPU optimized */
   @keyframes revealIn {
     from {
       opacity: 0;
-      transform: translateY(40px) scale(0.95);
+      transform: translate3d(0, 40px, 0) scale3d(0.95, 0.95, 1);
     }
     to {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
     }
   }
 
-  /* Floating orb animations (for AnimatedBackground) */
+  /* Floating orb animations - GPU optimized for performance */
   @keyframes floatOrbOne {
     0% {
-      transform: translate(-100px, -100px);
+      transform: translate3d(-100px, -100px, 0);
     }
     50% {
-      transform: translate(100px, 200px);
+      transform: translate3d(100px, 200px, 0);
     }
     100% {
-      transform: translate(-100px, -100px);
+      transform: translate3d(-100px, -100px, 0);
     }
   }
 
   @keyframes floatOrbTwo {
     0% {
-      transform: translate(100px, 100px);
+      transform: translate3d(100px, 100px, 0);
     }
     50% {
-      transform: translate(-100px, -200px);
+      transform: translate3d(-100px, -200px, 0);
     }
     100% {
-      transform: translate(100px, 100px);
+      transform: translate3d(100px, 100px, 0);
     }
   }
 
-  /* Animation classes */
+  /* Performance Utilities */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-auto {
+    will-change: auto;
+  }
+
+  /* Animation classes - GPU optimized */
   .fade-in {
     animation-name: fadeIn;
     animation-duration: var(--animation-duration-short);
     animation-timing-function: var(--animation-easing-entrance);
     animation-fill-mode: forwards;
+    will-change: opacity;
   }
 
   .fade-out {
@@ -501,6 +519,7 @@
     animation-duration: var(--animation-duration-short);
     animation-timing-function: var(--animation-easing-exit);
     animation-fill-mode: forwards;
+    will-change: opacity;
   }
 
   .slide-in-up {
@@ -508,6 +527,7 @@
     animation-duration: var(--animation-duration-medium);
     animation-timing-function: var(--animation-easing-entrance);
     animation-fill-mode: forwards;
+    will-change: transform, opacity;
   }
 
   .slide-in-down {
@@ -515,6 +535,7 @@
     animation-duration: var(--animation-duration-medium);
     animation-timing-function: var(--animation-easing-entrance);
     animation-fill-mode: forwards;
+    will-change: transform, opacity;
   }
 
   .scale-in {
@@ -522,12 +543,14 @@
     animation-duration: var(--animation-duration-medium);
     animation-timing-function: var(--animation-easing-entrance);
     animation-fill-mode: forwards;
+    will-change: transform, opacity;
   }
 
-  /* ScrollReveal classes */
+  /* ScrollReveal classes - GPU optimized */
   .scroll-reveal-initial {
     opacity: 0;
     transform: translateY(40px) scale(0.95);
+    will-change: transform, opacity;
   }
 
   .scroll-reveal-final {
@@ -536,14 +559,18 @@
     transition:
       opacity var(--animation-duration-medium) var(--animation-easing-entrance),
       transform var(--animation-duration-medium) var(--animation-easing-entrance);
+    will-change: auto; /* Reset after transition */
   }
 
-  /* Float orb classes (for AnimatedBackground) */
+  /* Float orb classes - GPU optimized for long-running animations */
   .float-orb-one {
     animation-name: floatOrbOne;
     animation-duration: 20s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    will-change: transform;
+    /* Use transform3d to force GPU layer */
+    transform: translate3d(0, 0, 0);
   }
 
   .float-orb-two {
@@ -551,6 +578,9 @@
     animation-duration: 25s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    will-change: transform;
+    /* Use transform3d to force GPU layer */
+    transform: translate3d(0, 0, 0);
   }
 
   /* Delay classes */

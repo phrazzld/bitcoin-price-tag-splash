@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import ScrollReveal from '@/components/animation/ScrollReveal';
@@ -10,8 +10,13 @@ import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
+import { initializePerformanceMonitoring } from '@/lib/utils/performance';
 
 export default function Home(): React.ReactNode {
+  useEffect(() => {
+    // Initialize performance monitoring for Core Web Vitals
+    initializePerformanceMonitoring();
+  }, []);
   return (
     <div className="relative fade-in">
       {/* Skip Navigation Link for Screen Readers */}

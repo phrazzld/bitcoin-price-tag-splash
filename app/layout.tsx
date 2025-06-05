@@ -46,6 +46,11 @@ export default function RootLayout({
 }>): React.ReactNode {
   return (
     <html lang="en">
+      <head>
+        {/* Performance optimizations */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="//fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="antialiased">
         <CorrelationProvider>{children}</CorrelationProvider>
       </body>

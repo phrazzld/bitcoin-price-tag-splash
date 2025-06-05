@@ -137,9 +137,10 @@ const Button: React.FC<ButtonProps> = ({
     mx-1
     border
     border-white/15
-    transition-all
+    transition-[transform,box-shadow,background]
     duration-200
     ease-out
+    will-change-transform
     hover:transform
     hover:-translate-y-1
     hover:scale-[1.02]
