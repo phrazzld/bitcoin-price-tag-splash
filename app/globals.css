@@ -91,6 +91,47 @@
     --animation-easing-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
     --animation-easing-entrance: cubic-bezier(0, 0, 0.2, 1);
     --animation-easing-exit: cubic-bezier(0.4, 0, 1, 1);
+
+    /* Sophisticated Visual Details - Swiss Minimalism Enhanced */
+
+    /* Micro-shadow system for subtle depth */
+    --shadow-micro: 0 0.5px 1px rgba(0, 0, 0, 0.05);
+    --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.04), 0 0.5px 1px rgba(0, 0, 0, 0.02);
+    --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+    --shadow-refined:
+      0 4px 8px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.01);
+
+    /* Inset shadow system for tactile surfaces */
+    --shadow-inset-micro: inset 0 0.5px 0 rgba(255, 255, 255, 0.1);
+    --shadow-inset-subtle:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -0.5px 0 rgba(0, 0, 0, 0.02);
+    --shadow-inset-refined:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+    /* Border system for sophisticated definition */
+    --border-micro: 0.5px solid rgba(0, 0, 0, 0.05);
+    --border-subtle: 1px solid rgba(0, 0, 0, 0.04);
+    --border-refined: 1px solid rgba(0, 0, 0, 0.06);
+    --border-highlight: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Premium gradient systems */
+    --gradient-surface-premium: linear-gradient(145deg, #fdfdfd 0%, #fafafa 50%, #f8f8f8 100%);
+    --gradient-surface-elevated: linear-gradient(145deg, #ffffff 0%, #fcfcfc 50%, #f9f9f9 100%);
+    --gradient-surface-refined: linear-gradient(
+      145deg,
+      #fefefe 0%,
+      #fbfbfb 30%,
+      #f8f8f8 70%,
+      #f5f5f5 100%
+    );
+
+    /* Sophisticated backdrop systems */
+    --backdrop-ultra-subtle: rgba(255, 255, 255, 0.01);
+    --backdrop-micro: rgba(255, 255, 255, 0.02);
+    --backdrop-refined: rgba(255, 255, 255, 0.04);
+
+    /* Texture noise overlay (data URI for performance) */
+    --texture-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.01'/%3E%3C/svg%3E");
   }
 }
 
@@ -543,6 +584,179 @@
     .thumb-friendly-positioning {
       padding-bottom: 2rem;
     }
+  }
+
+  /* Sophisticated Visual Details - Swiss Minimalism Enhanced */
+
+  /* Premium surface treatments */
+  .surface-premium {
+    background: var(--gradient-surface-premium);
+    box-shadow: var(--shadow-subtle);
+    border: var(--border-subtle);
+  }
+
+  .surface-elevated {
+    background: var(--gradient-surface-elevated);
+    box-shadow: var(--shadow-soft);
+    border: var(--border-micro);
+  }
+
+  .surface-refined {
+    background: var(--gradient-surface-refined);
+    box-shadow: var(--shadow-refined);
+    border: var(--border-refined);
+    position: relative;
+  }
+
+  .surface-refined::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--texture-noise);
+    border-radius: inherit;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Micro-elevation system */
+  .elevation-micro {
+    box-shadow: var(--shadow-micro);
+  }
+
+  .elevation-subtle {
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .elevation-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .elevation-refined {
+    box-shadow: var(--shadow-refined);
+  }
+
+  /* Inset surface treatments for tactile depth */
+  .surface-inset-micro {
+    box-shadow: var(--shadow-inset-micro);
+  }
+
+  .surface-inset-subtle {
+    box-shadow: var(--shadow-inset-subtle);
+  }
+
+  .surface-inset-refined {
+    box-shadow: var(--shadow-inset-refined);
+  }
+
+  /* Sophisticated border treatments */
+  .border-micro {
+    border: var(--border-micro);
+  }
+
+  .border-subtle {
+    border: var(--border-subtle);
+  }
+
+  .border-refined {
+    border: var(--border-refined);
+  }
+
+  .border-highlight {
+    border: var(--border-highlight);
+  }
+
+  /* Backdrop sophistication */
+  .backdrop-ultra-subtle {
+    background: var(--backdrop-ultra-subtle);
+  }
+
+  .backdrop-micro {
+    background: var(--backdrop-micro);
+  }
+
+  .backdrop-refined {
+    background: var(--backdrop-refined);
+  }
+
+  /* Enhanced depth with layered effects */
+  .depth-sophisticated {
+    position: relative;
+    background: var(--gradient-surface-refined);
+    box-shadow: var(--shadow-refined), var(--shadow-inset-micro);
+    border: var(--border-subtle);
+  }
+
+  .depth-sophisticated::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--texture-noise);
+    border-radius: inherit;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    opacity: 0.3;
+  }
+
+  .depth-sophisticated::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.01) 50%,
+      rgba(0, 0, 0, 0.01) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  /* Refined text shadows for depth */
+  .text-shadow-micro {
+    text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .text-shadow-subtle {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  .text-shadow-refined {
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 0.5px 1px rgba(0, 0, 0, 0.02);
+  }
+
+  /* Enhanced background sophistication */
+  .background-sophisticated {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      #fafafa 0%,
+      #ffffff 25%,
+      #fdfdfd 50%,
+      #f9f9f9 75%,
+      #f6f6f6 100%
+    );
+  }
+
+  .background-sophisticated::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--texture-noise);
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .background-sophisticated::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(247, 147, 26, 0.003) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 80%, rgba(97, 97, 97, 0.002) 0%, transparent 50%);
+    pointer-events: none;
   }
 
   /* Button Component Styles - WCAG AA Compliant with Browser Fallbacks */

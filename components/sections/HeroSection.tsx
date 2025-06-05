@@ -69,19 +69,27 @@ const HeroSection: React.FC = () => {
       aria-labelledby="hero-heading"
       aria-describedby="hero-description"
     >
-      {/* Background gradient */}
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"
-        aria-hidden="true"
-      />
+      {/* Sophisticated background system */}
+      <div className="absolute inset-0 background-sophisticated" aria-hidden="true" />
 
-      {/* Subtle geometric pattern */}
+      {/* Enhanced geometric pattern with depth */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.025]"
         aria-hidden="true"
         style={{
-          backgroundImage: `repeating-linear-gradient(45deg, #000000 0px, #000000 1px, transparent 1px, transparent 80px),
-                         repeating-linear-gradient(-45deg, #000000 0px, #000000 1px, transparent 1px, transparent 80px)`,
+          backgroundImage: `repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.8) 0.5px, transparent 0.5px, transparent 90px),
+                         repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0.6) 0.5px, transparent 0.5px, transparent 90px)`,
+          mixBlendMode: 'multiply',
+        }}
+      />
+
+      {/* Subtle texture overlay for premium feel */}
+      <div
+        className="absolute inset-0 backdrop-micro"
+        aria-hidden="true"
+        style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(247, 147, 26, 0.003) 0%, transparent 50%),
+                           radial-gradient(circle at 75% 75%, rgba(97, 97, 97, 0.002) 0%, transparent 50%)`,
         }}
       />
 
@@ -89,10 +97,12 @@ const HeroSection: React.FC = () => {
         <div className="max-w-[900px] mx-auto text-center">
           <h1
             id="hero-heading"
-            className="typography-display hero-responsive-spacing text-gray-900"
+            className="typography-display hero-responsive-spacing text-gray-900 text-shadow-micro"
           >
             See Bitcoin prices{' '}
-            <span className="text-bitcoin-orange font-extrabold relative">everywhere</span>
+            <span className="text-bitcoin-orange font-extrabold relative text-shadow-subtle">
+              everywhere
+            </span>
           </h1>
 
           <div className="flex justify-center hero-responsive-spacing">
@@ -143,7 +153,7 @@ const HeroSection: React.FC = () => {
 
           <p
             id="hero-description"
-            className="responsive-content-max-width mx-auto hero-responsive-spacing text-gray-600 typography-body-large opacity-90"
+            className="responsive-content-max-width mx-auto hero-responsive-spacing text-gray-600 typography-body-large opacity-90 text-shadow-micro"
           >
             Convert any price to Bitcoin automatically while you browse
           </p>
