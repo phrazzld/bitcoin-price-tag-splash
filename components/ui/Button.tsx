@@ -137,17 +137,14 @@ const Button: React.FC<ButtonProps> = ({
     mx-1
     border
     border-white/15
-    transition-[transform,box-shadow,background]
-    duration-200
-    ease-out
+    button-ripple
+    button-micro-bounce
+    button-smooth-colors
+    button-focus-ring
     will-change-transform
     hover:transform
     hover:-translate-y-1
     hover:scale-[1.02]
-    focus-visible:outline
-    focus-visible:outline-2
-    focus-visible:outline-offset-2
-    focus-visible:outline-bitcoin-orange
     active:translate-y-0
     active:scale-100
     disabled:opacity-50
@@ -159,7 +156,8 @@ const Button: React.FC<ButtonProps> = ({
     motion-reduce:hover:scale-100
     motion-reduce:active:transform-none
     motion-reduce:active:scale-100
-    ${loading ? 'cursor-wait opacity-90' : ''}
+    motion-reduce:animation-none
+    ${loading ? 'cursor-wait opacity-90 button-loading-glow' : ''}
     ${className}
   `.trim();
 

@@ -614,4 +614,164 @@
     animation-duration: var(--animation-duration-long);
     transition-duration: var(--animation-duration-long);
   }
+
+  /* Button Micro-Interactions - Subtle and respectful of motion preferences */
+
+  /* Ripple effect for click feedback */
+  @keyframes buttonRipple {
+    0% {
+      transform: scale(0);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+  /* Micro-bounce for satisfying feedback */
+  @keyframes microBounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.98);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Gentle glow pulse for loading states */
+  @keyframes gentleGlow {
+    0%,
+    100% {
+      box-shadow:
+        0 4px 12px color-mix(in srgb, var(--color-bitcoin-orange-700) 25%, transparent),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      box-shadow:
+        0 6px 16px color-mix(in srgb, var(--color-bitcoin-orange-600) 30%, transparent),
+        0 3px 6px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  /* Success state pulse */
+  @keyframes successPulse {
+    0% {
+      transform: scale(1);
+      background: linear-gradient(to bottom, #22c55e, #16a34a);
+    }
+    50% {
+      transform: scale(1.02);
+      background: linear-gradient(to bottom, #22c55e, #16a34a);
+    }
+    100% {
+      transform: scale(1);
+      background: linear-gradient(
+        to bottom,
+        var(--color-bitcoin-orange-700),
+        var(--color-bitcoin-orange-800)
+      );
+    }
+  }
+
+  /* Button micro-interaction utility classes */
+  .button-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .button-ripple:active::before {
+    width: 300px;
+    height: 300px;
+    animation: buttonRipple 0.6s ease-out;
+  }
+
+  .button-micro-bounce:active {
+    animation: microBounce 0.15s ease-out;
+  }
+
+  .button-loading-glow {
+    animation: gentleGlow 2s ease-in-out infinite;
+  }
+
+  .button-success {
+    animation: successPulse 0.8s ease-out;
+  }
+
+  /* Enhanced hover states with magnetic effect */
+  .button-magnetic {
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .button-magnetic:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  /* Smooth color transitions */
+  .button-smooth-colors {
+    transition:
+      background 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.2s ease,
+      color 0.2s ease;
+  }
+
+  /* Focus ring enhancement */
+  .button-focus-ring:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px white,
+      0 0 0 4px var(--color-primary-dark),
+      0 8px 20px color-mix(in srgb, var(--color-bitcoin-orange-700) 35%, transparent),
+      0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  /* Motion-reduce overrides for button micro-interactions */
+  @media (prefers-reduced-motion: reduce) {
+    .button-ripple:active::before {
+      animation: none;
+    }
+
+    .button-micro-bounce:active {
+      animation: none;
+    }
+
+    .button-loading-glow {
+      animation: none;
+    }
+
+    .button-success {
+      animation: none;
+    }
+
+    .button-magnetic:hover {
+      transform: none;
+    }
+
+    .button-smooth-colors {
+      transition: none;
+    }
+
+    .button-focus-ring:focus-visible {
+      transform: none;
+      transition: none;
+    }
+  }
 }

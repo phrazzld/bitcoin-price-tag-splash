@@ -52,7 +52,7 @@
   - Add proper external margins and spacing relationships
   - Ensure buttons work well on mobile and desktop
 
-- [ ] **T008 · Buttons · P2: Add subtle micro-interactions**
+- [x] **T008 · Buttons · P2: Add subtle micro-interactions**
   - Implement gentle hover animations and scale effects
   - Add smooth color transitions and state changes
   - Create satisfying click feedback without being distracting
