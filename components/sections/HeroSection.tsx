@@ -105,9 +105,9 @@ const HeroSection: React.FC = () => {
             </span>
           </h1>
 
-          <div className="flex justify-center hero-responsive-spacing">
+          <div className="flex justify-center hero-responsive-spacing mobile-section-gap">
             <div
-              className={styles.conversionContainer}
+              className={`${styles.conversionContainer} touch-target-large touch-separation`}
               aria-label="Interactive price conversion demonstration: Click to see how $99.99 converts to 0.00234584 Bitcoin"
               aria-describedby="conversion-help"
               onClick={handlePriceConversionView}

@@ -63,6 +63,8 @@
     'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
   font-size: 1.75rem;
   font-weight: 700;
+  /* Enhanced mobile touch target - WCAG AA compliant */
+  min-height: 56px; /* Larger than 44px minimum for comfortable touch */
   height: 3.5rem;
   line-height: 3.5rem;
   letter-spacing: -0.01em;
@@ -74,7 +76,10 @@
     #fcfcfc 75%,
     #fafafa 100%
   );
+  /* Enhanced mobile padding for better touch experience */
   padding: 1rem 1.5rem;
+  /* Mobile-first spacing considerations */
+  margin: 0.5rem;
   border-radius: 12px;
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.08),

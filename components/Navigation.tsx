@@ -33,18 +33,26 @@ const Navigation: React.FC = () => {
       aria-label="Main navigation"
     >
       <Container className="h-full">
-        <div className="flex items-center justify-between h-full">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-bitcoin-orange rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-base" aria-hidden="true">
+        <div className="flex items-center justify-between h-full px-1 sm:px-0">
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Enhanced logo touch target for mobile */}
+            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-bitcoin-orange rounded-lg flex items-center justify-center touch-target-optimized">
+              <span className="text-white font-bold text-base sm:text-lg" aria-hidden="true">
                 ₿
               </span>
             </div>
-            <span className="font-bold text-lg text-gray-900">Bitcoin Price Tag</span>
+            <span className="font-bold text-base sm:text-lg text-gray-900 truncate">
+              Bitcoin Price Tag
+            </span>
           </div>
-          <div>
-            <Button href={CHROME_STORE_URL} className="px-5 py-2.5 font-medium">
-              Add to Chrome
+          <div className="flex-shrink-0">
+            <Button
+              href={CHROME_STORE_URL}
+              size="small"
+              className="touch-target-optimized mobile-button-spacing font-medium"
+            >
+              <span className="hidden sm:inline">Add to Chrome</span>
+              <span className="sm:hidden">Install</span>
             </Button>
           </div>
         </div>

@@ -5,18 +5,24 @@ import { CHROME_STORE_URL } from '@/lib/constants';
 
 const CTASection: React.FC = () => {
   return (
-    <section className="py-16 md:py-[120px]">
+    <section className="responsive-section-padding">
       <Container>
         <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto">
           <h2
-            className="font-bold text-gray-900 mb-8"
+            className="font-bold text-gray-900 responsive-content-spacing"
             style={{ fontSize: '2.25rem', lineHeight: '1.2' }}
           >
             Start seeing Bitcoin prices
           </h2>
-          <Button href={CHROME_STORE_URL} className="px-8 py-4 text-lg font-medium">
-            Get Started
-          </Button>
+          <div className="thumb-friendly-positioning">
+            <Button
+              href={CHROME_STORE_URL}
+              size="large"
+              className="touch-target-optimized mobile-button-spacing"
+            >
+              Get Started
+            </Button>
+          </div>
         </div>
       </Container>
     </section>

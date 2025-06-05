@@ -502,6 +502,28 @@
   .touch-target-optimized {
     min-height: 44px; /* WCAG AA minimum touch target */
     min-width: 44px;
+    /* Add subtle touch feedback */
+    -webkit-tap-highlight-color: rgba(247, 147, 26, 0.1);
+    tap-highlight-color: rgba(247, 147, 26, 0.1);
+  }
+
+  /* Enhanced touch target for critical interactive elements */
+  .touch-target-large {
+    min-height: 56px; /* Larger than minimum for improved UX */
+    min-width: 56px;
+    -webkit-tap-highlight-color: rgba(247, 147, 26, 0.1);
+    tap-highlight-color: rgba(247, 147, 26, 0.1);
+  }
+
+  /* Interactive element spacing for mobile */
+  .mobile-interactive-spacing {
+    margin: 8px 4px; /* Minimum 8px between touch targets */
+  }
+
+  @media (max-width: 640px) {
+    .mobile-interactive-spacing {
+      margin: 12px 8px; /* Extra spacing on small screens */
+    }
   }
 
   /* Mobile-first button spacing for thumb accessibility */
@@ -578,11 +600,43 @@
   /* One-handed mobile optimization utilities */
   .thumb-friendly-positioning {
     padding-bottom: 1.5rem; /* Extra space for thumb reach */
+    position: relative;
   }
 
   @media (max-width: 640px) and (orientation: portrait) {
     .thumb-friendly-positioning {
       padding-bottom: 2rem;
+      /* Ensure interactive elements are in comfortable reach zone */
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  /* Safe area spacing for modern mobile devices */
+  .mobile-safe-area {
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Enhanced spacing between interactive sections */
+  .mobile-section-gap {
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .mobile-section-gap {
+      margin-bottom: 2rem;
+    }
+  }
+
+  /* Minimum touch target separation */
+  .touch-separation {
+    margin: 0.5rem;
+  }
+
+  @media (max-width: 480px) {
+    .touch-separation {
+      margin: 0.75rem;
     }
   }
 
