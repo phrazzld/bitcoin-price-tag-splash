@@ -141,6 +141,7 @@ const Button: React.FC<ButtonProps> = ({
     button-micro-bounce
     button-smooth-colors
     button-focus-ring
+    interactive-refined
     will-change-transform
     hover:transform
     hover:-translate-y-1
@@ -157,7 +158,7 @@ const Button: React.FC<ButtonProps> = ({
     motion-reduce:active:transform-none
     motion-reduce:active:scale-100
     motion-reduce:animation-none
-    ${loading ? 'cursor-wait opacity-90 button-loading-glow' : ''}
+    ${loading ? 'cursor-wait opacity-90 button-loading-glow loading-enter-active' : ''}
     ${className}
   `.trim();
 
