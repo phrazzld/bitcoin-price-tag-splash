@@ -23,7 +23,7 @@
   - Add proper spacing relationships between headline, amount, and description
   - Ensure text is accessible and readable across devices
 
-- [ ] **T004 · Typography · P2: Implement consistent typographic scale**
+- [x] **T004 · Typography · P2: Implement consistent typographic scale**
   - Define and apply consistent font sizes, weights, and line heights
   - Create typography utility classes following 8pt grid system
   - Ensure all text elements follow the established hierarchy

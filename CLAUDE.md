@@ -33,6 +33,35 @@ The project follows Swiss minimalism with:
 - Bitcoin Orange (#F7931A) as primary color
 - Inter Variable font for typography
 - 8-point spatial system (multiples of 8px)
+- Systematic typography scale based on 8pt grid
+
+#### Typography System
+
+The project uses a comprehensive typography scale following the 8-point grid system:
+
+**Font Sizes (8pt grid based):**
+
+- xs: 12px, sm: 14px, base: 16px, lg: 18px, xl: 20px
+- 2xl: 24px, 3xl: 30px, 4xl: 36px, 5xl: 48px, 6xl: 60px, 7xl: 72px
+
+**Semantic Typography Classes:**
+
+- `.typography-display`: Large hero text (60px → 72px responsive)
+- `.typography-headline`: Section headers (36px → 48px responsive)
+- `.typography-title`: Card/subsection titles (24px → 30px responsive)
+- `.typography-body-large`: Important descriptions (18px → 20px responsive)
+- `.typography-body`: Standard content (16px)
+- `.typography-caption`: Labels/metadata (14px)
+
+**Line Heights:**
+
+- Headers: 1.15 (tight), Titles: 1.25 (snug), Body: 1.5 (normal), Large Body: 1.625 (relaxed)
+
+**Font Weights:**
+
+- Normal (400), Medium (500), Semibold (600), Bold (700), Extrabold (800), Black (900)
+
+Use semantic classes (`.typography-*`) for consistency, individual utilities (`.text-*`, `.font-*`, `.leading-*`) for specific customization.
 
 ### Component Structure
 

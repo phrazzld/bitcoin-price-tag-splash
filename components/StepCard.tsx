@@ -13,9 +13,7 @@ const StepCard: React.FC<StepCardProps> = ({ number, screenshot, description }) 
       <div className="border border-gray-300 rounded-none mb-4 relative aspect-video">
         {screenshot}
       </div>
-      <p className="text-gray-700" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-        {description}
-      </p>
+      <p className="typography-body text-gray-700">{description}</p>
     </div>
   );
 };

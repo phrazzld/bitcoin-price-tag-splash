@@ -22,10 +22,10 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const correlationId = useCorrelationId();
 
-  // Size configurations following 8pt grid system
+  // Size configurations following 8pt grid system and typography scale
   const sizeConfig = {
     small: {
-      fontSize: 'text-sm md:text-base', // 14px -> 16px
+      fontSize: 'text-sm', // 14px - consistent across breakpoints
       padding: 'px-4 md:px-6 py-2 md:py-3', // 16px/24px horizontal, 8px/12px vertical
       minHeight: 'min-h-[40px] md:min-h-[44px]',
       borderRadius: 'rounded-lg', // 8px
@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
       spinnerMargin: '-ml-1 mr-2',
     },
     default: {
-      fontSize: 'text-base md:text-lg', // 16px -> 18px
+      fontSize: 'text-base', // 16px - consistent across breakpoints
       padding: 'px-6 md:px-8 py-3 md:py-4', // 24px/32px horizontal, 12px/16px vertical
       minHeight: 'min-h-[48px] md:min-h-[52px]',
       borderRadius: 'rounded-xl', // 12px
@@ -41,7 +41,7 @@ const Button: React.FC<ButtonProps> = ({
       spinnerMargin: '-ml-1 mr-3',
     },
     large: {
-      fontSize: 'text-lg md:text-xl', // 18px -> 20px
+      fontSize: 'text-lg', // 18px - consistent across breakpoints
       padding: 'px-8 md:px-10 py-4 md:py-5', // 32px/40px horizontal, 16px/20px vertical
       minHeight: 'min-h-[56px] md:min-h-[60px]',
       borderRadius: 'rounded-2xl', // 16px
