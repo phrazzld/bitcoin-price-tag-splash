@@ -338,13 +338,18 @@
     }
   }
 
-  /* Button Component Styles - WCAG AA Compliant */
+  /* Button Component Styles - WCAG AA Compliant with Browser Fallbacks */
   .bg-bitcoin-button {
     background: linear-gradient(
       to bottom,
-      var(--color-bitcoin-orange-700),
-      var(--color-bitcoin-orange-800)
+      var(--color-bitcoin-orange-700, #c77518),
+      var(--color-bitcoin-orange-800, #b86a16)
     );
+    /* Fallback for browsers without color-mix support */
+    box-shadow:
+      0 4px 12px rgba(199, 117, 24, 0.25),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Modern browsers with color-mix support */
     box-shadow:
       0 4px 12px color-mix(in srgb, var(--color-bitcoin-orange-700) 25%, transparent),
       0 2px 4px rgba(0, 0, 0, 0.1);
@@ -353,22 +358,37 @@
   .bg-bitcoin-button:hover {
     background: linear-gradient(
       to bottom,
-      var(--color-bitcoin-orange-800),
-      var(--color-bitcoin-orange-900)
+      var(--color-bitcoin-orange-800, #b86a16),
+      var(--color-bitcoin-orange-900, #a05914)
     );
+    /* Fallback for browsers without color-mix support */
+    box-shadow:
+      0 8px 20px rgba(199, 117, 24, 0.35),
+      0 4px 8px rgba(0, 0, 0, 0.15);
+    /* Modern browsers with color-mix support */
     box-shadow:
       0 8px 20px color-mix(in srgb, var(--color-bitcoin-orange-700) 35%, transparent),
       0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
   .bg-bitcoin-button:active {
-    background: linear-gradient(to bottom, var(--color-bitcoin-orange-900), #8a4e12);
+    background: linear-gradient(to bottom, var(--color-bitcoin-orange-900, #a05914), #8a4e12);
+    /* Fallback for browsers without color-mix support */
+    box-shadow:
+      0 2px 8px rgba(199, 117, 24, 0.3),
+      0 1px 2px rgba(0, 0, 0, 0.2);
+    /* Modern browsers with color-mix support */
     box-shadow:
       0 2px 8px color-mix(in srgb, var(--color-bitcoin-orange-700) 30%, transparent),
       0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
   .bg-bitcoin-button:disabled:hover {
+    /* Fallback for browsers without color-mix support */
+    box-shadow:
+      0 4px 12px rgba(199, 117, 24, 0.25),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Modern browsers with color-mix support */
     box-shadow:
       0 4px 12px color-mix(in srgb, var(--color-bitcoin-orange-700) 25%, transparent),
       0 2px 4px rgba(0, 0, 0, 0.1);
