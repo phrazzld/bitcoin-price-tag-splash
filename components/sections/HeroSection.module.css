@@ -3,6 +3,25 @@
   display: inline-block;
 }
 
+/* Enhanced focus state for conversion demo */
+.conversionContainer:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px white,
+    0 0 0 6px #c77518,
+    0 0 0 8px rgba(199, 117, 24, 0.2);
+  border-radius: 28px;
+  z-index: 20;
+}
+
+.conversionContainer:focus-visible .conversionAnimation {
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 64px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(199, 117, 24, 0.12),
+    0 2px 0px rgba(199, 117, 24, 0.2);
+}
+
 /* Subtle attention pulse every 12 seconds */
 .conversionContainer::before {
   content: '';
@@ -271,6 +290,10 @@
   }
 
   .conversionContainer:hover .conversionAnimation {
+    transform: none !important;
+  }
+
+  .conversionContainer:focus-visible .conversionAnimation {
     transform: none !important;
   }
 

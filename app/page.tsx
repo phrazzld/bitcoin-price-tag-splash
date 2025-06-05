@@ -14,9 +14,17 @@ import Footer from '@/components/sections/Footer';
 export default function Home(): React.ReactNode {
   return (
     <div className="relative fade-in">
+      {/* Skip Navigation Link for Screen Readers */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-white focus:text-gray-900 focus:border-2 focus:border-bitcoin-orange focus:rounded focus:font-medium focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
+
       <AnimatedBackground />
       <Navigation />
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10">
         <HeroSection />
         <ScrollReveal>
           <FeaturesSection />

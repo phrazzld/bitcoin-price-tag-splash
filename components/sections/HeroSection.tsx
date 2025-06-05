@@ -67,6 +67,8 @@ const HeroSection: React.FC = () => {
       data-section="hero"
       className="relative flex items-center justify-center overflow-hidden"
       style={{ height: 'calc(100vh - 64px)' }}
+      aria-labelledby="hero-heading"
+      aria-describedby="hero-description"
     >
       {/* Background gradient */}
       <div
@@ -86,7 +88,10 @@ const HeroSection: React.FC = () => {
 
       <Container className="relative z-10">
         <div className="max-w-[900px] mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.15] tracking-[-0.02em] mb-12 md:mb-16 text-gray-900">
+          <h1
+            id="hero-heading"
+            className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.15] tracking-[-0.02em] mb-12 md:mb-16 text-gray-900"
+          >
             See Bitcoin prices{' '}
             <span className="text-bitcoin-orange font-extrabold relative">everywhere</span>
           </h1>
@@ -94,7 +99,8 @@ const HeroSection: React.FC = () => {
           <div className="flex justify-center my-16 md:my-24">
             <div
               className={styles.conversionContainer}
-              aria-label="Price conversion demonstration: 99 dollars 99 cents converts to 0.00234584 Bitcoin"
+              aria-label="Interactive price conversion demonstration: Click to see how $99.99 converts to 0.00234584 Bitcoin"
+              aria-describedby="conversion-help"
               onClick={handlePriceConversionView}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -127,9 +133,19 @@ const HeroSection: React.FC = () => {
                 </svg>
               </div>
             </div>
+
+            {/* Screen reader help text for conversion demo */}
+            <div id="conversion-help" className="sr-only">
+              This interactive demonstration shows how the Bitcoin Price Tag extension works. The
+              animation displays a price in US dollars that converts to Bitcoin automatically. Press
+              Enter or Space to interact with this demo.
+            </div>
           </div>
 
-          <p className="max-w-[700px] mx-auto mb-16 md:mb-20 text-gray-600 text-lg md:text-xl font-normal leading-relaxed tracking-tight opacity-90">
+          <p
+            id="hero-description"
+            className="max-w-[700px] mx-auto mb-16 md:mb-20 text-gray-600 text-lg md:text-xl font-normal leading-relaxed tracking-tight opacity-90"
+          >
             Convert any price to Bitcoin automatically while you browse
           </p>
 

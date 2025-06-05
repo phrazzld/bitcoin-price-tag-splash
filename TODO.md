@@ -111,7 +111,7 @@
 
 ## Accessibility & Usability
 
-- [ ] **T016 · A11y · P1: Improve keyboard navigation and focus states**
+- [x] **T016 · A11y · P1: Improve keyboard navigation and focus states**
 
   - Ensure all interactive elements have clear focus indicators
   - Test tab order and keyboard navigation flow
