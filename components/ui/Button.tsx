@@ -22,27 +22,27 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const correlationId = useCorrelationId();
 
-  // Size configurations following 8pt grid system and typography scale
+  // Enhanced size configurations with WCAG AA touch targets and mobile-first approach
   const sizeConfig = {
     small: {
       fontSize: 'text-sm', // 14px - consistent across breakpoints
-      padding: 'px-4 md:px-6 py-2 md:py-3', // 16px/24px horizontal, 8px/12px vertical
-      minHeight: 'min-h-[40px] md:min-h-[44px]',
+      padding: 'px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 md:py-3', // Enhanced mobile padding
+      minHeight: 'min-h-[44px] md:min-h-[48px]', // WCAG AA minimum 44px always
       borderRadius: 'rounded-lg', // 8px
       spinnerSize: 'h-4 w-4',
       spinnerMargin: '-ml-1 mr-2',
     },
     default: {
       fontSize: 'text-base', // 16px - consistent across breakpoints
-      padding: 'px-6 md:px-8 py-3 md:py-4', // 24px/32px horizontal, 12px/16px vertical
+      padding: 'px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4', // Enhanced mobile padding
       minHeight: 'min-h-[48px] md:min-h-[52px]',
       borderRadius: 'rounded-xl', // 12px
       spinnerSize: 'h-5 w-5',
       spinnerMargin: '-ml-1 mr-3',
     },
     large: {
-      fontSize: 'text-lg', // 18px - consistent across breakpoints
-      padding: 'px-8 md:px-10 py-4 md:py-5', // 32px/40px horizontal, 16px/20px vertical
+      fontSize: 'text-lg sm:text-xl', // Responsive font sizing
+      padding: 'px-8 sm:px-9 md:px-10 py-4 sm:py-4.5 md:py-5', // Enhanced mobile padding
       minHeight: 'min-h-[56px] md:min-h-[60px]',
       borderRadius: 'rounded-2xl', // 16px
       spinnerSize: 'h-6 w-6',

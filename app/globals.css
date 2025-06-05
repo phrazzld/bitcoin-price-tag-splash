@@ -327,7 +327,25 @@
     letter-spacing: var(--tracking-normal);
   }
 
-  /* Responsive Typography - Mobile-first approach */
+  /* Enhanced Responsive Typography - Fluid scaling with breakpoints */
+  @media (min-width: 640px) {
+    .typography-display {
+      font-size: clamp(var(--font-size-6xl), 8vw, var(--font-size-7xl));
+    }
+
+    .typography-headline {
+      font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-5xl));
+    }
+
+    .typography-title {
+      font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+    }
+
+    .typography-body-large {
+      font-size: clamp(var(--font-size-lg), 2.5vw, var(--font-size-xl));
+    }
+  }
+
   @media (min-width: 768px) {
     .typography-display {
       font-size: var(--font-size-7xl);
@@ -343,6 +361,187 @@
 
     .typography-body-large {
       font-size: var(--font-size-xl);
+    }
+  }
+
+  /* Mobile-optimized spacing utilities */
+  .responsive-section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-section-padding {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-section-padding {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  /* Touch-optimized spacing */
+  .touch-friendly-spacing {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .touch-friendly-spacing {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .touch-friendly-spacing {
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  /* Mobile-first content spacing */
+  .responsive-content-spacing {
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-content-spacing {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-content-spacing {
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-content-spacing {
+      margin-bottom: 4rem;
+    }
+  }
+
+  /* Enhanced responsive max-widths for better content flow */
+  .responsive-content-max-width {
+    max-width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-content-max-width {
+      max-width: 28rem; /* 448px */
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-content-max-width {
+      max-width: 42rem; /* 672px */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-content-max-width {
+      max-width: 48rem; /* 768px */
+    }
+  }
+
+  /* Touch-optimized button enhancements */
+  .touch-target-optimized {
+    min-height: 44px; /* WCAG AA minimum touch target */
+    min-width: 44px;
+  }
+
+  /* Mobile-first button spacing for thumb accessibility */
+  .mobile-button-spacing {
+    margin: 0.5rem 0.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .mobile-button-spacing {
+      margin: 0.75rem 0.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .mobile-button-spacing {
+      margin: 1rem 0.5rem;
+    }
+  }
+
+  /* Enhanced viewport height utilities for mobile */
+  .mobile-viewport-height {
+    min-height: 100vh;
+    min-height: 100svh; /* Use small viewport height on mobile */
+  }
+
+  .mobile-viewport-padding {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .mobile-viewport-padding {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .mobile-viewport-padding {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+
+  /* Fluid hero spacing for different screen sizes */
+  .hero-responsive-spacing {
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 375px) {
+    .hero-responsive-spacing {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .hero-responsive-spacing {
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero-responsive-spacing {
+      margin-bottom: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-responsive-spacing {
+      margin-bottom: 5rem;
+    }
+  }
+
+  /* One-handed mobile optimization utilities */
+  .thumb-friendly-positioning {
+    padding-bottom: 1.5rem; /* Extra space for thumb reach */
+  }
+
+  @media (max-width: 640px) and (orientation: portrait) {
+    .thumb-friendly-positioning {
+      padding-bottom: 2rem;
     }
   }
 

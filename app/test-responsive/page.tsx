@@ -3,13 +3,17 @@
 import { useState } from 'react';
 
 const breakpoints = [
-  { name: 'Mobile S', width: 320 },
-  { name: 'Mobile M', width: 375 },
-  { name: 'Mobile L', width: 414 },
+  { name: 'Mobile XS', width: 320 },
+  { name: 'Mobile S', width: 375 },
+  { name: 'Mobile M', width: 414 },
+  { name: 'Mobile L', width: 480 },
+  { name: 'Large Mobile', width: 640 },
   { name: 'Tablet', width: 768 },
+  { name: 'Small Desktop', width: 992 },
   { name: 'Desktop', width: 1024 },
   { name: 'Desktop L', width: 1280 },
   { name: 'Desktop XL', width: 1440 },
+  { name: 'Desktop XXL', width: 1920 },
 ];
 
 export default function TestResponsive(): React.ReactNode {

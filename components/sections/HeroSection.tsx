@@ -65,8 +65,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       data-section="hero"
-      className="relative flex items-center justify-center overflow-hidden"
-      style={{ height: 'calc(100vh - 64px)' }}
+      className="relative flex items-center justify-center overflow-hidden mobile-viewport-height mobile-viewport-padding"
       aria-labelledby="hero-heading"
       aria-describedby="hero-description"
     >
@@ -88,12 +87,15 @@ const HeroSection: React.FC = () => {
 
       <Container className="relative z-10">
         <div className="max-w-[900px] mx-auto text-center">
-          <h1 id="hero-heading" className="typography-display mb-12 md:mb-16 text-gray-900">
+          <h1
+            id="hero-heading"
+            className="typography-display hero-responsive-spacing text-gray-900"
+          >
             See Bitcoin prices{' '}
             <span className="text-bitcoin-orange font-extrabold relative">everywhere</span>
           </h1>
 
-          <div className="flex justify-center my-16 md:my-24">
+          <div className="flex justify-center hero-responsive-spacing">
             <div
               className={styles.conversionContainer}
               aria-label="Interactive price conversion demonstration: Click to see how $99.99 converts to 0.00234584 Bitcoin"
@@ -141,13 +143,17 @@ const HeroSection: React.FC = () => {
 
           <p
             id="hero-description"
-            className="max-w-[700px] mx-auto mb-16 md:mb-20 text-gray-600 typography-body-large opacity-90"
+            className="responsive-content-max-width mx-auto hero-responsive-spacing text-gray-600 typography-body-large opacity-90"
           >
             Convert any price to Bitcoin automatically while you browse
           </p>
 
-          <div className="flex justify-center">
-            <Button href={CHROME_STORE_URL} size="large">
+          <div className="flex justify-center thumb-friendly-positioning">
+            <Button
+              href={CHROME_STORE_URL}
+              size="large"
+              className="touch-target-optimized mobile-button-spacing"
+            >
               Add to Chrome
             </Button>
           </div>

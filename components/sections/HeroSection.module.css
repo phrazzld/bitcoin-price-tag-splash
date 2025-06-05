@@ -61,22 +61,23 @@
   display: inline-block;
   font-family:
     'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  height: 4rem;
-  line-height: 4rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
   letter-spacing: -0.01em;
   background: linear-gradient(135deg, #fefefe 0%, #ffffff 50%, #fafafa 100%);
-  padding: 1.25rem 2.5rem;
-  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
   box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.12),
-    0 4px 16px rgba(199, 117, 24, 0.08),
-    0 1px 0px rgba(199, 117, 24, 0.15);
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 3px 12px rgba(199, 117, 24, 0.06),
+    0 1px 0px rgba(199, 117, 24, 0.12);
   border: 1px solid var(--color-bitcoin-orange-700);
   border-style: dashed;
   border-opacity: 0.12;
-  min-width: 350px;
+  min-width: 280px;
+  max-width: calc(100vw - 2rem);
   transform: translateY(0);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -90,14 +91,36 @@
     0 2px 0px rgba(199, 117, 24, 0.2);
 }
 
+@media (min-width: 480px) {
+  .conversionAnimation {
+    font-size: 2rem;
+    height: 3.75rem;
+    line-height: 3.75rem;
+    min-width: 320px;
+    padding: 1.25rem 2rem;
+    border-radius: 14px;
+  }
+}
+
+@media (min-width: 640px) {
+  .conversionAnimation {
+    font-size: 2.25rem;
+    height: 4rem;
+    line-height: 4rem;
+    min-width: 360px;
+    padding: 1.5rem 2.5rem;
+    border-radius: 16px;
+  }
+}
+
 @media (min-width: 768px) {
   .conversionAnimation {
-    font-size: 3rem;
+    font-size: 2.75rem;
     height: 4.5rem;
     line-height: 4.5rem;
-    min-width: 450px;
-    padding: 1.75rem 3.5rem;
-    border-radius: 20px;
+    min-width: 420px;
+    padding: 1.75rem 3rem;
+    border-radius: 18px;
     box-shadow:
       0 16px 56px rgba(0, 0, 0, 0.14),
       0 6px 20px rgba(199, 117, 24, 0.1),
@@ -115,12 +138,12 @@
 
 @media (min-width: 1024px) {
   .conversionAnimation {
-    font-size: 3.5rem;
+    font-size: 3.25rem;
     height: 5rem;
     line-height: 5rem;
-    min-width: 500px;
-    padding: 2rem 4rem;
-    border-radius: 24px;
+    min-width: 480px;
+    padding: 2rem 3.5rem;
+    border-radius: 22px;
     box-shadow:
       0 20px 64px rgba(0, 0, 0, 0.16),
       0 8px 24px rgba(199, 117, 24, 0.12),
