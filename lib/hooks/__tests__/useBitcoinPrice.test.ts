@@ -17,7 +17,12 @@ describe('useBitcoinPrice', () => {
   });
 
   it('should start with loading state', () => {
-    mockFetch.mockImplementation(() => new Promise(() => {})); // Never resolves
+    mockFetch.mockImplementation(
+      () =>
+        new Promise(() => {
+          // Never resolves - used to test loading state
+        })
+    );
 
     const { result } = renderHook(() => useBitcoinPrice());
 

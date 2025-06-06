@@ -6,19 +6,24 @@ import { type IconName } from '../ui/Icon';
 const FeaturesSection: React.FC = () => {
   const features = [
     {
+      icon: 'refreshCw' as IconName,
+      title: 'Live Conversion',
+      description: 'Real-time Bitcoin prices on every website',
+    },
+    {
       icon: 'zap' as IconName,
-      title: 'Instant awareness',
-      description: "See what you're really spending in Bitcoin terms",
+      title: 'Zero Setup',
+      description: 'Works instantly on 50,000+ shopping sites',
+    },
+    {
+      icon: 'shield' as IconName,
+      title: 'Privacy First',
+      description: 'No data collection, no account required',
     },
     {
       icon: 'globe' as IconName,
-      title: 'Universal compatibility',
-      description: 'Works on every major shopping and commerce site',
-    },
-    {
-      icon: 'refreshCw' as IconName,
-      title: 'Real-time accuracy',
-      description: 'Live Bitcoin prices ensure precise calculations',
+      title: 'Global Coverage',
+      description: 'Supports all major currencies worldwide',
     },
   ];
 
@@ -26,7 +31,7 @@ const FeaturesSection: React.FC = () => {
     <section className="py-16 md:py-[120px]">
       <Container>
         <h2 className="sr-only">Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
