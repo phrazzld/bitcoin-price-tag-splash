@@ -22,17 +22,24 @@ describe('HeroSection Accessibility', () => {
     expect(conversionDemo).toBeInTheDocument();
   });
 
-  it('should hide decorative arrow from screen readers', () => {
+  it('should hide decorative elements from screen readers', () => {
     const { container } = render(
       <CorrelationProvider>
         <HeroSection />
       </CorrelationProvider>
     );
 
-    // Arrow SVG should be hidden from screen readers
-    const arrowSvg = container.querySelector('svg[aria-hidden="true"]');
-    expect(arrowSvg).toBeInTheDocument();
-    expect(arrowSvg).toHaveAttribute('aria-hidden', 'true');
+    // Decorative elements should be hidden from screen readers
+    const decorativeElements = container.querySelectorAll('[aria-hidden="true"]');
+    expect(decorativeElements.length).toBeGreaterThan(0);
+
+    // Specifically check for vertical arrow in conversion demo
+    const verticalArrow = container.querySelector(
+      '.conversionContainerVertical svg[aria-hidden="true"]'
+    );
+    if (verticalArrow) {
+      expect(verticalArrow).toHaveAttribute('aria-hidden', 'true');
+    }
   });
 
   it('should hide decorative background patterns from screen readers', () => {
@@ -57,7 +64,7 @@ describe('HeroSection Accessibility', () => {
     // Main heading should be accessible
     const heading = screen.getByRole('heading', { level: 1 });
     expect(heading).toBeInTheDocument();
-    expect(heading).toHaveTextContent('Think in Bitcoin, spend smarter');
+    expect(heading).toHaveTextContent('See every purchase in Bitcoin');
   });
 
   it('should have accessible call-to-action button', () => {

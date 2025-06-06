@@ -110,28 +110,35 @@ const HeroSection: React.FC = () => {
             id="hero-heading"
             className="typography-display hero-responsive-spacing text-gray-900 text-shadow-micro"
           >
-            Think in Bitcoin,{' '}
+            See every purchase in{' '}
             <span className="text-bitcoin-orange font-extrabold relative text-shadow-subtle">
-              spend smarter
+              Bitcoin
             </span>
           </h1>
 
           <div className="hero-responsive-spacing mobile-section-gap">
             {/* Live Bitcoin Price Context */}
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-bitcoin-orange/5 border border-bitcoin-orange/20 rounded-lg">
                 <div className="w-2 h-2 bg-bitcoin-orange rounded-full animate-pulse"></div>
                 <span className="text-bitcoin-orange font-medium text-sm">
-                  Live Bitcoin: ${bitcoinPrice.price.toLocaleString()}
+                  Live: ₿ ${bitcoinPrice.price.toLocaleString()}
+                </span>
+                <span
+                  className={`text-sm font-medium ${bitcoinPrice.change24h >= 0 ? 'text-green-600' : 'text-red-600'}`}
+                >
+                  {bitcoinPrice.change24h >= 0 ? '↗' : '↘'}{' '}
+                  {bitcoinPrice.change24h >= 0 ? '+' : ''}
+                  {bitcoinPrice.change24h.toFixed(1)}%
                 </span>
               </div>
             </div>
 
-            {/* Conversion Demo */}
-            <div className="flex justify-center mb-4">
+            {/* Conversion Demo - Vertical Flow */}
+            <div className="flex justify-center mb-6">
               <div
-                className={`${styles.conversionContainer} touch-target-large touch-separation`}
-                aria-label="Interactive price conversion demonstration: Click to see how $99.99 converts to 0.00234584 Bitcoin using live exchange rates"
+                className={`${styles.conversionContainerVertical} touch-target-large touch-separation`}
+                aria-label="Interactive price conversion demonstration: $99.99 converts to Bitcoin using live exchange rates"
                 aria-describedby="conversion-help"
                 onClick={handlePriceConversionView}
                 onKeyDown={(e) => {
@@ -144,53 +151,55 @@ const HeroSection: React.FC = () => {
                 role="button"
                 style={{ cursor: 'pointer' }}
               >
-                <div className={styles.conversionAnimation}>
-                  <span className={`${styles.priceValue} ${styles.usdPrice}`}>$99.99</span>
-                  <span className={`${styles.priceValue} ${styles.btcPrice}`}>
-                    {formattedBitcoinAmount} BTC
-                  </span>
-                </div>
-                <div className={styles.conversionArrow} aria-hidden="true">
+                {/* USD Amount */}
+                <div className={styles.usdAmountDisplay}>$99.99</div>
+
+                {/* Vertical Arrow */}
+                <div className={styles.verticalArrow} aria-hidden="true">
                   <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 40 40"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
                   >
                     <path
-                      d="M25 20L25 14L31 20L25 26L25 20ZM15 20L15 26L9 20L15 14L15 20Z"
-                      fill="var(--color-bitcoin-orange-700)"
-                      fillOpacity="0.6"
+                      d="M12 5V19M12 19L6 13M12 19L18 13"
+                      stroke="var(--color-bitcoin-orange-700)"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </div>
+
+                {/* Bitcoin Amount */}
+                <div className={styles.btcAmountDisplay}>{formattedBitcoinAmount} BTC</div>
+              </div>
+            </div>
+
+            {/* Auto-update messaging */}
+            <div className="flex justify-center mb-4">
+              <div className="flex items-center gap-1">
+                <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span className="text-sm text-gray-600 font-medium">Updates automatically</span>
               </div>
             </div>
 
             {/* Educational Context */}
-            <div className="text-center space-y-2">
+            <div className="text-center">
               <p className="text-sm text-gray-600 max-w-md mx-auto">
                 <span className="font-medium text-gray-800">Example:</span> A $99.99 purchase costs{' '}
-                <span className="font-medium text-bitcoin-orange">0.00234584 Bitcoin</span>
-              </p>
-              <p className="text-xs text-gray-500 max-w-sm mx-auto">
-                Helps you understand the <em>true cost</em> of your spending decisions
-              </p>
-
-              <div className="flex items-center justify-center gap-1 mt-3">
-                <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-xs text-green-600 font-medium">
-                  Auto-updates with live prices
+                <span className="font-medium text-bitcoin-orange">
+                  {formattedBitcoinAmount} Bitcoin
                 </span>
-              </div>
+              </p>
             </div>
 
             {/* Screen reader help text for conversion demo */}
@@ -205,7 +214,8 @@ const HeroSection: React.FC = () => {
             id="hero-description"
             className="responsive-content-max-width mx-auto hero-responsive-spacing text-gray-600 typography-body-large opacity-90 text-shadow-micro"
           >
-            See the true Bitcoin cost of every purchase and make better financial decisions
+            Instantly see what anything costs in Bitcoin. Make informed decisions with live exchange
+            rates.
           </p>
 
           <div className="flex justify-center thumb-friendly-positioning">

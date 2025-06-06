@@ -139,26 +139,15 @@ const Button: React.FC<ButtonProps> = ({
     border-white/15
     button-ripple
     button-micro-bounce
-    button-smooth-colors
-    button-focus-ring
-    interactive-refined
     will-change-transform
-    hover:transform
-    hover:-translate-y-1
-    hover:scale-[1.02]
-    active:translate-y-0
-    active:scale-100
-    disabled:opacity-50
     disabled:cursor-not-allowed
-    disabled:hover:transform-none
-    disabled:hover:scale-100
     motion-reduce:transition-none
     motion-reduce:hover:transform-none
     motion-reduce:hover:scale-100
     motion-reduce:active:transform-none
     motion-reduce:active:scale-100
     motion-reduce:animation-none
-    ${loading ? 'cursor-wait opacity-90 button-loading-glow loading-enter-active' : ''}
+    ${loading ? 'cursor-wait button-loading-glow loading-enter-active' : ''}
     ${className}
   `.trim();
 
