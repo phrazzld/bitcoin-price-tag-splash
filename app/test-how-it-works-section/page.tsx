@@ -10,11 +10,11 @@ export default function TestHowItWorksSection(): React.ReactNode {
         <div className="p-8 text-center bg-gray-100">
           <h2 className="text-xl font-semibold mb-4">How It Works Section Test</h2>
           <p className="text-gray-600">
-            The section should display 3 step cards in a horizontal flow.
+            The section should display 3 simplified step cards: Install → Browse → See prices.
           </p>
-          <p className="text-gray-600 mt-2">Desktop: Horizontal layout | Mobile: Vertical stack</p>
+          <p className="text-gray-600 mt-2">Desktop: 3 columns | Mobile: Vertical stack</p>
           <p className="text-gray-600 mt-2">
-            Each step has a number, screenshot placeholder, and description.
+            Features section heading and clear, concise step descriptions for easy onboarding.
           </p>
         </div>
       </main>
