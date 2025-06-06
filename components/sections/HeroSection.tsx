@@ -119,18 +119,46 @@ const HeroSection: React.FC = () => {
           <div className="hero-responsive-spacing mobile-section-gap">
             {/* Live Bitcoin Price Context */}
             <div className="flex justify-center mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-bitcoin-orange/5 border border-bitcoin-orange/20 rounded-lg">
-                <div className="w-2 h-2 bg-bitcoin-orange rounded-full animate-pulse"></div>
-                <span className="text-bitcoin-orange font-medium text-sm">
-                  Live: ₿ ${bitcoinPrice.price.toLocaleString()}
-                </span>
+              <div
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                  bitcoinPrice.error
+                    ? 'bg-red-50 border border-red-200'
+                    : 'bg-bitcoin-orange/5 border border-bitcoin-orange/20'
+                }`}
+              >
+                {bitcoinPrice.isLoading ? (
+                  <div className="w-2 h-2 bg-bitcoin-orange rounded-full animate-pulse"></div>
+                ) : bitcoinPrice.error ? (
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                ) : (
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                )}
+
                 <span
-                  className={`text-sm font-medium ${bitcoinPrice.change24h >= 0 ? 'text-green-600' : 'text-red-600'}`}
+                  className={`font-medium text-sm ${
+                    bitcoinPrice.error ? 'text-red-700' : 'text-bitcoin-orange'
+                  }`}
                 >
-                  {bitcoinPrice.change24h >= 0 ? '↗' : '↘'}{' '}
-                  {bitcoinPrice.change24h >= 0 ? '+' : ''}
-                  {bitcoinPrice.change24h.toFixed(1)}%
+                  {bitcoinPrice.isLoading
+                    ? 'Loading...'
+                    : `Live: ₿ $${bitcoinPrice.price.toLocaleString()}`}
                 </span>
+
+                {!bitcoinPrice.isLoading && !bitcoinPrice.error && (
+                  <span
+                    className={`text-sm font-medium ${bitcoinPrice.change24h >= 0 ? 'text-green-600' : 'text-red-600'}`}
+                  >
+                    {bitcoinPrice.change24h >= 0 ? '↗' : '↘'}{' '}
+                    {bitcoinPrice.change24h >= 0 ? '+' : ''}
+                    {bitcoinPrice.change24h.toFixed(1)}%
+                  </span>
+                )}
+
+                {bitcoinPrice.error && (
+                  <span className="text-xs text-red-600" title={bitcoinPrice.error}>
+                    ⚠ Offline
+                  </span>
+                )}
               </div>
             </div>
 
