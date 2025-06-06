@@ -7,9 +7,20 @@ import styles from './HeroSection.module.css';
 import { CHROME_STORE_URL } from '@/lib/constants';
 import { logger } from '@/lib/logging/logger';
 import { useCorrelationId } from '@/lib/logging/correlation';
+import {
+  useBitcoinPrice,
+  calculateBitcoinAmount,
+  formatBitcoinAmount,
+} from '@/lib/hooks/useBitcoinPrice';
 
 const HeroSection: React.FC = () => {
   const correlationId = useCorrelationId();
+  const bitcoinPrice = useBitcoinPrice();
+
+  // Calculate Bitcoin amount for the example purchase
+  const exampleUsdAmount = 99.99;
+  const bitcoinAmount = calculateBitcoinAmount(exampleUsdAmount, bitcoinPrice.price);
+  const formattedBitcoinAmount = formatBitcoinAmount(bitcoinAmount);
 
   useEffect(() => {
     // Log hero section view
@@ -105,49 +116,88 @@ const HeroSection: React.FC = () => {
             </span>
           </h1>
 
-          <div className="flex justify-center hero-responsive-spacing mobile-section-gap">
-            <div
-              className={`${styles.conversionContainer} touch-target-large touch-separation`}
-              aria-label="Interactive price conversion demonstration: Click to see how $99.99 converts to 0.00234584 Bitcoin"
-              aria-describedby="conversion-help"
-              onClick={handlePriceConversionView}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handlePriceConversionView();
-                }
-              }}
-              tabIndex={0}
-              role="button"
-              style={{ cursor: 'pointer' }}
-            >
-              <div className={styles.conversionAnimation}>
-                <span className={`${styles.priceValue} ${styles.usdPrice}`}>$99.99</span>
-                <span className={`${styles.priceValue} ${styles.btcPrice}`}>0.00234584 BTC</span>
+          <div className="hero-responsive-spacing mobile-section-gap">
+            {/* Live Bitcoin Price Context */}
+            <div className="flex justify-center mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-bitcoin-orange/5 border border-bitcoin-orange/20 rounded-lg">
+                <div className="w-2 h-2 bg-bitcoin-orange rounded-full animate-pulse"></div>
+                <span className="text-bitcoin-orange font-medium text-sm">
+                  Live Bitcoin: ${bitcoinPrice.price.toLocaleString()}
+                </span>
               </div>
-              <div className={styles.conversionArrow} aria-hidden="true">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
+            </div>
+
+            {/* Conversion Demo */}
+            <div className="flex justify-center mb-4">
+              <div
+                className={`${styles.conversionContainer} touch-target-large touch-separation`}
+                aria-label="Interactive price conversion demonstration: Click to see how $99.99 converts to 0.00234584 Bitcoin using live exchange rates"
+                aria-describedby="conversion-help"
+                onClick={handlePriceConversionView}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handlePriceConversionView();
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                style={{ cursor: 'pointer' }}
+              >
+                <div className={styles.conversionAnimation}>
+                  <span className={`${styles.priceValue} ${styles.usdPrice}`}>$99.99</span>
+                  <span className={`${styles.priceValue} ${styles.btcPrice}`}>
+                    {formattedBitcoinAmount} BTC
+                  </span>
+                </div>
+                <div className={styles.conversionArrow} aria-hidden="true">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M25 20L25 14L31 20L25 26L25 20ZM15 20L15 26L9 20L15 14L15 20Z"
+                      fill="var(--color-bitcoin-orange-700)"
+                      fillOpacity="0.6"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Educational Context */}
+            <div className="text-center space-y-2">
+              <p className="text-sm text-gray-600 max-w-md mx-auto">
+                <span className="font-medium text-gray-800">Example:</span> A $99.99 purchase costs{' '}
+                <span className="font-medium text-bitcoin-orange">0.00234584 Bitcoin</span>
+              </p>
+              <p className="text-xs text-gray-500 max-w-sm mx-auto">
+                Helps you understand the <em>true cost</em> of your spending decisions
+              </p>
+
+              <div className="flex items-center justify-center gap-1 mt-3">
+                <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                   <path
-                    d="M25 20L25 14L31 20L25 26L25 20ZM15 20L15 26L9 20L15 14L15 20Z"
-                    fill="var(--color-bitcoin-orange-700)"
-                    fillOpacity="0.6"
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
                   />
                 </svg>
+                <span className="text-xs text-green-600 font-medium">
+                  Auto-updates with live prices
+                </span>
               </div>
             </div>
 
             {/* Screen reader help text for conversion demo */}
             <div id="conversion-help" className="sr-only">
               This interactive demonstration shows how the Bitcoin Price Tag extension works. The
-              animation displays a price in US dollars that converts to Bitcoin automatically. Press
-              Enter or Space to interact with this demo.
+              animation displays a price in US dollars that converts to Bitcoin automatically using
+              live exchange rates. Press Enter or Space to interact with this demo.
             </div>
           </div>
 
