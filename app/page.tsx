@@ -7,7 +7,6 @@ import ScrollReveal from '@/components/animation/ScrollReveal';
 import HeroSection from '@/components/sections/HeroSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
-import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
 import PageLoadOrchestrator from '@/components/ui/PageLoadOrchestrator';
@@ -49,10 +48,6 @@ export default function Home(): React.ReactNode {
 
           <ScrollReveal delay="none" duration="medium">
             <HowItWorksSection />
-          </ScrollReveal>
-
-          <ScrollReveal delay="short" duration="medium">
-            <TestimonialsSection />
           </ScrollReveal>
 
           <ScrollReveal delay="none" duration="medium">
