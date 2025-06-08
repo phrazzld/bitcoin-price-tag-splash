@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/card';
 
-export function Hero() {
+export function Hero(): React.ReactElement {
   const [demoPrice, setDemoPrice] = useState(299);
   const bitcoinPrice = 97000; // This would come from an API in production
   const bitcoinAmount = (demoPrice / bitcoinPrice).toFixed(8);

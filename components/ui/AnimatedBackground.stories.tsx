@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import AnimatedBackground from './AnimatedBackground';
+// AnimatedBackground component removed during rebuild
+const AnimatedBackground = () => <div>AnimatedBackground removed</div>;
 
 const meta = {
   title: 'UI/AnimatedBackground',

@@ -1,19 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CHROME_STORE_URL } from '@/lib/constants';
-import {
-  useBitcoinPrice,
-  calculateBitcoinAmount,
-  formatBitcoinAmount,
-} from '@/lib/hooks/useBitcoinPrice';
+// Bitcoin price functionality removed during rebuild
 
 export function HeroSection(): React.ReactElement {
-  const bitcoinPrice = useBitcoinPrice();
   const [hoveredProduct, setHoveredProduct] = useState<number>(0);
+  const bitcoinPrice = { price: 97000 }; // Static price for demo
 
   const demoProducts = [
     { name: 'MacBook Pro', price: 2399, emoji: '💻', popular: true },
@@ -23,8 +19,8 @@ export function HeroSection(): React.ReactElement {
   ];
 
   const currentProduct = demoProducts[hoveredProduct];
-  const bitcoinAmount = calculateBitcoinAmount(currentProduct.price, bitcoinPrice.price);
-  const formattedBitcoinAmount = formatBitcoinAmount(bitcoinAmount);
+  const bitcoinAmount = currentProduct.price / bitcoinPrice.price;
+  const formattedBitcoinAmount = bitcoinAmount.toFixed(8);
 
   return (
     <div className="relative overflow-hidden">

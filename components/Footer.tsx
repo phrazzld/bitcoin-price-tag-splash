@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 
-export function Footer() {
+export function Footer(): React.ReactElement {
   return (
     <footer className="border-t bg-secondary/50">
       <div className="container mx-auto px-4 py-20">

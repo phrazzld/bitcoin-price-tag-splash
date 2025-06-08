@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { CHROME_STORE_URL } from '@/lib/constants';
 
 export function Navigation(): React.ReactElement {

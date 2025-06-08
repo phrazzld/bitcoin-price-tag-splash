@@ -5,7 +5,7 @@ import { HowItWorks } from '@/components/HowItWorks';
 import { Features } from '@/components/Features';
 import { Footer } from '@/components/Footer';
 
-export default function Home() {
+export default function Home(): React.ReactElement {
   return (
     <div className="min-h-screen bg-background">
       <Header />

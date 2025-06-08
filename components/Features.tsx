@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/card';
 import { CheckIcon, GlobeIcon, ShieldIcon } from 'lucide-react';
 
-export function Features() {
+export function Features(): React.ReactElement {
   const features = [
     {
       icon: CheckIcon,

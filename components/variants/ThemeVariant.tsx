@@ -8,7 +8,14 @@
  */
 
 import React, { useEffect } from 'react';
-import { useTestVariant, useABTestTracking } from '@/lib/ab-testing';
+// A/B testing functionality removed during rebuild
+const useTestVariant = (_testName: string) => 'control';
+const useABTestTracking = (_testName: string) => ({
+  trackInteraction: (_eventName: string, _data?: Record<string, unknown>) => {
+    // No-op implementation
+    return;
+  },
+});
 
 interface ThemeVariantProps {
   children: React.ReactNode;

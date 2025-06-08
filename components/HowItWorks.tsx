@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/card';
 
-export function HowItWorks() {
+export function HowItWorks(): React.ReactElement {
   const steps = [
     {
       number: '1',

@@ -8,8 +8,15 @@
  */
 
 import React, { useEffect } from 'react';
-import { useTestVariant, useABTestTracking } from '@/lib/ab-testing';
-import { Button } from '../ui/button';
+// A/B testing functionality removed during rebuild
+const useTestVariant = (_testName: string) => 'control';
+const useABTestTracking = (_testName: string) => ({
+  trackInteraction: (_eventName: string, _data?: Record<string, unknown>) => {
+    // No-op implementation
+    return;
+  },
+});
+import { Button } from '../ui/Button';
 
 interface CTAButtonVariantProps {
   href?: string;
