@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
-import '@fontsource-variable/inter';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import { CorrelationProvider } from '@/lib/logging/correlation';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Bitcoin Price Tag - See Bitcoin prices everywhere',
+  title: 'Bitcoin Price Tag - See Any Price in Bitcoin Instantly',
   description:
-    'Convert any price to Bitcoin automatically with our Chrome extension. See BTC values instantly on any website.',
+    'Transform your shopping experience with real-time Bitcoin price conversions on every website. Free Chrome extension.',
   keywords: 'bitcoin, btc, price converter, chrome extension, cryptocurrency, bitcoin prices',
   authors: [{ name: 'Bitcoin Price Tag' }],
+  metadataBase: new URL('https://bitcoinpricetag.com'),
   openGraph: {
-    title: 'Bitcoin Price Tag - See Bitcoin prices everywhere',
-    description: 'Convert any price to Bitcoin automatically with our Chrome extension',
+    title: 'Bitcoin Price Tag - See Any Price in Bitcoin Instantly',
+    description:
+      'Transform your shopping experience with real-time Bitcoin price conversions on every website.',
     type: 'website',
     url: 'https://bitcoinpricetag.com',
     images: [
@@ -25,8 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bitcoin Price Tag - See Bitcoin prices everywhere',
-    description: 'Convert any price to Bitcoin automatically with our Chrome extension',
+    title: 'Bitcoin Price Tag - See Any Price in Bitcoin Instantly',
+    description:
+      'Transform your shopping experience with real-time Bitcoin price conversions on every website.',
     images: ['/og-image.svg'],
   },
   robots: {
@@ -39,21 +43,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>): React.ReactNode {
+export default function RootLayout({ children }: { children: React.ReactNode }): React.ReactElement {
   return (
     <html lang="en">
-      <head>
-        {/* Performance optimizations */}
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="preconnect" href="//fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className="antialiased">
-        <CorrelationProvider>{children}</CorrelationProvider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

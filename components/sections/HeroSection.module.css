@@ -3,14 +3,14 @@
   display: inline-block;
 }
 
-/* New Vertical Conversion Layout */
+/* Enhanced Vertical Conversion Layout - 3x Larger Impact */
 .conversionContainerVertical {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 2rem 3rem;
+  gap: 1.5rem;
+  padding: 3rem 4rem;
   background: linear-gradient(
     145deg,
     #fefefe 0%,
@@ -19,26 +19,29 @@
     #fcfcfc 75%,
     #fafafa 100%
   );
-  border-radius: 16px;
+  border-radius: 24px;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.08),
-    0 4px 16px rgba(247, 147, 26, 0.04),
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    0 1px 0px rgba(247, 147, 26, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border: 0.5px solid rgba(247, 147, 26, 0.08);
-  min-width: 200px;
+    0 16px 64px rgba(0, 0, 0, 0.12),
+    0 8px 32px rgba(247, 147, 26, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    0 2px 8px rgba(247, 147, 26, 0.08),
+    0 1px 0px rgba(247, 147, 26, 0.12),
+    inset 0 2px 0 rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(247, 147, 26, 0.12);
+  min-width: 320px;
   max-width: calc(100vw - 2rem);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: breathingPulse 4s ease-in-out infinite;
 }
 
 .usdAmountDisplay {
   font-family: var(--font-family-mono);
-  font-size: 1.75rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: var(--color-gray-700);
+  color: var(--color-gray-800);
   text-align: center;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .verticalArrow {
@@ -48,24 +51,27 @@
 
 .btcAmountDisplay {
   font-family: var(--font-family-mono);
-  font-size: 1.75rem;
-  font-weight: 800;
+  font-size: 2.75rem;
+  font-weight: 900;
   color: var(--color-bitcoin-orange-700);
   text-align: center;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   text-shadow:
-    0 0 24px rgba(247, 147, 26, 0.25),
-    0 0 8px rgba(247, 147, 26, 0.15);
+    0 0 32px rgba(247, 147, 26, 0.4),
+    0 0 16px rgba(247, 147, 26, 0.25),
+    0 2px 4px rgba(0, 0, 0, 0.1);
   background: linear-gradient(
     135deg,
-    var(--color-bitcoin-orange-700) 0%,
-    var(--color-bitcoin-orange-600) 50%,
+    var(--color-bitcoin-orange-600) 0%,
+    var(--color-bitcoin-orange-500) 30%,
+    var(--color-bitcoin-orange-600) 70%,
     var(--color-bitcoin-orange-700) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 200% 100%;
+  background-size: 300% 100%;
+  animation: shimmerBitcoin 3s ease-in-out infinite;
 }
 
 /* Hover effects for vertical layout */
@@ -100,52 +106,68 @@
   z-index: 20;
 }
 
-/* Responsive adjustments for vertical layout */
+/* Enhanced responsive adjustments for 3x larger impact */
 @media (min-width: 480px) {
   .conversionContainerVertical {
-    padding: 2.5rem 3.5rem;
-    border-radius: 18px;
+    padding: 3.5rem 4.5rem;
+    border-radius: 28px;
+    gap: 2rem;
   }
 
-  .usdAmountDisplay,
+  .usdAmountDisplay {
+    font-size: 3rem;
+  }
+
   .btcAmountDisplay {
-    font-size: 2rem;
+    font-size: 3.25rem;
   }
 }
 
 @media (min-width: 640px) {
   .conversionContainerVertical {
-    padding: 3rem 4rem;
-    border-radius: 20px;
+    padding: 4rem 5.5rem;
+    border-radius: 32px;
+    gap: 2.5rem;
   }
 
-  .usdAmountDisplay,
+  .usdAmountDisplay {
+    font-size: 3.5rem;
+  }
+
   .btcAmountDisplay {
-    font-size: 2.25rem;
+    font-size: 3.75rem;
   }
 }
 
 @media (min-width: 768px) {
   .conversionContainerVertical {
-    padding: 3.5rem 4.5rem;
-    border-radius: 22px;
+    padding: 4.5rem 6rem;
+    border-radius: 36px;
+    gap: 3rem;
   }
 
-  .usdAmountDisplay,
+  .usdAmountDisplay {
+    font-size: 4rem;
+  }
+
   .btcAmountDisplay {
-    font-size: 2.75rem;
+    font-size: 4.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .conversionContainerVertical {
-    padding: 4rem 5rem;
-    border-radius: 24px;
+    padding: 5rem 7rem;
+    border-radius: 40px;
+    gap: 3.5rem;
   }
 
-  .usdAmountDisplay,
+  .usdAmountDisplay {
+    font-size: 4.5rem;
+  }
+
   .btcAmountDisplay {
-    font-size: 3.25rem;
+    font-size: 5rem;
   }
 }
 
@@ -383,6 +405,44 @@
   }
 }
 
+/* Enhanced shimmer effect for Bitcoin text */
+@keyframes shimmerBitcoin {
+  0% {
+    background-position: -300% 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: -300% 0;
+  }
+}
+
+/* Breathing pulse animation for conversion container */
+@keyframes breathingPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 16px 64px rgba(0, 0, 0, 0.12),
+      0 8px 32px rgba(247, 147, 26, 0.08),
+      0 4px 16px rgba(0, 0, 0, 0.06),
+      0 2px 8px rgba(247, 147, 26, 0.08),
+      0 1px 0px rgba(247, 147, 26, 0.12),
+      inset 0 2px 0 rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow:
+      0 20px 80px rgba(0, 0, 0, 0.15),
+      0 12px 48px rgba(247, 147, 26, 0.12),
+      0 6px 24px rgba(0, 0, 0, 0.08),
+      0 3px 12px rgba(247, 147, 26, 0.12),
+      0 1px 0px rgba(247, 147, 26, 0.18),
+      inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
 /* Shimmer effect for BTC text emphasis */
 @keyframes shimmerText {
   0% {
@@ -542,6 +602,7 @@
 
   /* Reduced motion for vertical layout */
   .conversionContainerVertical {
+    animation: none !important;
     transition: none !important;
   }
 

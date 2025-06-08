@@ -1,184 +1,55 @@
-'use client';
+import * as React from 'react';
+import { Slot } from '@radix-ui/react-slot';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import React from 'react';
-import { logger } from '@/lib/logging/logger';
-import { useCorrelationId } from '@/lib/logging/correlation';
+import { cn } from '@/lib/utils';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+const buttonVariants = cva(
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  {
+    variants: {
+      variant: {
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+        ghost: 'hover:bg-accent hover:text-accent-foreground',
+        link: 'text-primary underline-offset-4 hover:underline',
+      },
+      size: {
+        default: 'h-10 px-4 py-2',
+        sm: 'h-9 rounded-md px-3',
+        lg: 'h-11 rounded-md px-8',
+        icon: 'h-10 w-10',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
+  }
+);
+
+interface ButtonProps extends React.ComponentProps<'button'>, VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
   children: React.ReactNode;
-  className?: string;
-  href?: string;
-  loading?: boolean;
-  size?: 'small' | 'default' | 'large';
 }
 
-const Button: React.FC<ButtonProps> = ({
+function Button({
+  className,
+  variant,
+  size,
+  asChild = false,
   children,
-  className = '',
-  href,
-  loading = false,
-  size = 'default',
   ...props
-}) => {
-  const correlationId = useCorrelationId();
-
-  // Enhanced size configurations with WCAG AA touch targets and mobile-first approach
-  const sizeConfig = {
-    small: {
-      fontSize: 'text-sm', // 14px - consistent across breakpoints
-      padding: 'px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 md:py-3', // Enhanced mobile padding
-      minHeight: 'min-h-[44px] md:min-h-[48px]', // WCAG AA minimum 44px always
-      borderRadius: 'rounded-lg', // 8px
-      spinnerSize: 'h-4 w-4',
-      spinnerMargin: '-ml-1 mr-2',
-    },
-    default: {
-      fontSize: 'text-base', // 16px - consistent across breakpoints
-      padding: 'px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4', // Enhanced mobile padding
-      minHeight: 'min-h-[48px] md:min-h-[52px]',
-      borderRadius: 'rounded-xl', // 12px
-      spinnerSize: 'h-5 w-5',
-      spinnerMargin: '-ml-1 mr-3',
-    },
-    large: {
-      fontSize: 'text-lg sm:text-xl', // Responsive font sizing
-      padding: 'px-8 sm:px-9 md:px-10 py-4 sm:py-4.5 md:py-5', // Enhanced mobile padding
-      minHeight: 'min-h-[56px] md:min-h-[60px]',
-      borderRadius: 'rounded-2xl', // 16px
-      spinnerSize: 'h-6 w-6',
-      spinnerMargin: '-ml-1 mr-3',
-    },
-  };
-
-  const currentSize = sizeConfig[size];
-
-  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // Prevent clicks when loading
-    if (loading) {
-      event.preventDefault();
-      return;
-    }
-
-    // Log button click interaction
-    logger.info('Button clicked', 'Button', {
-      event_type: 'user_interaction',
-      interaction_type: 'button_click',
-      button_text: typeof children === 'string' ? children : 'Complex content',
-      has_href: !!href,
-      href_destination: href || undefined,
-      is_loading: loading,
-      correlation_id_from_hook: correlationId,
-    });
-
-    // Call original onClick if provided
-    if (props.onClick) {
-      props.onClick(event);
-    }
-  };
-
-  const LoadingSpinner = () => (
-    <svg
-      className={`animate-spin ${currentSize.spinnerMargin} ${currentSize.spinnerSize} text-white`}
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <circle
-        className="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="4"
-      ></circle>
-      <path
-        className="opacity-75"
-        fill="currentColor"
-        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-      ></path>
-    </svg>
-  );
-
-  const handleAnchorClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    // Prevent navigation when loading
-    if (loading) {
-      event.preventDefault();
-      return;
-    }
-
-    // Log anchor click interaction
-    logger.info('Button clicked', 'Button', {
-      event_type: 'user_interaction',
-      interaction_type: 'button_click',
-      button_text: typeof children === 'string' ? children : 'Complex content',
-      has_href: !!href,
-      href_destination: href || undefined,
-      is_loading: loading,
-      correlation_id_from_hook: correlationId,
-    });
-  };
-  const buttonClasses = `
-    relative
-    inline-flex
-    items-center
-    justify-center
-    text-center
-    cursor-pointer
-    ${currentSize.fontSize}
-    font-semibold
-    tracking-tight
-    leading-none
-    text-white 
-    bg-bitcoin-button
-    ${currentSize.borderRadius}
-    ${currentSize.padding}
-    ${currentSize.minHeight}
-    mx-1
-    border
-    border-white/15
-    button-ripple
-    button-micro-bounce
-    will-change-transform
-    disabled:cursor-not-allowed
-    motion-reduce:transition-none
-    motion-reduce:hover:transform-none
-    motion-reduce:hover:scale-100
-    motion-reduce:active:transform-none
-    motion-reduce:active:scale-100
-    motion-reduce:animation-none
-    ${loading ? 'cursor-wait button-loading-glow loading-enter-active' : ''}
-    ${className}
-  `.trim();
-
-  if (href) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={buttonClasses}
-        onClick={handleAnchorClick}
-        aria-disabled={loading}
-      >
-        {loading && <LoadingSpinner />}
-        <span className={loading ? 'opacity-70' : ''}>{children}</span>
-      </a>
-    );
-  }
+}: ButtonProps): React.ReactElement {
+  const Comp = asChild ? Slot : 'button';
 
   return (
-    <button
-      className={buttonClasses}
-      {...props}
-      onClick={handleButtonClick}
-      disabled={props.disabled || loading}
-      aria-disabled={loading}
-    >
-      {loading && <LoadingSpinner />}
-      <span className={loading ? 'opacity-70' : ''}>{children}</span>
-    </button>
+    <Comp className={cn(buttonVariants({ variant, size, className }))} {...props}>
+      {children}
+    </Comp>
   );
-};
+}
 
-export default Button;
+export { Button, buttonVariants };

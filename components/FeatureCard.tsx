@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card, CardContent } from './ui/card';
 import Icon, { type IconName } from './ui/Icon';
 
 interface FeatureCardProps {
@@ -9,13 +10,17 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => {
   return (
-    <div className="text-left">
-      <div className="mb-4">
-        <Icon name={icon} className="text-gray-800" />
-      </div>
-      <h3 className="typography-title text-gray-900 mb-2">{title}</h3>
-      <p className="typography-body text-gray-600">{description}</p>
-    </div>
+    <Card className="h-full transition-all duration-200 hover:shadow-md">
+      <CardContent className="p-6">
+        <div className="mb-4">
+          <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-4">
+            <Icon name={icon} className="text-primary" />
+          </div>
+        </div>
+        <h3 className="text-xl font-semibold text-foreground mb-3">{title}</h3>
+        <p className="text-muted-foreground leading-relaxed">{description}</p>
+      </CardContent>
+    </Card>
   );
 };
 
