@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/card';
+import { CHROME_STORE_URL } from '@/lib/constants';
 
 export function Hero(): React.ReactElement {
   const [demoPrice, setDemoPrice] = useState(299);
@@ -33,8 +34,8 @@ export function Hero(): React.ReactElement {
         {/* Primary CTA */}
         <div className="mb-20">
           <Button size="lg" className="text-lg px-10 py-4 h-auto" asChild>
-            <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer">
-              Add to Chrome - Free
+            <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer">
+              Download Now
             </a>
           </Button>
           <p className="text-sm text-muted-foreground mt-6">

@@ -64,7 +64,7 @@ export function CTASection(): React.ReactElement {
               size="lg"
               className="text-lg px-12 py-6 h-auto shadow-xl hover:shadow-2xl transition-all"
             >
-              <a href={CHROME_STORE_URL}>Add to Chrome — Free Forever</a>
+              <a href={CHROME_STORE_URL}>Download Now</a>
             </Button>
 
             <div className="text-sm text-muted-foreground">

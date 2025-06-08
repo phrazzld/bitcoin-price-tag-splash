@@ -115,7 +115,7 @@ export function HowItWorksSection(): React.ReactElement {
                 Join 50,000+ users who make smarter Bitcoin-conscious decisions every day.
               </p>
               <Button asChild size="lg" className="w-full">
-                <a href={CHROME_STORE_URL}>Add to Chrome — It&apos;s Free</a>
+                <a href={CHROME_STORE_URL}>Add to Chrome</a>
               </Button>
             </CardContent>
           </Card>

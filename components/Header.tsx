@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/Button';
+import { CHROME_STORE_URL } from '@/lib/constants';
 
 export function Header(): React.ReactElement {
   return (
@@ -13,7 +14,7 @@ export function Header(): React.ReactElement {
         </div>
 
         <Button size="lg" asChild>
-          <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer">
+          <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer">
             Add to Chrome
           </a>
         </Button>

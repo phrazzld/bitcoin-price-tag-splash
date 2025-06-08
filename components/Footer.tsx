@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/Button';
+import { CHROME_STORE_URL } from '@/lib/constants';
 
 export function Footer(): React.ReactElement {
   return (
@@ -15,12 +16,8 @@ export function Footer(): React.ReactElement {
               Join 50,000+ users who think in Bitcoin
             </p>
             <Button size="lg" className="text-lg px-10 py-4 h-auto" asChild>
-              <a
-                href="https://chrome.google.com/webstore"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Add to Chrome - Free Forever
+              <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer">
+                Download Now
               </a>
             </Button>
           </div>
