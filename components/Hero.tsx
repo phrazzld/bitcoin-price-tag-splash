@@ -4,11 +4,18 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CHROME_STORE_URL } from '@/lib/constants';
+import {
+  useBitcoinPrice,
+  calculateBitcoinAmount,
+  formatBitcoinAmount,
+  formatPrice,
+} from '@/lib/hooks/useBitcoinPrice';
 
 export function Hero(): React.ReactElement {
   const [demoPrice, setDemoPrice] = useState(299);
-  const bitcoinPrice = 97000; // This would come from an API in production
-  const bitcoinAmount = (demoPrice / bitcoinPrice).toFixed(8);
+  const { price: bitcoinPrice, isLoading, error } = useBitcoinPrice();
+  const bitcoinAmount = calculateBitcoinAmount(demoPrice, bitcoinPrice);
+  const formattedBitcoinAmount = formatBitcoinAmount(bitcoinAmount);
 
   const demoProducts = [
     { name: 'Headphones', price: 299 },
@@ -78,17 +85,37 @@ export function Hero(): React.ReactElement {
                   <div className="text-4xl font-bold text-foreground">${demoPrice}</div>
                 </div>
 
-                <div className="h-px bg-gray-200"></div>
+                <div className="h-px bg-border"></div>
 
                 <div className="space-y-2">
                   <div className="text-sm font-medium text-primary uppercase tracking-wide">
                     Bitcoin Price
                   </div>
-                  <div className="text-3xl font-bold text-primary font-mono">₿{bitcoinAmount}</div>
+                  {isLoading ? (
+                    <div className="text-3xl font-bold text-primary font-mono">Loading...</div>
+                  ) : error ? (
+                    <div className="text-lg text-destructive">Error loading price</div>
+                  ) : (
+                    <div className="text-3xl font-bold text-primary font-mono">
+                      ₿{formattedBitcoinAmount}
+                    </div>
+                  )}
                 </div>
 
                 <div className="text-xs text-muted-foreground pt-2">
-                  Live Bitcoin Price: ${bitcoinPrice.toLocaleString()}
+                  {isLoading ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                      Fetching live Bitcoin price...
+                    </div>
+                  ) : error ? (
+                    <div className="text-destructive">Unable to fetch live price</div>
+                  ) : (
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      Live Bitcoin Price: {formatPrice(bitcoinPrice)}
+                    </div>
+                  )}
                 </div>
               </div>
             </CardContent>

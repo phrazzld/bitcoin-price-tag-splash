@@ -5,11 +5,16 @@ import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CHROME_STORE_URL } from '@/lib/constants';
-// Bitcoin price functionality removed during rebuild
+import {
+  useBitcoinPrice,
+  calculateBitcoinAmount,
+  formatBitcoinAmount,
+  formatPrice,
+} from '@/lib/hooks/useBitcoinPrice';
 
 export function HeroSection(): React.ReactElement {
   const [hoveredProduct, setHoveredProduct] = useState<number>(0);
-  const bitcoinPrice = { price: 97000 }; // Static price for demo
+  const { price: bitcoinPrice, isLoading, error } = useBitcoinPrice();
 
   const demoProducts = [
     { name: 'MacBook Pro', price: 2399, emoji: '💻', popular: true },
@@ -19,8 +24,8 @@ export function HeroSection(): React.ReactElement {
   ];
 
   const currentProduct = demoProducts[hoveredProduct];
-  const bitcoinAmount = currentProduct.price / bitcoinPrice.price;
-  const formattedBitcoinAmount = bitcoinAmount.toFixed(8);
+  const bitcoinAmount = calculateBitcoinAmount(currentProduct.price, bitcoinPrice);
+  const formattedBitcoinAmount = formatBitcoinAmount(bitcoinAmount);
 
   return (
     <div className="relative overflow-hidden">
@@ -164,7 +169,15 @@ export function HeroSection(): React.ReactElement {
                     >
                       <div className="bg-primary text-primary-foreground rounded-lg px-3 py-2 shadow-lg border-2 border-background">
                         <div className="text-xs font-medium opacity-90">Bitcoin Price</div>
-                        <div className="text-sm font-bold font-mono">₿{formattedBitcoinAmount}</div>
+                        {isLoading ? (
+                          <div className="text-sm font-bold font-mono">Loading...</div>
+                        ) : error ? (
+                          <div className="text-xs">Error</div>
+                        ) : (
+                          <div className="text-sm font-bold font-mono">
+                            ₿{formattedBitcoinAmount}
+                          </div>
+                        )}
                         <div className="absolute -bottom-1 right-4 w-2 h-2 bg-primary transform rotate-45" />
                       </div>
                     </div>
@@ -175,13 +188,27 @@ export function HeroSection(): React.ReactElement {
               {/* Live Price Indicator */}
               <div className="flex justify-center">
                 <div className="inline-flex items-center gap-3 px-4 py-2 bg-card border rounded-full text-sm">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="font-medium">Live Bitcoin Price:</span>
-                  </div>
-                  <span className="font-bold text-primary">
-                    ${bitcoinPrice.price.toLocaleString()}
-                  </span>
+                  {isLoading ? (
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                      <span className="font-medium">Fetching live Bitcoin price...</span>
+                    </div>
+                  ) : error ? (
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-destructive rounded-full" />
+                      <span className="font-medium text-destructive">
+                        Unable to fetch live price
+                      </span>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                        <span className="font-medium">Live Bitcoin Price:</span>
+                      </div>
+                      <span className="font-bold text-primary">{formatPrice(bitcoinPrice)}</span>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
