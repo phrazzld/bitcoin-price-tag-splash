@@ -90,22 +90,13 @@ export function calculateBitcoinAmount(usdPrice: number, bitcoinPrice: number): 
 }
 
 /**
- * Format Bitcoin amount with appropriate precision
+ * Format Bitcoin amount with 8 decimal precision (satoshi precision)
+ * Always shows 8 decimal places for consistency
  */
 export function formatBitcoinAmount(bitcoinAmount: number): string {
   if (bitcoinAmount === 0) return '0.00000000';
 
-  // For amounts >= 0.01 BTC, show 4 decimal places
-  if (bitcoinAmount >= 0.01) {
-    return bitcoinAmount.toFixed(4);
-  }
-
-  // For amounts >= 0.001 BTC, show 6 decimal places
-  if (bitcoinAmount >= 0.001) {
-    return bitcoinAmount.toFixed(6);
-  }
-
-  // For smaller amounts, show 8 decimal places (satoshi precision)
+  // Always show 8 decimal places (satoshi precision)
   return bitcoinAmount.toFixed(8);
 }
 

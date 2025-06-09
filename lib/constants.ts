@@ -4,3 +4,6 @@ export const CHROME_STORE_URL =
 
 // GitHub repository URL
 export const GITHUB_URL = 'https://github.com/phrazzld/bitcoin-price-tag';
+
+// Re-export animation constants for easy access
+export * from './constants/animations';
