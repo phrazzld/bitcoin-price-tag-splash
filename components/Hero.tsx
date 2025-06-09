@@ -59,8 +59,7 @@ export function Hero(): React.ReactElement {
           <div className="space-y-3">
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground">See it in action</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Click any product below to see how Bitcoin Price Tag transforms your shopping
-              experience
+              Click any product below to see its price converted to Bitcoin in real-time
             </p>
           </div>
 
@@ -74,7 +73,7 @@ export function Hero(): React.ReactElement {
                 className={`h-auto py-3 px-5 font-medium ${TRANSITIONS.normal} hover:scale-105`}
               >
                 <span className="mr-2 text-lg">{product.emoji}</span>
-                {product.name} - ${product.price}
+                {product.name}
               </Button>
             ))}
           </div>
