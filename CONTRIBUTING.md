@@ -5,7 +5,6 @@ Thank you for your interest in contributing to the Bitcoin Price Tag splash page
 ## Development Environment Setup
 
 1. **Prerequisites**
-
    - Node.js (version 20 or later)
    - pnpm (version 8 or later) - This project enforces the use of pnpm
 

@@ -102,20 +102,17 @@ interface LogEntry {
    ```
 
 2. **Create Core Logger Service** (`lib/logging/logger.ts`)
-
    - Environment detection (development vs production)
    - Pino configuration with appropriate output formatting
    - Log level configuration via environment variables
    - Core logging methods (error, warn, info, debug)
 
 3. **Create Type Definitions** (`lib/logging/types.ts`)
-
    - LogEntry interface with all mandatory metadata
    - LogLevel enum
    - LogContext type for additional contextual data
 
 4. **Create Correlation ID Service** (`lib/logging/correlation.ts`)
-
    - UUID v4 generation for correlation IDs
    - Context propagation mechanism (using React Context or global state)
    - Session-based correlation ID management
@@ -131,7 +128,6 @@ interface LogEntry {
 #### Tasks:
 
 1. **Comprehensive Unit Tests**
-
    - Logger service functionality
    - Correlation ID generation and propagation
    - Environment configuration behavior
@@ -139,13 +135,11 @@ interface LogEntry {
    - Metadata inclusion verification
 
 2. **Replace Existing Console Usage**
-
    - Update `components/ui/Icon.tsx:48` to use structured logger
    - Add component-level error boundary logging
    - Implement logging for icon loading failures
 
 3. **Integration Testing**
-
    - End-to-end logging flow verification
    - Browser console output validation in development
    - Production JSON format verification
@@ -162,13 +156,11 @@ interface LogEntry {
 #### Tasks:
 
 1. **Implement Key User Interaction Logging**
-
    - Add logging to hero section interactions (price conversion demo)
    - Log button clicks and user engagement events
    - Track component visibility and scroll interactions
 
 2. **Component Lifecycle Logging**
-
    - Add logging to critical component mount/unmount cycles
    - Track error boundary activations
    - Log performance-critical component renders

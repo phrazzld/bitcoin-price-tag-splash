@@ -3,7 +3,6 @@
 ## CI Resolution (CRITICAL)
 
 - [x] **T018 · Fix · P0: Add CorrelationProvider to Storybook preview configuration**
-
   - **Context:** CI failing due to components using `useCorrelationId` hook without CorrelationProvider in Storybook environment
   - **Action:**
     1. Update `.storybook/preview.ts` to import `CorrelationProvider` from `@/lib/logging/correlation`
@@ -20,7 +19,6 @@
   - **Depends‑on:** none (blocking CI)
 
 - [x] **T019 · Test · P0: Verify CI pipeline passes with Storybook fix**
-
   - **Context:** Confirm that adding CorrelationProvider resolves all CI failures
   - **Action:**
     1. Push changes to trigger CI run
@@ -38,7 +36,6 @@
   - **Depends‑on:** T018
 
 - [ ] **T020 · Cleanup · P1: Remove temporary CI analysis files**
-
   - **Context:** Clean up temporary analysis files created during CI debugging
   - **Action:**
     1. Remove `CI-FAILURE-SUMMARY.md`
@@ -56,7 +53,6 @@
 ## Logging Foundation
 
 - [x] **T001 · Chore · P0: Install Pino and UUID dependencies for structured logging**
-
   - **Context:** Phase 1: Foundation - Install Dependencies (PLAN.md)
   - **Action:**
     1. Run `pnpm add pino`
@@ -70,7 +66,6 @@
   - **Depends‑on:** none
 
 - [x] **T002 · Feature · P0: Create structured logging types and interfaces**
-
   - **Context:** Phase 1: Foundation - Create Type Definitions (PLAN.md Section 3.2)
   - **Action:**
     1. Create `lib/logging/types.ts`
@@ -85,7 +80,6 @@
   - **Depends‑on:** none
 
 - [x] **T003 · Feature · P0: Implement correlation ID service with UUID generation and context propagation**
-
   - **Context:** Phase 1: Foundation - Create Correlation ID Service (PLAN.md Section 3.2)
   - **Action:**
     1. Create `lib/logging/correlation.ts`
@@ -103,7 +97,6 @@
   - **Depends‑on:** T001
 
 - [x] **T004 · Feature · P0: Create core logger service with Pino integration and environment configuration**
-
   - **Context:** Phase 1: Foundation - Create Core Logger Service (PLAN.md Section 5.1)
   - **Action:**
     1. Create `lib/logging/logger.ts` implementing `LoggerService` class per PLAN.md design
@@ -140,7 +133,6 @@
 ## Testing & Integration
 
 - [x] **T006 · Test · P1: Implement comprehensive unit tests for logger service**
-
   - **Context:** Phase 2: Integration & Testing - Comprehensive Unit Tests (PLAN.md)
   - **Action:**
     1. Create `lib/logging/__tests__/logger.test.ts`
@@ -158,7 +150,6 @@
   - **Depends‑on:** T004, T005
 
 - [x] **T007 · Test · P1: Implement unit tests for correlation ID service**
-
   - **Context:** Phase 2: Integration & Testing - Comprehensive Unit Tests (PLAN.md)
   - **Action:**
     1. Create `lib/logging/__tests__/correlation.test.ts`
@@ -175,7 +166,6 @@
   - **Depends‑on:** T003
 
 - [x] **T008 · Refactor · P1: Replace console.warn in Icon.tsx with structured logger**
-
   - **Context:** Phase 2: Integration & Testing - Replace Existing Console Usage (PLAN.md Section 5.2)
   - **Action:**
     1. Import logger from `lib/logging/logger.ts` in `components/ui/Icon.tsx`
@@ -193,7 +183,6 @@
   - **Depends‑on:** T004
 
 - [x] **T009 · Feature · P1: Implement React Error Boundary with structured logging**
-
   - **Context:** Phase 2: Integration & Testing - Add component-level error boundary logging (PLAN.md)
   - **Action:**
     1. Create `components/ErrorBoundary.tsx` implementing React Error Boundary pattern
@@ -230,7 +219,6 @@
 ## Documentation & Guidelines
 
 - [x] **T011 · Chore · P1: Update CLAUDE.md with logging usage and commands**
-
   - **Context:** Phase 2: Integration & Testing - Documentation (PLAN.md)
   - **Action:**
     1. Add comprehensive logging section to `CLAUDE.md`
@@ -267,7 +255,6 @@
 ## Proof of Concept Implementation
 
 - [x] **T013 · Feature · P2: Implement key user interaction logging in hero section**
-
   - **Context:** Phase 3: Proof of Concept - Implement Key User Interaction Logging (PLAN.md)
   - **Action:**
     1. Identify key interactions in hero section (button clicks, price conversion demo, scroll events)
@@ -304,7 +291,6 @@
 ## Validation & Optimization
 
 - [ ] **T015 · Test · P2: Perform comprehensive performance impact assessment**
-
   - **Context:** Phase 3: Proof of Concept - Validation & Optimization (PLAN.md)
   - **Action:**
     1. Benchmark component render times before and after logging implementation
