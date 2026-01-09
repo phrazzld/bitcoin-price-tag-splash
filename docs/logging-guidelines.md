@@ -438,7 +438,6 @@ import { logger } from '@/lib/logging/logger';
 ### Performance Impact
 
 1. Use appropriate log levels:
-
    - Avoid DEBUG logs in production
    - Use INFO sparingly for high-frequency events
    - Cache expensive calculations before logging
