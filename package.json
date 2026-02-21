@@ -25,11 +25,13 @@
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.5",
+    "@sentry/nextjs": "^10.39.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.511.0",
     "next": "15.5.10",
     "pino": "^9.7.0",
+    "posthog-js": "^1.352.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.0"
