@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import '@fontsource-variable/inter';
 import './globals.css';
 import { CorrelationProvider } from '@/lib/logging/correlation';
+import { PostHogProvider } from '@/lib/posthog/PostHogProvider';
+import { PostHogPageview } from '@/lib/posthog/PostHogPageview';
 
 export const metadata: Metadata = {
   title: 'Bitcoin Price Tag - See Bitcoin prices everywhere',
@@ -47,7 +49,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <CorrelationProvider>{children}</CorrelationProvider>
+        <PostHogProvider>
+          <PostHogPageview />
+          <CorrelationProvider>{children}</CorrelationProvider>
+        </PostHogProvider>
       </body>
     </html>
   );
